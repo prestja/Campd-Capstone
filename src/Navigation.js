@@ -1,4 +1,5 @@
 import React from 'react'
+import './Navigation.css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,23 +12,15 @@ class Navigation extends React.Component {
   render() {
     return (
       <Router>
-        <div>
-          <ul id="nav">
-            <li><Link to="/">Hometest</Link></li>
-            <li><Link to="/about">About</Link></li>
-          </ul>
-        </div>
-
-
+         
 
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/about">
-            <About />
+          <Route exact path="/register">
+            <Register />
           </Route>
-
         </Switch>
 
       </Router>
@@ -38,15 +31,24 @@ class Navigation extends React.Component {
 function Home() {
   return (
     <div>
+      <div class="topnav">
+  <a class="active" href="/">Home</a>
+  <a href="/register">Registration</a>
+</div> 
       <h2>Home</h2>
     </div>
   );
 }
 
-function About() {
+
+function Register() {
   return (
     <div>
-      <h2>About</h2>
+      <div class="topnav">
+  <a href="/">Home</a>
+  <a class="active" href="/register">Registration</a>
+</div> 
+      <h2>Register</h2>
     </div>
   );
 }
