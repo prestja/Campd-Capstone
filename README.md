@@ -1,4 +1,4 @@
-# Campd-Capstone
+# Campd-Capstone (not up to date)
 Team Campd Capstone Project Repo
 
 1. Download node.js includes npm
