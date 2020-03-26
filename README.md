@@ -10,3 +10,14 @@ Team Campd Capstone Project Repo
 7. npm install react-router react-router-dom react-bootstrap bootstrap
 8. yarn start
 9. localhost:3000 should open in browser automatically
+
+#To Deploy to Firebase
+1. npm install -g firebase-tools
+2. npm run build
+3. firebase login (browser will open, login using group account)
+4. select "hosting", press enter
+5. select use an exisiting project
+6. for "What do you want to use as your public directory?" Type in: "build"
+7. "Configure as a single-page app?" Type in: Y
+8. If it asks if you want to overwrite any files, choose "N"
+9. (back in terminal) firebase deploy
