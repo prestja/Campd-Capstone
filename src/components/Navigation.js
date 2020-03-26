@@ -8,23 +8,22 @@ import {
 } from "react-router-dom";
 import Login from './Login';
 import Signup from './Signup';
+import Projects from './Projects'
 
 class Navigation extends React.Component {
   render() {
     return (
       <Router>
-         
+
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
-		  
+
          <Route path="/sign-in" component={Login} />
          <Route path="/sign-up" component={Signup} />
-		  
-          <Route exact path="/register">
-            <Register />
-          </Route>
+         <Route path="/projects" component={Projects} />
+
         </Switch>
 
       </Router>
@@ -35,27 +34,19 @@ class Navigation extends React.Component {
 function Home() {
   return (
     <div>
-      <div class="topnav">
-  <a class="active" href="/">Home</a>
-  <a href="/register">Registration</a>
-  <a href="/sign-in">Login {Login}</a>
-  <a href="/sign-up">Signup {Signup}</a>
-  
-</div> 
-      <h2>Home</h2>
-    </div>
-  );
-}
 
-function Register() {
-  return (
-    <div>
       <div class="topnav">
-  <a href="/">Home</a>
-  <a class="active" href="/register">Registration</a>
-</div> 
-      <h2>Register</h2>
-	  
+        <a class="active" href="/">Home</a>
+        <a href="/sign-in">Login {Login}</a>
+        <a href="/sign-up">Sign up {Signup}</a>
+        <a href="/projects">Projects {Projects}</a>
+      </div>
+
+      <img src={ require('./unt-logo.jpeg') }/>
+      <h1>The University of North Texas Research and Project Portal</h1>
+      <br/>
+      <p>The Research and Project Portal is a centralized database of all projects and research ideas by UNT students and faculty. <br/> You can search for specific projects, topics, projects held by specific professors or maintained by specific students.
+      </p>
     </div>
   );
 }
