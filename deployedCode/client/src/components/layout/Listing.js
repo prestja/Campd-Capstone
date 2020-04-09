@@ -1,6 +1,7 @@
 // Listing.js
 
 import React from 'react';
+import './Navbar.css';
 
 const styles = {
   borderBottom: '2px solid #eee',
@@ -15,10 +16,10 @@ export default ({ project: { name, owner, status, description, file, _id }, onDe
   return (
     <div style={ styles }>
       <h2>{ name }</h2>
-      <p>owner: { owner }</p>
-      <p>status: { status }</p>
-      <p>Desc: { description }</p>
-      <p>file: { file }</p>
+      <p>{ owner }</p>
+      <p>{ description }</p>
+      <p>Status: { status }</p>
+      <p>Attachment: { file }</p>
       <button className="btn btn-primary" type="button">
         View
       </button>
