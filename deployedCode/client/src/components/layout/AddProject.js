@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
+import CreateProject from '../../containers/CreateProject';
 import ProjectList from '../../containers/ProjectList';
 
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './Navbar.css';
 
-class Projects extends Component {
+class AddProject extends Component {
   render() {
     return (
       <div >
         <div >
           <div >
-            <ProjectList />
+            <CreateProject />
           </div>
         </div>
       </div>
@@ -17,4 +19,4 @@ class Projects extends Component {
   }
 }
 
-export default Projects;
+export default AddProject;

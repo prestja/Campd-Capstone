@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import './../layout/Navbar.css';
+
 //import { Link } from "react-router-dom";
 class Login extends Component {
   constructor() {
@@ -8,10 +10,14 @@ class Login extends Component {
       password: ""
     };
   }
-handleInputChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
+handleEmailChange = e => {
+    this.setState({ email: e.target.value });
   };
-onSubmit = e => {
+
+handlePasswordChange = e => {
+    this.setState({ password: e.target.value });
+  };
+handleSubmit = e => {
     e.preventDefault();
 const userData = {
       email: this.state.email,
@@ -19,20 +25,33 @@ const userData = {
     };
 console.log(userData);
   };
+
+handleReset = () => {
+  this.setState({
+    email: '',
+    password: ''
+  });
+};
+
+
 render() {
 
 return (
-  <form>
+  <form onSubmit={ this.handleSubmit }>
       <h3>Login</h3>
 
       <div className="form-group">
+        <div className="col-7">
           <label>Email address</label>
-          <input type="email" className="form-control" placeholder="Enter email" onChange={ this.handleInputChange } value={ this.state.email }/>
+          <input type="email" className="form-control" placeholder="Enter email" onChange={ this.handleEmailChange } value={ this.state.email }/>
+        </div>
       </div>
 
       <div className="form-group">
+        <div className="col-7">
           <label>Password</label>
-          <input type="password" className="form-control" placeholder="Enter password" onChange={ this.handleInputChange } value={ this.state.password } />
+          <input type="password" className="form-control" placeholder="Enter password" onChange={ this.handlePasswordChange } value={ this.state.password } />
+        </div>
       </div>
 
       <div className="form-group">

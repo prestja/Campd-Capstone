@@ -1,6 +1,7 @@
 // AddProject.js
 
 import React from 'react';
+import './layout/Navbar.css';
 
 class AddProject extends React.Component {
   state = {
@@ -50,14 +51,14 @@ class AddProject extends React.Component {
           <div className="form-group">
             <div className="col-7">
               <label>Project Name</label>
-              <input type="name" className="form-control" placeholder="Enter project name" name="name" onChange={ this.handleInputChange } value={ this.state.name }/>
+              <input type="name" className="form-control" placeholder="Enter project name" name="name" required="true" onChange={ this.handleInputChange } value={ this.state.name }/>
             </div>
           </div>
 
           <div className="form-group">
             <div className="col-7">
               <label>Owner</label>
-              <input type="owner" className="form-control" placeholder="Add owner name" name="owner" onChange={ this.handleInputChange }
+              <input type="owner" className="form-control" placeholder="Add owner name" name="owner" required="true" onChange={ this.handleInputChange }
             value={ this.state.owner }/>
             </div>
           </div>
@@ -65,7 +66,7 @@ class AddProject extends React.Component {
           <div className="form-group">
             <div className="col-7">
               <label>Status</label>
-              <select className="form-control" id="status" >
+              <select className="form-control" id="status" required="true">
                 <option value="Active">Active</option>
                 <option value="Complete">Complete</option>
                 </select>
@@ -75,7 +76,7 @@ class AddProject extends React.Component {
           <div className="form-group">
             <div className="col-7">
               <label>Description</label>
-              <textarea className="form-control" id="description" rows="3" name="description" onChange={ this.handleInputChange }
+              <textarea className="form-control" id="description" rows="3" name="description" required="true" onChange={ this.handleInputChange }
             value={ this.state.description }></textarea>
             </div>
           </div>

@@ -5,6 +5,7 @@ import Landing from "./components/layout/Landing";
 import Register from "./components/auth/AddUser";
 import Login from "./components/auth/Login";
 import Projects from "./components/layout/Projects"
+import AddProject from "./components/layout/AddProject"
 import Signup from "./components/layout/Signup"
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/projects" component={Projects} />
+          <Route exact path="/addproject" component={AddProject}/>
           <Route exact path="/signup" component={Signup} />
         </div>
       </Router>
