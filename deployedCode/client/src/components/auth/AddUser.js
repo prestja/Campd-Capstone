@@ -85,8 +85,8 @@ return (
       <div className="form-group">
       <button type="submit" className="btn btn-primary mb-2">Sign Up</button>
       </div>
-      <p className="forgot-password text-right">
-          Already registered sign in?
+      <p className="forgot-password text-left">
+          Already registered <a href="/login">sign in</a>?
       </p>
   </form>
     );
