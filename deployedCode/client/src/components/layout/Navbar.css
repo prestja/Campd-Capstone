@@ -65,3 +65,18 @@ img.center {
   background-color: rgb(3, 124, 7);
   color: white;
 }
+
+.custom-control.custom-checkbox{
+
+  margin-left: 15px;
+}
+
+.forgot-password.text-left{
+
+  margin-left: 15px;
+}
+
+.btn.btn-primary.mb-2{
+
+  margin-left: 15px;
+}

@@ -62,9 +62,7 @@ return (
       </div>
 
       <button type="submit" className="btn btn-primary mb-2">Submit</button>
-      <p className="forgot-password text-right">
-          Forgot password?
-      </p>
+      <p className="forgot-password text-left">Forgot password?</p>
   </form>
     );
   }
