@@ -5,7 +5,6 @@ import './../layout/Navbar.css';
 //import UserList from '../../containers/UserList'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import classnames from "classnames"
 import { registerUser } from "../../actions/authActions";
 
 

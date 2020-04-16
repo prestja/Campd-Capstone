@@ -5,13 +5,13 @@ import './layout/Navbar.css';
 
 class AddProject extends React.Component {
   state = {
-    name: '',
-    owner: '',
-    status: '',
-    description: '',
-    file: ''
-
+      name: '',
+      owner: '',
+      status: '',
+      description: '',
+      file: ''
   };
+
 
   handleInputChange = e => {
     this.setState({
@@ -19,9 +19,16 @@ class AddProject extends React.Component {
     });
   };
 
+  handleSelectChange = e => {
+    this.setState({
+      status: e.target.value
+    });
+  };
+
+
   handleSubmit = e => {
     e.preventDefault();
-    console.log("test")
+    console.log("Submit")
     if (this.state.name.trim() && this.state.description.trim()) {
       this.props.onAddProject(this.state);
       this.handleReset();
@@ -66,9 +73,11 @@ class AddProject extends React.Component {
           <div className="form-group">
             <div className="col-7">
               <label>Status</label>
-              <select className="form-control" id="status" required="true">
+              <select className="form-control" id="status" required="true" value={this.state.status} onChange={this.handleSelectChange} >
+                <option value=""></option>
                 <option value="Active">Active</option>
                 <option value="Complete">Complete</option>
+                <option value="Pending">Pending</option>
                 </select>
             </div>
           </div>

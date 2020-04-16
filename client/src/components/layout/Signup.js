@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CreateUser from '../../containers/CreateUser';
 import UserList from '../../containers/UserList'
 
 //test
