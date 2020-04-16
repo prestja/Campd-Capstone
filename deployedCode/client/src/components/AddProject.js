@@ -69,6 +69,7 @@ class AddProject extends React.Component {
               <select className="form-control" id="status" required="true">
                 <option value="Active">Active</option>
                 <option value="Complete">Complete</option>
+                <option value="Pending">Pending</option>
                 </select>
             </div>
           </div>
