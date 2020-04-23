@@ -8,7 +8,7 @@ const styles = {
   background: '#fafafa',
   margin: '.75rem auto',
   padding: '.6rem 1rem',
-  maxWidth: '500px',
+  maxWidth: '800px',
   borderRadius: '7px'
 };
 
@@ -16,10 +16,9 @@ export default ({ project: { name, owner, status, description, file, _id }, onDe
   return (
     <div style={ styles }>
       <h2>{ name }</h2>
-      <p>{ owner }</p>
-      <p>{ description }</p>
+      <h5>{ owner }</h5>
+      <p class="overflow-ellipsis">{ description }</p>
       <p>Status: { status }</p>
-      <p>Attachment: { file }</p>
       <button className="btn btn-primary" type="button">
         View
       </button>

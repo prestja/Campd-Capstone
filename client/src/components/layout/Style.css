@@ -8,12 +8,18 @@ h3 {
   padding-left: 15px;
 }
 
-h5 {
-  text-align: center;
+p {
+  width: 750px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .center {
   text-align: center;
+}
+
+.overflow-ellipsis {
+  text-overflow: ellipsis;
 }
 
 img.center {
@@ -51,7 +57,7 @@ img.center {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 /* Change the color of links on hover */
