@@ -19,22 +19,19 @@ class Navbar extends Component {
 
         switch(index) {
           case 0:
-            activeClasses = [true, false, false, false, false]
+            activeClasses = [true, false, false, false]
             break;
           case 1:
-            activeClasses = [false, true, false, false, false]
+            activeClasses = [false, true, false, false]
             break;
           case 2:
-            activeClasses = [false, false, true, false, false]
+            activeClasses = [false, false, true, false]
             break;
           case 3:
-            activeClasses = [false, false, false, true, false]
-            break;
-          case 4:
-            activeClasses = [false, false, false, false, true]
+            activeClasses = [false, false, false, true]
             break;
           default:
-            activeClasses = [true, false, false, false, false]
+            activeClasses = [true, false, false, false]
             break;
           }
           this.setState({activeClasses, index});
@@ -54,8 +51,7 @@ class Navbar extends Component {
             </div>
             <Link to="/login" className={activeClasses[1]? "active" : "inactive"} onClick={() => this.addActiveClass(1)} >Login</Link>
             <Link to="/signup" className={activeClasses[2]? "active" : "inactive"} onClick={() => this.addActiveClass(2)} >Sign up</Link>
-            <Link to="/addproject" className={activeClasses[3]? "active" : "inactive"} onClick={() => this.addActiveClass(3)} > Add project</Link>
-            <Link to="/projects" className={activeClasses[4]? "active" : "inactive"} onClick={() => this.addActiveClass(4)} >Projects</Link>
+            <Link to="/projects" className={activeClasses[3]? "active" : "inactive"} onClick={() => this.addActiveClass(4)} >Projects</Link>
 
 
           </div>
