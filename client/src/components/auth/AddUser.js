@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import './../layout/Navbar.css';
+import './../layout/Style.css';
 //import axios from 'axios';
 //import UserList from '../../containers/UserList'
 import { connect } from 'react-redux';
@@ -124,8 +124,8 @@ return (
       <div className="form-group">
       <button type="submit" className="btn btn-primary mb-2">Sign Up</button>
       </div>
-      <p className="forgot-password text-right">
-          Already registered sign in?
+      <p className="forgot-password text-left">
+          Already registered? <a href="/login">Sign in</a>
       </p>
 
 

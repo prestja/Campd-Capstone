@@ -1,7 +1,7 @@
 // AddProject.js
 
 import React from 'react';
-import './layout/Navbar.css';
+import './layout/Style.css';
 
 class AddProject extends React.Component {
   state = {

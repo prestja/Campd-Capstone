@@ -1,7 +1,7 @@
 // Listing.js
 
 import React from 'react';
-import './Navbar.css';
+import './Style.css';
 
 const styles = {
   borderBottom: '2px solid #eee',

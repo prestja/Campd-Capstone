@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CreateProject from '../../containers/CreateProject';
 
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './Navbar.css';
+import './Style.css';
 
 class AddProject extends Component {
   render() {

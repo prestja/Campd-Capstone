@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './../layout/Navbar.css';
+import './../layout/Style.css';
 
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -105,9 +105,6 @@ return (
       </div>
 
       <button type="submit" className="btn btn-primary mb-2" onClick={this.forceUpdateHandler}>Submit</button>
-      <p className="forgot-password text-right">
-          Forgot password?
-      </p>
   </form>
     );
   }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import './Navbar.css';
+import './Style.css';
 
 class LogNavbar extends Component {
   constructor(props) {
