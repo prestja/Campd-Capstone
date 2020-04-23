@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-
 class Profile extends Component {
   onLogoutClick = e => {
     e.preventDefault();
@@ -10,17 +9,40 @@ class Profile extends Component {
   };
 render() {
     const { user } = this.props.auth;
+
+    const styles = {
+      borderBottom: '2px solid #eee',
+      background: '#fafafa',
+      margin: '15px',
+      padding: '.6rem 1rem',
+      maxWidth: 'auto',
+      borderRadius: '7px',
+    };
+
+
+
 return (
       <div >
         <div className="row">
           <div className="col s12 center-align">
             <h4>
-              <b>Hey there,</b> {user.name.split(" ")[0]}
-              <p>
-                You are logged In
+              <b>Hey there,</b> {user.name.split(" ")[0]}, you are logged in.
 
-              </p>
+
+
+
             </h4>
+
+            <h3> Personal Information </h3>
+            <div style={ styles }>
+            <h4> Name: {user.name} {user.lastname} </h4>
+            <h4> Email: {user.email} </h4>
+            </div>
+
+            <h3> Your Projects </h3>
+            <div style={ styles }>
+            <h4>No projects yet.</h4>
+            </div>
             <button
 
               onClick={this.onLogoutClick}
@@ -34,7 +56,6 @@ return (
     );
   }
 }
-
 Profile.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
