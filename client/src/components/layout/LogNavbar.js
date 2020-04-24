@@ -37,14 +37,18 @@ class LogNavbar extends Component {
           this.setState({activeClasses, index});
         }
 
-
-
-
-
   render() {
     const activeClasses = this.state.activeClasses.slice();
     return (
       <div className="topnav">
+        <section className="header">
+          <div>
+            <h3 class="title">Research and Project Portal</h3>
+          </div>
+          <div class="banner">
+            <img class="unt-banner" alt={ 'University of North Texas logo' } src={ require('./unt-banner.svg') }/>
+          </div>
+        </section>
         <nav>
           <div>
             <Link to="/" className={activeClasses[0]? "active" : "inactive"} onClick={() => this.addActiveClass(0)} >Home</Link>

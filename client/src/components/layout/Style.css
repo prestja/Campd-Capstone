@@ -1,7 +1,8 @@
+/* Text */
 h1 {
   text-align: center;
   color: rgb(3, 124, 7);
-  font-weight: 900;
+  font-weight: 800;
 }
 
 h3 {
@@ -22,11 +23,19 @@ p {
   text-overflow: ellipsis;
 }
 
+/* Image */
 img.center {
     display: block;
     margin: 0 auto;
 }
 
+img.unt-banner {
+  width: auto;
+  height: 103px;
+  padding-left: 20px;
+}
+
+/* Button */
 .btn-primary {
   background-color: rgb(3, 124, 7) !important;
   border-color: rgb(3, 124, 7) !important;
@@ -44,16 +53,25 @@ img.center {
   margin-right: 5px;
 }
 
-/* Add a black background color to the top navigation */
+.btn.btn-primary.mb-2 {
+  margin-left: 15px;
+}
+
+/* Navigation bar */
+nav {
+  margin-left: 110px;
+}
+
 .topnav {
   background-color: #333;
   overflow: hidden;
+  position: relative;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
-  color: #f2f2f2;
+  color: #b5b5b5;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -68,21 +86,37 @@ img.center {
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: rgb(3, 124, 7);
   color: white;
 }
 
-.custom-control.custom-checkbox{
-
+.custom-control.custom-checkbox {
   margin-left: 15px;
 }
 
-.forgot-password.text-left{
-
+.forgot-password.text-left {
   margin-left: 15px;
 }
 
-.btn.btn-primary.mb-2{
+/* Header */
+.header {
+  height: 50px;
+  position: relative;
+  background-color: rgb(3, 124, 7);
+}
 
-  margin-left: 15px;
+.banner {
+  display: block;
+  height: 103px;
+  width: auto;
+  z-index: 998;
+  position: absolute;
+}
+
+.title {
+  float: left;
+  color: white;
+  padding-left: 120px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  position: absolute;
 }

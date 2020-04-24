@@ -37,26 +37,27 @@ class Navbar extends Component {
           this.setState({activeClasses, index});
         }
 
-
-
-
   render() {
     const activeClasses = this.state.activeClasses.slice();
     return (
-      <div className="topnav">
-        <nav>
+        <div className="topnav">
+        <section className="header">
           <div>
-            <div>
-            <Link to="/" className={activeClasses[0]? "active" : "inactive"} onClick={() => this.addActiveClass(0)} >Home</Link>
-            </div>
-            <Link to="/login" className={activeClasses[1]? "active" : "inactive"} onClick={() => this.addActiveClass(1)} >Login</Link>
-            <Link to="/signup" className={activeClasses[2]? "active" : "inactive"} onClick={() => this.addActiveClass(2)} >Sign up</Link>
-            <Link to="/projects" className={activeClasses[3]? "active" : "inactive"} onClick={() => this.addActiveClass(4)} >Projects</Link>
-
-
+            <h3 class="title">Research and Project Portal</h3>
           </div>
-        </nav>
-      </div>
+          <div class="banner">
+              <img class="unt-banner" alt={ 'University of North Texas logo' } src={ require('./unt-banner.svg') }/>
+          </div>
+          </section>
+          <nav>
+            <div>
+              <Link to="/" className={activeClasses[0]? "active" : "inactive"} onClick={() => this.addActiveClass(0)} >Home</Link>
+              <Link to="/login" className={activeClasses[1]? "active" : "inactive"} onClick={() => this.addActiveClass(1)} >Login</Link>
+              <Link to="/signup" className={activeClasses[2]? "active" : "inactive"} onClick={() => this.addActiveClass(2)} >Sign up</Link>
+              <Link to="/projects" className={activeClasses[3]? "active" : "inactive"} onClick={() => this.addActiveClass(3)} >Projects</Link>
+            </div>
+          </nav>
+        </div>
     );
   }
 }
