@@ -22,4 +22,33 @@ let Project = new Schema({
     collection: 'projects'
 });
 
-module.exports = mongoose.model('Project', Project);
+Project.index({ title: "text", body: "text",},
+    { weights: { title: 5, body: 3, } })
+
+Project.statics = {
+    searchPartial: function(q, callback) {
+        return this.find({
+            $or: [
+                { "title": new RegExp(q, "gi") },
+                { "body": new RegExp(q, "gi") },
+            ]
+        }, callback);
+    },
+
+    searchFull: function (q, callback) {
+        return this.find({
+            $text: { $search: q, $caseSensitive: false }
+        }, callback)
+    },
+
+    search: function(q, callback) {
+        this.searchFull(q, (err, data) => {
+            if (err) return callback(err, data);
+            if (!err && data.length) return callback(err, data);
+            if (!err && data.length === 0) return this.searchPartial(q, callback);
+        });
+    },
+}
+
+
+module.exports = mongoose.models.Post || mongoose.model('Project', Project);

@@ -1,6 +1,6 @@
 // Listing.js
 
-import React, { Component } from 'react';
+import React from 'react';
 import './Style.css';
 
 const styles = {
@@ -17,7 +17,7 @@ export default ({ project: { name, owner, status, description, file, _id }, onDe
       <div style={ styles }>
         <h2>{ name }</h2>
         <h5>{ owner }</h5>
-        <p class="overflow-ellipsis">{ description }</p>
+        <p className="overflow-ellipsis">{ description }</p>
         <p>Status: { status }</p>
         <button className="btn btn-primary" type="button">
           View

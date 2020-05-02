@@ -1,9 +1,14 @@
 const express = require('express');
 const app = express();
 const ProjectRoute = express.Router();
+//import Post from '../models/Project'
 
 // Require Project model in our routes module
 let Project = require('../models/Project');
+
+Project.search('Fly', function(err, data) {
+  console.log(data);
+});
 
 // Defined store route
 ProjectRoute.route('/add').post(function (req, res) {
@@ -24,6 +29,20 @@ ProjectRoute.route('/').get(function (req, res) {
       console.log(err);
     }
     else {
+      res.json(projects);
+    }
+  });
+});
+
+// Defined get data(index or listing) route based on user search
+ProjectRoute.route('/').get(function (req, res) {
+    Project.find({ $text: { $search: "Self Flying Car"} }, function (err, projects){
+    if(err){
+      console.log(err);
+    }
+    else {
+      console.log("Partial Match Begins");
+      console.log(projects);
       res.json(projects);
     }
   });
