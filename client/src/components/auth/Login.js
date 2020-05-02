@@ -19,7 +19,7 @@ class Login extends Component {
      this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
       if (nextProps.auth.isAuthenticated) {
         this.props.history.push("/Profile"); // push user to dashboard when they login
       }
