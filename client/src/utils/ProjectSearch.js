@@ -34,7 +34,8 @@ class SearchBar extends Component {
 
   render() {
       return(
-      <div className="list row">
+     <div class="search">
+     <div className="list row">
         <div className="col-md-8">
 
           <div className="input-group mb-3">
@@ -59,6 +60,7 @@ class SearchBar extends Component {
               </div>
 
               </div>
+          </div>
           </div>
     );
   };
