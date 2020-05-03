@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Project from '../components/layout/Listing';
 import { deleteProject } from '../actions';
 
+
 function ProjectList({ projects, onDelete }) {
   if(!projects.length) {
     return (

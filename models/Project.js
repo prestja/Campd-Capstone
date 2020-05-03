@@ -22,15 +22,15 @@ let Project = new Schema({
     collection: 'projects'
 });
 
-Project.index({ title: "text", body: "text",},
-    { weights: { title: 5, body: 3, } })
+Project.index({ name: "text", description: "text",},
+    { weights: { name: 5, description: 3, } })
 
 Project.statics = {
     searchPartial: function(q, callback) {
         return this.find({
             $or: [
-                { "title": new RegExp(q, "gi") },
-                { "body": new RegExp(q, "gi") },
+                { "name": new RegExp(q, "gi") },
+                { "description": new RegExp(q, "gi") },
             ]
         }, callback);
     },

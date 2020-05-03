@@ -1,6 +1,6 @@
 // index.js
 
-import { ADD_PROJECT, DELETE_PROJECT, FETCH_PROJECT, ADD_USER, DELETE_USER, FETCH_USER } from './types';
+import { ADD_PROJECT, DELETE_PROJECT, SEARCH_PROJECT, FETCH_PROJECT, ADD_USER, DELETE_USER, FETCH_USER } from './types';
 import axios from 'axios';
 
 const apiUrl = 'http://localhost:5000/projects';
@@ -65,6 +65,22 @@ export const fetchAllProjects = () => {
     return axios.get(apiUrl)
       .then(response => {
         dispatch(fetchProjects(response.data))
+      })
+      .catch(error => {
+        throw(error);
+      });
+  };
+};
+
+export const searchProject = (value, projects) => {
+  return { type: SEARCH_PROJECT, value, projects };
+}
+
+export const searchProjects = (value) => {
+  return (dispatch) => {
+    return axios.get(apiUrl)
+      .then(response => {
+        dispatch(searchProject(value, response.data))
       })
       .catch(error => {
         throw(error);
