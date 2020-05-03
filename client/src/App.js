@@ -11,7 +11,7 @@ import AddProject from "./components/layout/AddProject";
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./components/layout/Profile";
 import ViewProject from "./components/layout/ViewProject"
-
+import ViewProfileProject from "./components/layout/ViewProfileProject"
 
 class App extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class App extends Component {
           { localStorage.jwtToken ? <LogNavbar /> : <Navbar /> }
 
           <Route exact path="/" component={Landing} />
-
+          <Route exact path="/viewprofileproject" component={ViewProfileProject} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/projects" component={Projects} />
           <Route exact path="/addproject" component={AddProject} />

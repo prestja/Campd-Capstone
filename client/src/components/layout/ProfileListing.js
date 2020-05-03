@@ -19,7 +19,7 @@ export default ({ project: { name, owner, status, description, file, _id }, onDe
 
 
   const newTo ={
-    pathname: "/viewproject"
+    pathname: "/viewprofileproject"
   }
 
 
