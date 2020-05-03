@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+
 import ProjectList from '../../containers/ProjectList';
 import ProjectSearch from '../../utils/ProjectSearch';
+
 
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
