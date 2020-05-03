@@ -7,7 +7,7 @@ import './Style.css';
 class ViewProject extends Component {
   render() {
 
-
+    
 
 
     return (

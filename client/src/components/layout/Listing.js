@@ -32,20 +32,6 @@ export default ({ project: { name, owner, status, description, file, _id }, onDe
 
 
   return (
-<<<<<<< HEAD
-      <div style={ styles }>
-        <h2>{ name }</h2>
-        <h5>{ owner }</h5>
-        <p className="overflow-ellipsis">{ description }</p>
-        <p>Status: { status }</p>
-        <button className="btn btn-primary" type="button">
-          View
-        </button>
-        <button className="btn btn-danger" type="button" onClick={() => onDelete(_id)}>
-          Remove
-        </button>
-      </div>
-=======
     <div style={ styles }>
       <h2>{ name }</h2>
       <h5>{ owner }</h5>
@@ -63,6 +49,5 @@ export default ({ project: { name, owner, status, description, file, _id }, onDe
         Remove
       </button>
     </div>
->>>>>>> viewingProject
   );
 };
