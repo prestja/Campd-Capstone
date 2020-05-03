@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import { searchProjects } from '../../actions/index';
+import ProjectList from '../../containers/ProjectList';
+
 
 class Profile extends Component {
   onLogoutClick = e => {
@@ -9,6 +12,9 @@ class Profile extends Component {
     this.props.logoutUser();
   };
 
+  componentDidMount() {
+    this.props.onMount((this.props.auth.user.name + " " + this.props.auth.user.lastname).toLowerCase())
+  }
 
 render() {
     const { user } = this.props.auth;
@@ -28,10 +34,6 @@ return (
           <div className="col s12 center-align">
             <h4>
               <b>Hey there,</b> {user.name.split(" ")[0]}, you are logged in.
-
-
-
-
             </h4>
 
             <h3> Personal Information </h3>
@@ -42,7 +44,7 @@ return (
 
             <h3> Your Projects </h3>
             <div style={ styles }>
-            <h4>No projects yet.</h4>
+            <ProjectList />
             </div>
             <button
 
@@ -57,14 +59,22 @@ return (
     );
   }
 }
+
 Profile.propTypes = {
   logoutUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 };
+
 const mapStateToProps = state => ({
   auth: state.auth
 });
+
+const mapDispatchToProps = (dispatch) => ({
+  logoutUser: () => dispatch(logoutUser()),
+  onMount: (searchName) => dispatch(searchProjects(searchName))
+})
+
 export default connect(
   mapStateToProps,
-  { logoutUser }
+  mapDispatchToProps
 )(Profile);

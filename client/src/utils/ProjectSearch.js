@@ -34,7 +34,7 @@ class SearchBar extends Component {
 
   render() {
       return(
-     <div class="search">
+     <div className="search">
      <div className="list row">
         <div className="col-md-8">
 
