@@ -93,7 +93,7 @@ UserRoute.route('/login').post(function (req, res) {
 
             keys.secretOrKey,
             {
-              expiresIn: 300 // 1 year in seconds
+              expiresIn: 900 // 15 minutes in seconds
             },
             (err, token) => {
               res.json({
