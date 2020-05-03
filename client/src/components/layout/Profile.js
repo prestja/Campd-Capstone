@@ -34,6 +34,12 @@ return (
           <div className="col s12 center-align">
             <h4>
               <b>Hey there,</b> {user.name.split(" ")[0]}, you are logged in.
+              <button
+                onClick={this.onLogoutClick}
+                className="btn btn-primary mb-2"
+              >
+                Logout
+              </button>
             </h4>
 
             <h3> Personal Information </h3>
@@ -46,13 +52,7 @@ return (
             <div style={ styles }>
             <ProjectList />
             </div>
-            <button
 
-              onClick={this.onLogoutClick}
-              className="btn btn-primary mb-2"
-            >
-              Logout
-            </button>
           </div>
         </div>
       </div>
