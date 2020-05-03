@@ -22,7 +22,12 @@ p {
 .overflow-ellipsis {
   text-overflow: ellipsis;
 }
-
+.link {
+  color: #FFF;
+}
+.link:hover {
+   color: #00F
+}
 /* Image */
 img.center {
     display: block;

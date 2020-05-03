@@ -1,6 +1,6 @@
 // index.js
 
-import { ADD_PROJECT, DELETE_PROJECT, SEARCH_PROJECT, FETCH_PROJECT, ADD_USER, DELETE_USER, FETCH_USER } from './types';
+import { ADD_PROJECT, DELETE_PROJECT, SEARCH_PROJECT, FETCH_PROJECT, ADD_USER, DELETE_USER, FETCH_USER, VIEW_PROJECT } from './types';
 import axios from 'axios';
 
 const apiUrl = 'http://localhost:5000/projects';
@@ -88,7 +88,21 @@ export const searchProjects = (value) => {
   };
 };
 
+export const viewProject = (idvalue, projects) => {
+  return {type: VIEW_PROJECT, idvalue, projects}
+}
 
+export const viewProjects = (idvalue) => {
+  return (dispatch) => {
+    return axios.get(apiUrl)
+      .then(response => {
+        dispatch(viewProject(idvalue, response.data))
+      })
+      .catch(error => {
+        throw(error);
+      });
+  };
+};
 
 
 ///User stuffs

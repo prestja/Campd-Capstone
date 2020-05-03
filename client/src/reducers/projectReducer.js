@@ -1,6 +1,6 @@
 // projectReducer.js
 
-import { ADD_PROJECT, DELETE_PROJECT, SEARCH_PROJECT, FETCH_PROJECT } from '../actions/types';
+import { ADD_PROJECT, DELETE_PROJECT, SEARCH_PROJECT, FETCH_PROJECT, VIEW_PROJECT } from '../actions/types';
 
 export default function projectReducer(state = [], action) {
   switch (action.type) {
@@ -20,6 +20,14 @@ export default function projectReducer(state = [], action) {
     }
     case FETCH_PROJECT:
       return action.projects;
+    case VIEW_PROJECT: {
+      const {idvalue} = action;
+      if (idvalue === "") {
+        return action.projects;
+      }
+    return action.projects.filter(project => project._id.includes(idvalue)
+                          );
+    }
     default:
       return state;
   }

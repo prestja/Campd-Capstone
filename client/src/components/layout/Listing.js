@@ -14,18 +14,12 @@ const styles = {
 };
 
 
-export default ({ project: { name, owner, status, description, file, _id }, onDelete }) => {
+export default ({ project: { name, owner, status, description, file, _id }, onDelete, onView }) => {
 
 
 
   const newTo ={
-    pathname: "/viewproject",
-    name: name,
-    owner: owner,
-    status: status,
-    description: description,
-    file: file,
-    _id: _id
+    pathname: "/viewproject"
   }
 
 
@@ -42,7 +36,7 @@ export default ({ project: { name, owner, status, description, file, _id }, onDe
 
 
       <button className="btn btn-primary" type="button" >
-        <Link to={newTo} > View </Link>
+        <Link to={newTo} onClick={() => onView(_id)} className="link"> View </Link>
       </button>
 
       <button className="btn btn-danger" type="button" onClick={() => onDelete(_id)}>
