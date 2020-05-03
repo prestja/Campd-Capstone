@@ -9,6 +9,9 @@ let Project = new Schema({
   owner: {
     type: String
   },
+  ownerID: {
+    type: String
+  },
   status: {
     type: String
   },
