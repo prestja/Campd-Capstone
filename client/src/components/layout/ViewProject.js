@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Style.css';
 import ViewAProject from '../../containers/ViewAProject';
-import Projects from './Projects'
+
 
 
 
 class ViewProject extends Component {
-  
+
 
 
   render() {

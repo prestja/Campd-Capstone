@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require('cors');
 const MongoClient = require('mongodb').MongoClient;
-const passport = require("passport");
-const ServerPortRouter = require('./routes/ServerPortRouter');
+
+
 const projectroutes = require('./routes/ProjectRoute');
 const userroutes = require('./routes/UserRoute');
 const path = require('path');
@@ -35,7 +35,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.use('/serverport', ServerPortRouter);
+
 app.use('/users', userroutes);
 app.use('/projects', projectroutes);
 

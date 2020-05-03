@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import LogNavbar from "./components/layout/LogNavbar";
 import Landing from "./components/layout/Landing";
-import Register from "./components/auth/Register";
+
 import Login from "./components/auth/Login";
 import Projects from "./components/layout/Projects";
 import Signup from "./components/layout/Signup";
@@ -11,8 +11,6 @@ import AddProject from "./components/layout/AddProject";
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./components/layout/Profile";
 import ViewProject from "./components/layout/ViewProject"
-
-
 
 
 class App extends Component {
@@ -36,7 +34,7 @@ class App extends Component {
           { localStorage.jwtToken ? <LogNavbar /> : <Navbar /> }
 
           <Route exact path="/" component={Landing} />
-          <Route exact path="/register" component={Register} />
+
           <Route exact path="/login" component={Login} />
           <Route exact path="/projects" component={Projects} />
           <Route exact path="/addproject" component={AddProject} />

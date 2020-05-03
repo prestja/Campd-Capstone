@@ -8,7 +8,7 @@ import Projects from '../components/layout/Projects.js';
 function ViewAProject({ projects, onView }) {
 
   if(!projects.length === 1) {
-    console.log("test")
+    
 
     return(
       <Projects />

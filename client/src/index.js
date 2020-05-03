@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 
 import App from './App';
 import rootReducer from './reducers';
-import { fetchAllProjects, fetchAllUsers } from './actions/index';
+import { fetchAllProjects } from './actions/index';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -20,7 +20,7 @@ const store = createStore(rootReducer, applyMiddleware(thunk));
 
 
 store.dispatch(fetchAllProjects());
-store.dispatch(fetchAllUsers());
+
 
 
 // Check for token to keep user logged in
