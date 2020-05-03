@@ -15,7 +15,8 @@ export default function projectReducer(state = [], action) {
       }
     return action.projects.filter(project => project.name.toLowerCase().includes(value) ||
                             project.description.toLowerCase().includes(value) ||
-                            project.owner.toLowerCase().includes(value)
+                            project.owner.toLowerCase().includes(value) ||
+                            project.ownerID.includes(value)
                           );
     }
     case FETCH_PROJECT:

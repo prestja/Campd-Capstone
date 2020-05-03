@@ -2,11 +2,14 @@
 
 import React from 'react';
 import './layout/Style.css';
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 class AddProject extends React.Component {
   state = {
       name: '',
-      owner: '',
+      owner: (this.props.auth.user.name + " " + this.props.auth.user.lastname),
+      ownerID: this.props.auth.user.id,
       status: '',
       description: '',
       file: ''
@@ -28,7 +31,7 @@ class AddProject extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log("Submit")
+    console.log(this.state)
     if (this.state.name.trim() && this.state.description.trim()) {
       this.props.onAddProject(this.state);
       this.handleReset();
@@ -39,6 +42,7 @@ class AddProject extends React.Component {
     this.setState({
       name: '',
       owner: '',
+      ownerID: '',
       status: '',
       description: '',
       file: ''
@@ -48,6 +52,7 @@ class AddProject extends React.Component {
 
 
   render() {
+    const {user} = this.props.auth;
     return (
       <div>
 
@@ -58,22 +63,29 @@ class AddProject extends React.Component {
           <div className="form-group">
             <div className="col-7">
               <label>Project Name</label>
-              <input type="name" className="form-control" placeholder="Enter project name" name="name" required="true" onChange={ this.handleInputChange } value={ this.state.name }/>
+              <input type="name" className="form-control" placeholder="Enter project name" name="name" required={true} onChange={ this.handleInputChange } value={ this.state.name }/>
             </div>
           </div>
 
           <div className="form-group">
             <div className="col-7">
-              <label>Owner</label>
-              <input type="owner" className="form-control" placeholder="Add owner name" name="owner" required="true" onChange={ this.handleInputChange }
-            value={ this.state.owner }/>
+              <label>Owner Name (Auto-generated)</label>
+              <input type="owner" className="form-control" placeholder="Add owner Name" name="ownerID" required={true} onChange={ this.handleInputChange }
+            value={ (user.name + " " + user.lastname) }/>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div className="col-7">
+              <label>Owner ID (Auto-generated)</label>
+              <input type="ownerID" className="form-control" placeholder="Add owner ID" name="ownerID" required={true} defaultValue={ user.id }/>
             </div>
           </div>
 
           <div className="form-group">
             <div className="col-7">
               <label>Status</label>
-              <select className="form-control" id="status" required="true" value={this.state.status} onChange={this.handleSelectChange} >
+              <select className="form-control" id="status" required={true} value={this.state.status} onChange={this.handleSelectChange} >
                 <option value=""></option>
                 <option value="Active">Active</option>
                 <option value="Complete">Complete</option>
@@ -85,13 +97,13 @@ class AddProject extends React.Component {
           <div className="form-group">
             <div className="col-7">
               <label>Description</label>
-              <textarea className="form-control" id="description" rows="3" name="description" required="true" onChange={ this.handleInputChange }
+              <textarea className="form-control" id="description" rows="3" name="description" required={true} onChange={ this.handleInputChange }
             value={ this.state.description }></textarea>
             </div>
           </div>
 
           <div className="form-group">
-            <div class="col-7">
+            <div className="col-7">
               <label>File Attachment</label>
               <input type="file" className="form-control-file" id="attachment" name="file" onChange={ this.handleInputChange }
             value={ this.state.file }/>
@@ -109,4 +121,12 @@ class AddProject extends React.Component {
   }
 }
 
-export default AddProject;
+AddProject.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+export default connect(
+  mapStateToProps
+)(AddProject);

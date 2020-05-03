@@ -13,7 +13,7 @@ class Profile extends Component {
   };
 
   componentDidMount() {
-    this.props.onMount((this.props.auth.user.name + " " + this.props.auth.user.lastname).toLowerCase())
+    this.props.onMount(this.props.auth.user.id)
   }
 
 render() {
