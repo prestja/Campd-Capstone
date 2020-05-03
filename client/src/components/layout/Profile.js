@@ -34,6 +34,7 @@ return (
           <div className="col s12 center-align">
             <h4>
               <b>Hey there,</b> {user.name.split(" ")[0]}, you are logged in.
+              <br /> <br />
               <button
                 onClick={this.onLogoutClick}
                 className="btn btn-primary mb-2"
