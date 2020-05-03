@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { searchProjects } from '../../actions/index';
-import ProjectList from '../../containers/ProjectList';
+import ProjectProfileList from '../../containers/ProjectProfileList';
 
 
 class Profile extends Component {
@@ -51,7 +51,7 @@ return (
 
             <h3> Your Projects </h3>
             <div style={ styles }>
-            <ProjectList />
+            <ProjectProfileList />
             </div>
 
           </div>

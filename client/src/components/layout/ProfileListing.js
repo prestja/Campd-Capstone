@@ -39,7 +39,9 @@ export default ({ project: { name, owner, status, description, file, _id }, onDe
         <Link to={newTo} onClick={() => onView(_id)} className="link"> View </Link>
       </button>
 
-      
+      <button className="btn btn-danger" type="button" onClick={() => onDelete(_id)}>
+        Remove
+      </button>
     </div>
   );
 };
