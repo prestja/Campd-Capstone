@@ -43,10 +43,10 @@ class LogNavbar extends Component {
       <div className="topnav">
         <section className="header">
           <div>
-            <h3 class="title">Research and Project Portal</h3>
+            <h3 className="title">Research and Project Portal</h3>
           </div>
-          <div class="banner">
-            <img class="unt-banner" alt={ 'University of North Texas logo' } src={ require('./unt-banner.svg') }/>
+          <div className="banner">
+            <img className="unt-banner" alt={ 'University of North Texas logo' } src={ require('./unt-banner.svg') }/>
           </div>
         </section>
         <nav>

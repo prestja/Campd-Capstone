@@ -10,6 +10,7 @@ import Signup from "./components/layout/Signup"
 import AddProject from "./components/layout/AddProject"
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./components/layout/Profile";
+import ViewProject from "./components/layout/ViewProject"
 
 
 
@@ -38,8 +39,9 @@ class App extends Component {
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/projects" component={Projects} />
-          <Route exact path="/addproject" component={AddProject}/>
+          <Route exact path="/addproject" component={AddProject} />
           <Route exact path="/signup" component={Signup} />
+          <Route exact path="/viewproject" component={ViewProject} />
           <Switch>
           <PrivateRoute exact path="/profile" component={Profile} />
           </Switch>
