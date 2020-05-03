@@ -84,7 +84,8 @@ UserRoute.route('/login').post(function (req, res) {
           const payload = {
             id: user.id,
             name: user.name,
-            email: user.email
+            email: user.email,
+            lastname: user.lastname
           };
   // Sign token
           jwt.sign(
