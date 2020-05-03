@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+
 class Profile extends Component {
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
+
+
 render() {
     const { user } = this.props.auth;
 
@@ -18,8 +21,6 @@ render() {
       maxWidth: 'auto',
       borderRadius: '7px',
     };
-
-
 
 return (
       <div >

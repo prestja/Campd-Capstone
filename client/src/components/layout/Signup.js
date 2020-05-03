@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import UserList from '../../containers/UserList'
 
 //test
 import AddUser from '../auth/AddUser'
@@ -14,7 +13,6 @@ class Signup extends Component {
           <div >
             <AddUser />
           </div>
-          <UserList />
         </div>
       </div>
     );

@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const ProjectRoute = express.Router();
+//import Post from '../models/Project'
 
 // Require Project model in our routes module
 let Project = require('../models/Project');
@@ -25,6 +26,19 @@ ProjectRoute.route('/').get(function (req, res) {
     }
     else {
       res.json(projects);
+    }
+  });
+});
+
+// Defined get data(index or listing) route to search for a project
+ProjectRoute.route('/projects/:name').get(function (req, res, q) {
+  Project.search(q, function(err, data) {
+    if(err){
+      console.log(err);
+    }
+    else {
+      res.json(projects);
+      console.log(data);
     }
   });
 });
