@@ -1,10 +1,10 @@
 // index.js
 
-import { ADD_PROJECT, DELETE_PROJECT, SEARCH_PROJECT, FETCH_PROJECT, ADD_USER, DELETE_USER, FETCH_USER, VIEW_PROJECT } from './types';
+import { ADD_PROJECT, DELETE_PROJECT, SEARCH_PROJECT, FETCH_PROJECT, VIEW_PROJECT } from './types';
 import axios from 'axios';
 
 const apiUrl = 'http://localhost:5000/projects';
-const apiUserUrl = 'http://localhost:5000/users';
+
 
 export const createProject = ({ name, owner, status, description, file }) => {
   return (dispatch) => {
