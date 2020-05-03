@@ -2,9 +2,6 @@
 
 import React from 'react';
 import './layout/Style.css';
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-
 
 class AddProject extends React.Component {
   state = {
@@ -51,14 +48,10 @@ class AddProject extends React.Component {
 
 
   render() {
-
-    const { user } = this.props.auth;
-
     return (
       <div>
 
         <h3>Add a project</h3>
-        <h3> {user.id} </h3>
       <form onSubmit={ this.handleSubmit }>
 
 
@@ -71,9 +64,9 @@ class AddProject extends React.Component {
 
           <div className="form-group">
             <div className="col-7">
-              <label>Owner ID (Auto-generated)</label>
+              <label>Owner</label>
               <input type="owner" className="form-control" placeholder="Add owner name" name="owner" required="true" onChange={ this.handleInputChange }
-            value={ user.id }/>
+            value={ this.state.owner }/>
             </div>
           </div>
 
@@ -116,13 +109,4 @@ class AddProject extends React.Component {
   }
 }
 
-
-AddProject.propTypes = {
-  auth: PropTypes.object.isRequired
-};
-const mapStateToProps = state => ({
-  auth: state.auth
-});
-export default connect(
-  mapStateToProps
-)(AddProject);
+export default AddProject;
