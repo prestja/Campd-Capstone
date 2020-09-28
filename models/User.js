@@ -10,7 +10,7 @@ const User = new Schema({
     type: String,
     required: true
   },
-  email: {
+  email: { //TODO: euid instead
     type: String,
     required: true
   },
