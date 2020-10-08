@@ -18,35 +18,31 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
-
 store.dispatch(fetchAllProjects());
-
-
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
-  // Set auth token header auth
-  const token = localStorage.jwtToken;
-  setAuthToken(token);
-  // Decode token and get user info and exp
-  const decoded = jwt_decode(token);
-  // Set user and isAuthenticated
-  store.dispatch(setCurrentUser(decoded));
-// Check for expired token
-  const currentTime = Date.now() / 1000; // to get in milliseconds
-  if (decoded.exp < currentTime) {
-    // Logout user
-    store.dispatch(logoutUser());
-    // Redirect to login
-    window.location.href = "./login";
-  }
+	// Set auth token header auth
+	const token = localStorage.jwtToken;
+	setAuthToken(token);
+	// Decode token and get user info and exp
+	const decoded = jwt_decode(token);
+	// Set user and isAuthenticated
+	store.dispatch(setCurrentUser(decoded));
+	// Check for expired token
+	const currentTime = Date.now() / 1000; // to get in milliseconds
+	if (decoded.exp < currentTime) {
+		// Logout user
+		store.dispatch(logoutUser());
+		// Redirect to login
+		window.location.href = "./login";
+	}
 }
 
-
 ReactDOM.render(
-    <Provider store={store} >
-        <App />
-    </Provider>, document.getElementById('root'));
+	<Provider store={store}>
+		<App />
+	</Provider>, document.getElementById('root'));
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
