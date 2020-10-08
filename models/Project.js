@@ -52,6 +52,4 @@ Project.statics = {
         });
     },
 }
-
-
 module.exports = mongoose.models.Post || mongoose.model('Project', Project);

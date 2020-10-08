@@ -1,4 +1,4 @@
 module.exports = {
-  mongoURI: "mongodb+srv://groupAccount:Rappcampdcapstone2020@cluster0-0zrg0.gcp.mongodb.net/test?retryWrites=true&w=majority",
+  mongoURI: "mongodb://159.89.238.181:27017/greenlight",
   secretOrKey: "secret"
 };
