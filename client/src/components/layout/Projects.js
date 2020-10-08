@@ -7,43 +7,40 @@ import { fetchAllProjects } from '../../actions';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 class Projects extends Component {
+	componentDidMount() {
+		this.props.onMount();
+		console.log('mount');
+	}
 
-  componentDidMount() {
-    this.props.onMount()
-  }
-
-
-  render() {
-    return (
-      <div >
-        <div >
-          <div >
-            <ProjectSearch />
-            <ProjectList />
-          </div>
-        </div>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div >
+				<div >
+					<div >
+						<ProjectSearch />
+						<ProjectList />
+					</div>
+				</div>
+			</div>
+		);
+	}
 }
 
-
-
 const mapStateToProps = state => {
-  return {
-    projects: state.projects
-  };
+	return {
+		projects: state.projects
+	};
 };
 
 const mapDispatchToProps = dispatch => {
-  return {
-    onMount: id => {
-      dispatch(fetchAllProjects())
-    }
-  };
+	return {
+		onMount: id => {
+			dispatch(fetchAllProjects())
+		}
+	};
 };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+	mapStateToProps,
+	mapDispatchToProps
 )(Projects);

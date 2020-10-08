@@ -5,7 +5,6 @@ import { logoutUser } from "../../actions/authActions";
 import { searchProjects } from '../../actions/index';
 import ProjectProfileList from '../../containers/ProjectProfileList';
 
-
 class Profile extends Component {
   onLogoutClick = e => {
     e.preventDefault();
