@@ -1,4 +1,4 @@
 module.exports = {
-	mongoURI: "mongodb://159.89.238.181:27017/greenlight",
+	mongoURI: "mongodb+srv://csce4901:group11@greenlight.gsnen.gcp.mongodb.net/data?retryWrites=true&w=majority",
 	secretOrKey: "secret"
 };
