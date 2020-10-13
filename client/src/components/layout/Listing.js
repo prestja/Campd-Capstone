@@ -5,14 +5,18 @@ import './Style.css';
 import { Box} from "@chakra-ui/core"
 import { Link } from 'react-router-dom';
 
-export default ({ project: { name, owner, status, description, file, _id }, onDelete, onView }) => {
-	return (
-		<Box>
-			<h2>{name}</h2>
-			<h5>{owner}</h5>
-				<p>{description}</p>
-			<p>Status: {status}</p>
-			<Link to = {'project/' + _id}>View project</Link>
-		</Box>
-	);
-};
+class Listing extends React.Component {
+	render() {
+		return (
+			<Box>
+				<h2>{this.props.name}</h2>
+				<h5>{this.props.owner}</h5>
+					<p>{this.props.description}</p>
+				<p>Status: {this.props.status}</p>
+				<Link to = {{pathname: 'project/' + this.props._id, state: {project: this.props}}}>View Project</Link>
+			</Box>
+		);
+	}
+}
+
+export default Listing;

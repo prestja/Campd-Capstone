@@ -12,7 +12,7 @@ import Signup from "./components/layout/Signup";
 import AddProject from "./components/layout/AddProject";
 import PrivateRoute from "./components/PrivateRoute";
 import Profile from "./components/layout/Profile";
-import ViewProject from "./components/layout/ViewProject";
+import ProjectView from "./components/layout/ProjectView";
 import ViewProfileProject from "./components/layout/ViewProfileProject";
 import Admin from "./components/layout/Admin";
 
@@ -34,7 +34,7 @@ class App extends Component {
 						<Route exact path = "/viewprofileproject" component={ViewProfileProject} />
 						<Route exact path = "/login" component={Login} />
 						<Route exact path = "/projects" component={Projects} />
-						<Route path = "/project/:" component={ViewProject} />
+						<Route path = "/project/:id" component={ProjectView} />
 						<Route exact path = "/addproject" component={AddProject} />
 						<Route exact path = "/signup" component={Signup} />
 						<Route path = "/admin" component={Admin}/>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Project from '../components/layout/Listing';
+import Listing from '../components/layout/Listing';
 import { deleteProject, viewProjects } from '../actions';
 
 function ProjectList({ projects, onDelete, onView }) {
@@ -13,7 +13,7 @@ function ProjectList({ projects, onDelete, onView }) {
 		<div>
 			{projects.map(project => {
 				return (
-					<Project project={project} onDelete={onDelete} onView={onView} key={project._id} />
+					<Listing name = {project.name} owner = {project.owner} description = {project.description}></Listing>
 				);
 			})}
 		</div>
