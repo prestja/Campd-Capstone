@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import {Box, Button, Text } from '@chakra-ui/core'; 
+import { Link } from 'react-router-dom';
 
 class ProjectView extends Component {
 	render() {
+		const {name, description} = this.props.location.state;
 		return (
-			<div> 
-				<p>Blank project page</p>
-			</div>
+			<Box>
+				<Text>{this.props.location.state.name}</Text>
+				<Text>{this.props.location.state.description}</Text>
+				<Button><Link to = '/projects'>Back to projects page</Link></Button>
+			</Box>
 		);
 	}
 }
 
-const mapStateToProps = state => {
-	console.log(state.project);
-	return {
-		project: state.project,
-	};
-};
-
-export default connect(mapStateToProps)(ProjectView);
+export default ProjectView;

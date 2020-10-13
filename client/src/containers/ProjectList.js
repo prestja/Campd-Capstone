@@ -13,7 +13,7 @@ function ProjectList({ projects, onDelete, onView }) {
 		<div>
 			{projects.map(project => {
 				return (
-					<Listing name = {project.name} owner = {project.owner} description = {project.description}></Listing>
+					<Listing name = {project.name} owner = {project.owner} description = {project.description} _id = {project._id}></Listing>
 				);
 			})}
 		</div>

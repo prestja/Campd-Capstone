@@ -13,7 +13,7 @@ class Listing extends React.Component {
 				<h5>{this.props.owner}</h5>
 					<p>{this.props.description}</p>
 				<p>Status: {this.props.status}</p>
-				<Link to = {{pathname: 'project/' + this.props._id, state: {project: this.props}}}>View Project</Link>
+				<Link to = {{pathname: 'project/' + this.props._id, state: {name: this.props.name, description: this.props.description}}}>View Project</Link>
 			</Box>
 		);
 	}
