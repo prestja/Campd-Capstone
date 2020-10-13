@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import './Style.css';
-import {Button} from "@chakra-ui/core"
 
 class Admin extends Component {
 	render() {

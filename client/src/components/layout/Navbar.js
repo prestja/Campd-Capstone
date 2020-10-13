@@ -11,6 +11,9 @@ class Navbar extends Component {
 	}
 
 	render() {
+		const isLoggedIn = this.state.log;
+		//const isLoggedIn =false;
+		const isAdmin = false; 
 		return (
 			<div className="topnav">
 				<section className="header">
@@ -24,10 +27,9 @@ class Navbar extends Component {
 				<nav>
 					<div>
 						<Link to="/">Home</Link>
-						<Link to="/login">Login</Link>
-						<Link to="/signup">Sign up</Link>
-						<Link to="/projects">Projects</Link>
-						<Link to="/admin">Admin</Link>
+						<Link to = "/projects">Projects</Link>
+						{!isLoggedIn ? <div><Link to="/login">Login</Link> <Link to="/signup">Sign up</Link> </div>: <Link to = "/profile">Profile</Link>}
+						{isAdmin && isLoggedIn ? <Link to="/admin">Admin</Link> : null}
 					</div>
 				</nav>
 			</div>
