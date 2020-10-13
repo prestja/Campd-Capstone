@@ -1,41 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Style.css';
-import ViewAProject from '../../containers/ViewAProject';
-
-
-
 
 class ViewProject extends Component {
-
-
-
-  render() {
-
-
-
-    return (
-      <div >
-        <div >
-          <div >
-            <ViewAProject />
-
-          </div>
-        </div>
-      </div>
-    );
-  }
+	render() {
+		console.log("render");
+		return (
+			<div> 
+				<p>blank project page</p>
+			</div>
+		);
+	}
 }
 
-
-
 const mapStateToProps = state => {
-  return {
-    projects: state.projects,
-  };
+	return {
+		projects: state.projects,
+	};
 };
 
-
-export default connect(
-  mapStateToProps
-)(ViewProject);
+export default connect(mapStateToProps)(ViewProject);

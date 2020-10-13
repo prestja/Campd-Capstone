@@ -18,7 +18,7 @@ class Navbar extends Component {
 			<div className="topnav">
 				<section className="header">
 					<div>
-						<h3 className="title">Research and Project Portal</h3>
+						<h3 className="title">UNT Greenlight Projects Portal</h3>
 					</div>
 					<div className="banner">
 						<img className="unt-banner" alt={'University of North Texas logo'} src={require('./unt-banner.svg')} />

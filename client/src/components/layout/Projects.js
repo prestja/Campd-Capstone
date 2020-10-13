@@ -9,7 +9,6 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 class Projects extends Component {
 	componentDidMount() {
 		this.props.onMount();
-		console.log('mount');
 	}
 
 	render() {
