@@ -5,7 +5,6 @@ import { theme } from "@chakra-ui/core";
 
 // local imports
 import Navbar from "./components/layout/Navbar";
-import LogNavbar from "./components/layout/LogNavbar";
 import Landing from "./components/layout/Landing";
 import Login from "./components/auth/Login";
 import Projects from "./components/layout/Projects";
@@ -30,7 +29,7 @@ class App extends Component {
 			<ThemeProvider theme={theme}>
 				<Router>
 					<div className="App">
-						{localStorage.jwtToken ? <LogNavbar /> : <Navbar />}
+						<Navbar></Navbar>
 						<Route exact path="/" component={Landing} />
 						<Route exact path="/viewprofileproject" component={ViewProfileProject} />
 						<Route exact path="/login" component={Login} />
