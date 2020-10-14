@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Listing from '../components/layout/Listing';
 import { deleteProject, viewProjects } from '../actions';
+import { SimpleGrid } from "@chakra-ui/core";
 
 function ProjectList({ projects, onDelete, onView }) {
 	if (!projects.length) {
@@ -10,13 +11,13 @@ function ProjectList({ projects, onDelete, onView }) {
 		)
 	}
 	return (
-		<div>
+		<SimpleGrid minChildWidth="50vh" spacing="3vw" p = {[8, 8, 8, 8]}>
 			{projects.map(project => {
 				return (
 					<Listing name = {project.name} owner = {project.owner} description = {project.description} _id = {project._id}></Listing>
 				);
 			})}
-		</div>
+		</SimpleGrid>
 	);
 }
 
