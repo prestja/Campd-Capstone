@@ -11,9 +11,8 @@ class Navbar extends Component {
 	}
 
 	render() {
-		const isLoggedIn = this.state.log;
-		//const isLoggedIn =false;
-		const isAdmin = false; 
+		const isLoggedIn = true;
+		const isAdmin = true; 
 		return (
 			<div className="topnav">
 				<section className="header">

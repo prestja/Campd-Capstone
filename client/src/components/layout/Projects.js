@@ -34,6 +34,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 	return {
 		onMount: id => {
+			console.log("projects did mount");
 			dispatch(fetchAllProjects())
 		}
 	};
