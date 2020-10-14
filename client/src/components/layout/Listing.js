@@ -7,7 +7,7 @@ import undraw from '../../images/projects.svg';
 class Listing extends React.Component {
 	render() {
 		return (
-			<SimpleGrid columns = {2}>
+			<SimpleGrid columns = {2} pl = "40px" pr = "40px">
 				<Box>
 					<AspectRatioBox maxW = "800px" ratio = {1 / 1}>
 						<Image src = {undraw}/>
