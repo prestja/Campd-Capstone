@@ -11,10 +11,9 @@ function Admin({projects}) {
 					Administrative Actions
 				</MenuButton>
 				<MenuList>
-					<MenuItem>Download all projects</MenuItem>
-					<MenuItem>Download selected projects</MenuItem>
+					<MenuItem>Download selected projects as CSV</MenuItem>
+					<MenuItem>Download selected projects as JSON</MenuItem>
 					<MenuItem>Merge projects from file</MenuItem>
-					<MenuItem>Delete all projects</MenuItem>
 				</MenuList>
 			</Menu>
 			<Stack>
