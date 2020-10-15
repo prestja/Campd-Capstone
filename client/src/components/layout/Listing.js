@@ -12,7 +12,7 @@ class Listing extends React.Component {
 				<Box p="6">
 					<Box d="flex" alignItems="baseline">
 						<Badge rounded="full" px="2" variantColor="teal">
-							TEMP
+							{this.props.status}
           				</Badge>
 						<Box
 							color="gray.500"
@@ -21,7 +21,7 @@ class Listing extends React.Component {
 							fontSize="xs"
 							textTransform="uppercase"
 						>
-							By {this.props.owner}
+							&nbsp;By {this.props.owner}
          				</Box>
 					</Box>
 					<Box

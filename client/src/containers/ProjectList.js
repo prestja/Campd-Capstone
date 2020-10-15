@@ -11,10 +11,10 @@ function ProjectList({ projects, onDelete, onView }) {
 		)
 	}
 	return (
-		<SimpleGrid minChildWidth="50vh" spacing="3vw" p = {[8, 8, 8, 8]}>
+		<SimpleGrid minChildWidth="50vh" spacing="1vw" m = {[8, 8, 8, 8]}>
 			{projects.map(project => {
 				return (
-					<Listing name = {project.name} owner = {project.owner} description = {project.description} _id = {project._id}></Listing>
+					<Listing name = {project.name} owner = {project.owner} description = {project.description} _id = {project._id} status = {project.status}></Listing>
 				);
 			})}
 		</SimpleGrid>
