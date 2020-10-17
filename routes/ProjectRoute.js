@@ -17,6 +17,28 @@ ProjectRoute.route('/add').post(function (req, res) {
 		});
 });
 
+ProjectRoute.route('/update').post(function (req, res) {
+	Project.findByIdAndUpdate(
+		{ _id: req.body._id },
+		{
+			name: req.body.name,
+			owner: req.body.owner,
+			status: req.body.status,
+			description: req.body.description 
+		},
+		function(err, result) {
+			if (err) {
+				res.send(err);
+			}
+			else {
+				res.send(result);
+			}
+		}
+	);
+});
+
+
+
 // Defined get data(index or listing) route
 ProjectRoute.route('/').get(function (req, res) {
 	Project.find(function (err, projects) {

@@ -13,9 +13,10 @@ function ProjectList({ projects, onDelete, onView }) {
 	return (
 		<SimpleGrid minChildWidth="50vh" spacing="1vw" m = {[8, 8, 8, 8]}>
 			{projects.map(project => {
+				if (project.status !== "proposal") {
 				return (
 					<Listing name = {project.name} owner = {project.owner} description = {project.description} _id = {project._id} status = {project.status}></Listing>
-				);
+				);}
 			})}
 		</SimpleGrid>
 	);

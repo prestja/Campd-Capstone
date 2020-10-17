@@ -11,9 +11,32 @@ class Listing extends React.Component {
 				<Image src={undraw} maxW = "100%"/>
 				<Box p="6">
 					<Box d="flex" alignItems="baseline">
-						<Badge rounded="full" px="2" variantColor="teal">
-							{this.props.status}
-          				</Badge>
+						
+						{/* Conditional rendering logic to properly set the colour of status badges. */}
+						{this.props.status === "open" &&
+							<Badge rounded="full" px="2" 
+									variantColor="teal">
+								{this.props.status}
+				  			</Badge>						
+						}
+						{this.props.status === "active" && 
+							<Badge rounded="full" px="2" 
+									variantColor="green">
+								{this.props.status}
+				  			</Badge>
+						}	
+						{this.props.status === "suspended" &&
+							<Badge rounded="full" px="2" 
+									variantColor="yellow">
+								{this.props.status}
+				  			</Badge>
+						}
+						{this.props.status === "archived" &&
+							<Badge rounded="full" px="2" 
+									variantColor="red">
+								{this.props.status}
+				  			</Badge>
+						}	
 						<Box
 							color="gray.500"
 							fontWeight="semibold"

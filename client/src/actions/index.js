@@ -1,6 +1,6 @@
 // index.js
 
-import { ADD_PROJECT, DELETE_PROJECT, SEARCH_PROJECT, FETCH_PROJECT, VIEW_PROJECT } from './types';
+import { ADD_PROJECT, DELETE_PROJECT, UPDATE_PROJECT, SEARCH_PROJECT, FETCH_PROJECT, VIEW_PROJECT } from './types';
 import axios from 'axios';
 
 const apiUrl = 'http://localhost:5000/projects';
@@ -20,6 +20,33 @@ export const createProject = ({ name, owner, ownerID, status, description, file 
 export const createProjectSuccess = (data) => {
 	return {
 		type: ADD_PROJECT,
+		payload: {
+			_id: data._id,
+			name: data.name,
+			owner: data.owner,
+			ownerID: data.ownerID,
+			status: data.status,
+			description: data.description,
+			file: data.file
+		}
+	}
+};
+
+export const updateProject = ({ _id, name, owner, ownerID, status, description, file }) => {
+	return (dispatch) => {
+		return axios.post(`${apiUrl}/update`, { _id, name, owner, ownerID, status, description, file })
+		.then(response => {
+			dispatch(updateProjectSuccess(response.data))
+		})
+		.catch(error => {
+			throw (error);
+		});
+	}
+};
+
+export const updateProjectSuccess = (data) => {
+	return {
+		type: UPDATE_PROJECT,
 		payload: {
 			_id: data._id,
 			name: data.name,
