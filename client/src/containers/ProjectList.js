@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Listing from '../components/layout/Listing';
 import { deleteProject, viewProjects } from '../actions';
 import { SimpleGrid } from "@chakra-ui/core";
+import undraw from '../images/projects.svg';
 
 function ProjectList({ projects, onDelete, onView }) {
 	if (!projects.length) {
@@ -21,6 +22,8 @@ function ProjectList({ projects, onDelete, onView }) {
 		</SimpleGrid>
 	);
 }
+
+
 
 const mapStateToProps = state => {
 	return {

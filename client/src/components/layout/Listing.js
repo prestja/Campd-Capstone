@@ -8,7 +8,7 @@ class Listing extends React.Component {
 	render() {
 		return (
 			<Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden">
-				<Image src={undraw} maxW = "100%"/>
+				<Image src={imagePath(this.props.name)}  maxW = "100%" />
 				<Box p="6">
 					<Box d="flex" alignItems="baseline">
 						
@@ -68,3 +68,13 @@ class Listing extends React.Component {
 }
 
 export default Listing;
+
+
+const imagePath = (path) => {
+	try{
+		return require('../../images/'+path+'.png');
+	}
+	catch(err){
+		return undraw
+	}
+}
