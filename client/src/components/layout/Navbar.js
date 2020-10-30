@@ -27,6 +27,8 @@ class Navbar extends Component {
 					<div>
 						<Link to="/">Home</Link>
 						<Link to = "/projects">Projects</Link>
+						<Link to = "/Image">Image</Link>
+						{!isLoggedIn ? null: <Link to="/AddProject">AddProject</Link>}
 						{!isLoggedIn ? <div><Link to="/login">Login</Link> <Link to="/signup">Sign up</Link> </div>: <Link to = "/profile">Profile</Link>}
 						{isAdmin && isLoggedIn ? <Link to="/admin">Admin</Link> : null}
 					</div>

@@ -12,6 +12,17 @@ var storage = multer.diskStorage({
   }
 })
 var upload = multer({ storage: storage })
+
+var ImageStorage = multer.diskStorage({
+	destination: function (req, file, cb) {
+	  cb(null, __dirname + '/images')
+	},
+	filename: function (req, file, cb) {
+	  cb(null, file.originalname )
+	}
+  })
+
+var ImageUpload = multer({ImageStorage})
 // Require Project model in our routes module
 let Project = require('../models/Project');
 
@@ -51,7 +62,28 @@ ProjectRoute.route('/projects/:name').get(function (req, res, q) {
 		}
 	});
 });
-
+/*ProjectRoute.route('/projects/:owner').get(function(req, res, q){
+	Project.search(q, function(err, data){
+		if(err){
+			console.log(err);
+		}
+		else{
+			res.json(projects);
+			console.log(data);
+		}
+	});
+});*/
+ProjectRoute.route('/projects/:owner').get(function(req, res, q){
+	Project.findById({owner: req.params.owner}, function(err, data){
+		if(err){
+			console.log(err);
+		}
+		else{
+			res.json(project);
+			console.log(data);
+		}
+	});
+});
 // Defined delete | remove | destroy route
 ProjectRoute.route('/delete/:id').get(function (req, res) {
 	Project.findByIdAndRemove({ _id: req.params.id }, function (err, project) {
@@ -59,7 +91,25 @@ ProjectRoute.route('/delete/:id').get(function (req, res) {
 		else res.json(req.params.id);
 	});
 });
+/*
+ProjectRoute.route('/Image').post(upload.single('data'), (req, res, next)=>{
+	console.log(req.body);
+	const newImage = new Image({
+		data: req.file.path
+	});
 
+	newImage.save().then((result)=>{
+		console.log(result);
+		res.status(200).json({
+			success: true,
+			document: result
+		});
+	}).catch((err)=> next(err));
+});
+ProjectRoute.route(/Image).get(function  {
+	
+})
+*/
 	ProjectRoute.post('/uploadJson' , upload.any() ,function (req, res){
 			console.log("In uploadJson");
 			console.log("Inside the projects" , req.files);

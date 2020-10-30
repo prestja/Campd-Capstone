@@ -1,9 +1,10 @@
 // AddProject.js
 
-import React from 'react';
+import React, { Component } from 'react';
 import './layout/Style.css';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+
 
 class AddProject extends React.Component {
   state = {
@@ -34,6 +35,7 @@ class AddProject extends React.Component {
     console.log(this.state)
     if (this.state.name.trim() && this.state.description.trim()) {
       this.props.onAddProject(this.state);
+      
       this.handleReset();
     }
   };
@@ -48,7 +50,6 @@ class AddProject extends React.Component {
       file: ''
     });
   };
-
 
 
   render() {
@@ -109,6 +110,8 @@ class AddProject extends React.Component {
             value={ this.state.file }/>
             </div>
           </div>
+          
+
         <div className="form-group">
           <button type="submit" className="btn btn-primary">Submit</button>
           <button type="button" className="btn btn-warning" onClick={ this.handleReset }>
@@ -116,7 +119,9 @@ class AddProject extends React.Component {
             </button>
         </div>
       </form>
+     
       </div>
+      
     );
   }
 }

@@ -3,12 +3,14 @@ import './Style.css';
 import { Text, Box, Image, Badge, theme } from "@chakra-ui/core"
 import { Link } from 'react-router-dom';
 import undraw from '../../images/projects.svg';
+import ImageUpload from './Image';
 
 class Listing extends React.Component {
 	render() {
 		return (
 			<Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden">
 				<Image src={imagePath(this.props.name)}  maxW = "100%" />
+				
 				<Box p="6">
 					<Box d="flex" alignItems="baseline">
 						

@@ -38,6 +38,7 @@ class App extends Component {
 						<Route exact path = "/addproject" component={AddProject} />
 						<Route exact path = "/signup" component={Signup} />
 						<Route path = "/admin" component={Admin}/>
+						<Route path = "/Image/:id" Component={Image}/>
 						<Switch>
 							<PrivateRoute exact path="/profile" component={Profile} />
 						</Switch>
