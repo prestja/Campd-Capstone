@@ -93,4 +93,4 @@ const imagePath = (path) => {
 	catch(err){
 		return undraw
 	}
-} 
+}

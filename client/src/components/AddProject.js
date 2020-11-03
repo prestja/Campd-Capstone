@@ -35,7 +35,7 @@ class AddProject extends React.Component {
     console.log(this.state)
     if (this.state.name.trim() && this.state.description.trim()) {
       this.props.onAddProject(this.state);
-
+      
       this.handleReset();
     }
   };
@@ -110,7 +110,7 @@ class AddProject extends React.Component {
             value={ this.state.file }/>
             </div>
           </div>
-
+          
 
         <div className="form-group">
           <button type="submit" className="btn btn-primary">Submit</button>
@@ -119,9 +119,9 @@ class AddProject extends React.Component {
             </button>
         </div>
       </form>
-
+     
       </div>
-      
+
     );
   }
 }

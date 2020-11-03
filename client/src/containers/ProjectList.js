@@ -18,13 +18,15 @@ function ProjectList({ projects, onDelete, onView }) {
 				if (project.status !== "proposal") {
 				return (
 					<Listing name = {project.name} owner = {project.owner} description = {project.description} _id = {project._id} status = {project.status}></Listing>
-
+						
 					
 				);}
 			})}
 		</SimpleGrid>
 	);
 }
+
+
 
 const mapStateToProps = state => {
 	return {

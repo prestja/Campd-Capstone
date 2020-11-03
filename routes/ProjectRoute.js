@@ -15,12 +15,12 @@ var upload = multer({ storage: storage })
 
 var ImageStorage = multer.diskStorage({
 	destination: function (req, file, cb) {
-		cb(null, __dirname + '/images')
+	  cb(null, __dirname + '/images')
 	},
 	filename: function (req, file, cb) {
-		cb(null, file.originalname )
+	  cb(null, file.originalname )
 	}
-})
+  })
 
 var ImageUpload = multer({ImageStorage})
 // Require Project model in our routes module
@@ -117,6 +117,7 @@ ProjectRoute.route('/Image').post(upload.single('data'), (req, res, next)=>{
 	const newImage = new Image({
 		data: req.file.path
 	});
+
 	newImage.save().then((result)=>{
 		console.log(result);
 		res.status(200).json({
@@ -130,70 +131,55 @@ ProjectRoute.route(/Image).get(function  {
 })
 */
 ProjectRoute.post('/uploadJson' , upload.any() ,function (req, res){
-		console.log("In uploadJson");
-		console.log("Inside the projects" , req.files);
-		if(!req.files[0]){
-			return res.send({message: "No File to Upload"})
-		}
+	console.log("In uploadJson");
+	console.log("Inside the projects" , req.files);
+	if(!req.files[0]){
+		return res.send({message: "No File to Upload"})
+	}
+	let jsonData = [];
 
-		// if the filetype is csv, parse it to json first
-		let file = req.files[0];
-		let fileType = file.originalname.split(".")[file.originalname.split(".").length - 1];
-		if(fileType == "csv"){
-			console.log("file type is csv");
-		}
+	if(fileType == "csv"){
+		// here we need ot
+		let lines = data.split("\n");
 
-
-		fs.readFile(req.files[0].path , 'utf8' ,function(err, data){
-			if(err){
-				return res.send({message: "there is an error reading the file uploaded"});
-			}
-			let jsonData = [];
-
-			if(fileType == "csv"){
-				// here we need ot
-				let lines = data.split("\n");
-
-				lines.forEach(line => {
-					let props = line.split(",");
-					console.log("line" , line)
-						jsonData.push({
-							name: props[1],
-							owner: props[2],
-							status: props[3],
-							description: props[4],
-							link: props[5],
-						})
+		lines.forEach(line => {
+			let props = line.split(",");
+			console.log("line" , line)
+				jsonData.push({
+					name: props[1],
+					owner: props[2],
+					status: props[3],
+					description: props[4],
+					link: props[5],
 				})
-
-
-			}else {
-				try {
-					jsonData = JSON.parse(data);
-				}catch(err){
-					return res.send({message: "There is an error in the content format"})
-				}
-			}
-
-
-			if(jsonData){
-				// now need to push to the server
-
-				for(let i = 0; i < jsonData.length; i++){
-					delete jsonData[i]["_id"];
-				}
-
-
-			Project.insertMany(jsonData).then(function(data){
-					return res.send({message: "success", data})
-			}).catch(function(err){
-					return res.send({message: "data saved to the database", data});
-			})
-			}else {
-				return res.send({message: "problem in json data"});
-			}
-
 		})
+
+
+	}else {
+		try {
+			jsonData = JSON.parse(data);
+		}catch(err){
+			return res.send({message: "There is an error in the content format"})
+		}
+	}
+
+
+	if(jsonData){
+		// now need to push to the server
+
+		for(let i = 0; i < jsonData.length; i++){
+			delete jsonData[i]["_id"];
+		}
+
+
+	Project.insertMany(jsonData).then(function(data){
+			return res.send({message: "success", data})
+	}).catch(function(err){
+			return res.send({message: "data saved to the database", data});
+	})
+	}else {
+		return res.send({message: "problem in json data"});
+	}
 
 })
 

@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import { Link, Box, Select, Option, Text, FormControl, FormLabel, FormHelperText, Input } from "@chakra-ui/core";
 import { GrUserAdd, GrAddCircle, GrPlay, GrPause, GrStop, GrEject } from "react-icons/gr";
 
-//TODO
+//TODO get the correct image code in and figure out how to bring in the ID/other data.
 class EditProject extends React.Component {
 	state = {
 		name: '',

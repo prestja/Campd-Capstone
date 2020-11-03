@@ -67,7 +67,6 @@ class ImageUpload extends Component{
       }
 
 
-
 }
 
 export default ImageUpload;
