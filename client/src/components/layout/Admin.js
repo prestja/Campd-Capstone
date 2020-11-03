@@ -7,7 +7,9 @@ function Admin({projects}) {
 
 
 	return (
-		<Box>
+		<Box
+		border="3px" borderRadius="md" borderColor="#FF0000"
+		>
 			<Menu>
 				<MenuButton as={Button} rightIcon="chevron-down">
 					Administrative Actions
@@ -18,7 +20,8 @@ function Admin({projects}) {
 					<MenuItem onClick={() => uploadJsonFile()}>Merge projects from file</MenuItem>
 				</MenuList>
 			</Menu>
-			<Stack>
+			<Stack
+			 width={"99%"}>
 				{projects.map(project => {
 					return (
 						<ListingCompact name = {project.name} owner = {project.owner} description = {project.description} _id = {project._id} status = {project.status}></ListingCompact>

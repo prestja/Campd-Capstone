@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import Listing from '../components/layout/Listing';
 import { deleteProject, viewProjects } from '../actions';
 import { SimpleGrid } from "@chakra-ui/core";
+import undraw from '../images/projects.svg';
+import ImageUpload from "../components/layout/Image";
 
 function ProjectList({ projects, onDelete, onView }) {
 	if (!projects.length) {
@@ -16,6 +18,8 @@ function ProjectList({ projects, onDelete, onView }) {
 				if (project.status !== "proposal") {
 				return (
 					<Listing name = {project.name} owner = {project.owner} description = {project.description} _id = {project._id} status = {project.status}></Listing>
+
+					
 				);}
 			})}
 		</SimpleGrid>

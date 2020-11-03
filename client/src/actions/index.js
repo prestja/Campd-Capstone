@@ -41,8 +41,18 @@ export const updateProject = ({ _id, name, owner, ownerID, status, description, 
 		.catch(error => {
 			throw (error);
 		});
-	}
+	};
 };
+
+export const ImageProject = ({imageForm}) =>{
+	return (dispatch )=>{
+		return axios.post('${apiUrl}/projects/Image', imageForm).then((data) => {
+			this.setDefualtImage("multer");
+		}).catch((err)=>{
+			this.setDefualtImage("multer");
+		});
+	}
+}
 
 export const updateProjectSuccess = (data) => {
 	return {

@@ -12,7 +12,7 @@ class Profile extends Component {
   };
 
   componentDidMount() {
-    this.props.onMount(this.props.auth.user.id)
+    this.props.onMount(this.props.auth.user.owner)
   }
 
 render() {
@@ -51,7 +51,7 @@ return (
             <h3> Your Projects </h3>
             <div style={ styles }>
             <ProjectProfileList />
-            </div>
+            </div> 
 
           </div>
         </div>
@@ -73,6 +73,7 @@ const mapDispatchToProps = (dispatch) => ({
   logoutUser: () => dispatch(logoutUser()),
   onMount: (searchName) => dispatch(searchProjects(searchName))
 })
+
 
 export default connect(
   mapStateToProps,
