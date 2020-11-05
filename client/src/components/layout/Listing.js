@@ -70,7 +70,9 @@ class Listing extends React.Component {
 						lineHeight="tight"
 						color="#000000"
 					>
-						<Link color="#000000" to={"/project/"+this.props._id}>{this.props.name}</Link>
+						<Link color="#000000" 
+							to={"/project/"+this.props._id}
+							>{this.props.name}</Link>
 					</Box>
 					<Box isTruncated>
 					{this.props.description}

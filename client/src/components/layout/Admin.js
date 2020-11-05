@@ -2,14 +2,13 @@ import React from "react";
 import { connect } from 'react-redux';
 import { Menu, MenuButton, MenuItem, MenuList, Button, Box, Stack } from "@chakra-ui/core";
 import ListingCompact from "./ListingCompact";
+import { fetchAllProjects } from "../../actions"
 
-function Admin({projects}) {
+function Admin({projects, onView}) {
 
 
 	return (
-		<Box
-		border="3px" borderRadius="md" borderColor="#FF0000"
-		>
+		<Box>
 			<Menu>
 				<MenuButton as={Button} rightIcon="chevron-down">
 					Administrative Actions
@@ -20,8 +19,7 @@ function Admin({projects}) {
 					<MenuItem onClick={() => uploadJsonFile()}>Merge projects from file</MenuItem>
 				</MenuList>
 			</Menu>
-			<Stack
-			 width={"99%"}>
+			<Stack>
 				{projects.map(project => {
 					return (
 						<ListingCompact name = {project.name} owner = {project.owner} description = {project.description} _id = {project._id} status = {project.status}></ListingCompact>
@@ -115,7 +113,7 @@ const mapDispatchToProps = dispatch => {
 			//dispatch(deleteProject(id));
 		},
 		onView: id => {
-			//dispatch(viewProjects(id))
+			dispatch(fetchAllProjects())
 		}
 	};
 };
