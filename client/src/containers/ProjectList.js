@@ -13,12 +13,13 @@ function ProjectList({ projects, onDelete, onView }) {
 		)
 	}
 	return (
-		<Grid templateColumns="repeat(auto-fit, 40vh)" gap={6} bg = "blue.600" justifyContent="center">
-			<Box w="100%" h="40vh" bg="blue.500" />
-			<Box w="100%" h="40vh" bg="blue.500" />
-			<Box w="100%" h="40vh" bg="blue.500" />
-			<Box w="100%" h="40vh" bg="blue.500" />
-			<Box w="100%" h="40vh" bg="blue.500" />
+		<Grid templateColumns="repeat(auto-fit, 40vh)" gap={6} bg = "green.200" justifyContent="center">
+			{projects.map(project => {
+				if (project.status !== "proposal") {
+				return (
+					<Listing file={project.file} name = {project.name} owner = {project.owner} description = {project.description} _id = {project._id} status = {project.status}></Listing>
+				);}
+			})}
 		</Grid>
 	);
 }
