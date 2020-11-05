@@ -22,7 +22,7 @@ var ImageStorage = multer.diskStorage({
 	}
   })
 
-var ImageUpload = multer({ImageStorage})
+var ImageUpload = multer({storage: ImageStorage})
 // Require Project model in our routes module
 let Project = require('../models/Project');
 
@@ -111,25 +111,28 @@ ProjectRoute.route('/delete/:id').get(function (req, res) {
 		else res.json(req.params.id);
 	});
 });
-/*
-ProjectRoute.route('/Image').post(upload.single('data'), (req, res, next)=>{
-	console.log(req.body);
-	const newImage = new Image({
-		data: req.file.path
-	});
 
-	newImage.save().then((result)=>{
-		console.log(result);
-		res.status(200).json({
-			success: true,
-			document: result
-		});
-	}).catch((err)=> next(err));
-});
-ProjectRoute.route(/Image).get(function  {
+ProjectRoute.post('/image', ImageUpload.any(), function(req, res){
+	//console.log(req.body);
+	console.log("In uploadImage");
+	console.log("Inside the projects" , req.files);
+	if(!req.files[0]){
+		return res.send({message: "No File to Upload"})
+	}
 	
+	
+	//const newImage = new Image({
+		//data: req.file.path
+	//});
+
+	//newImage.save().then((result)=>{
+		//console.log(result);
+		//res.status(200).json({
+			//success: true,
+			//document: result
+		//});
+	//}).catch((err)=> next(err));
 })
-*/
 ProjectRoute.post('/uploadJson' , upload.any() ,function (req, res){
 	console.log("In uploadJson");
 	console.log("Inside the projects" , req.files);
@@ -153,7 +156,6 @@ ProjectRoute.post('/uploadJson' , upload.any() ,function (req, res){
 					link: props[5],
 				})
 		})
-
 
 	}else {
 		try {

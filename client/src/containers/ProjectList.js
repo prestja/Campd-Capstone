@@ -17,7 +17,7 @@ function ProjectList({ projects, onDelete, onView }) {
 			{projects.map(project => {
 				if (project.status !== "proposal") {
 				return (
-					<Listing name = {project.name} owner = {project.owner} description = {project.description} _id = {project._id} status = {project.status}></Listing>
+					<Listing file={project.file} name = {project.name} owner = {project.owner} description = {project.description} _id = {project._id} status = {project.status}></Listing>
 						
 					
 				);}

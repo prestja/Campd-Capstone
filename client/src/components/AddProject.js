@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import './layout/Style.css';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-
+import ImageUpload from './layout/Image'
 
 class AddProject extends React.Component {
   state = {
@@ -110,7 +110,6 @@ class AddProject extends React.Component {
             value={ this.state.file }/>
             </div>
           </div>
-          
 
         <div className="form-group">
           <button type="submit" className="btn btn-primary">Submit</button>

@@ -44,15 +44,7 @@ export const updateProject = ({ _id, name, owner, ownerID, status, description, 
 	};
 };
 
-export const ImageProject = ({imageForm}) =>{
-	return (dispatch )=>{
-		return axios.post('${apiUrl}/projects/Image', imageForm).then((data) => {
-			this.setDefualtImage("multer");
-		}).catch((err)=>{
-			this.setDefualtImage("multer");
-		});
-	}
-}
+
 
 export const updateProjectSuccess = (data) => {
 	return {
@@ -115,7 +107,7 @@ export const searchProject = (value, projects) => {
 
 export const searchProjects = (value) => {
 	return (dispatch) => {
-		return axios.get('${apiUr1}/projects/${owner}')
+		return axios.get(`${apiUrl}/projects/`)
 			.then(response => {
 				dispatch(searchProject(value, response.data))
 			})

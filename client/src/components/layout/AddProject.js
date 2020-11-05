@@ -11,6 +11,7 @@ class AddProject extends Component {
         <div >
           <div >
             <CreateProject />
+            
           </div>
         </div>
       </div>

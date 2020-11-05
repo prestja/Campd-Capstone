@@ -90,7 +90,7 @@ export default Listing;
 
 const imagePath = (path) => {
 	try{
-		return require('../../images/'+path+'.png');
+		return require('../../../../routes/images/'+path+'.png');
 	}
 	catch(err){
 		return undraw
