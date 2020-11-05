@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Listing from '../components/layout/Listing';
 import { deleteProject, viewProjects } from '../actions';
-import { SimpleGrid } from "@chakra-ui/core";
+import { Grid, Box } from "@chakra-ui/core";
 import undraw from '../images/projects.svg';
 import ImageUpload from "../components/layout/Image";
 
@@ -13,20 +13,15 @@ function ProjectList({ projects, onDelete, onView }) {
 		)
 	}
 	return (
-		<SimpleGrid minChildWidth="50vh" spacing="1vw" m = {[8, 8, 8, 8]}>
-			{projects.map(project => {
-				if (project.status !== "proposal") {
-				return (
-					<Listing file={project.file} name = {project.name} owner = {project.owner} description = {project.description} _id = {project._id} status = {project.status}></Listing>
-						
-					
-				);}
-			})}
-		</SimpleGrid>
+		<Grid templateColumns="repeat(auto-fit, 40vh)" gap={6} bg = "blue.600" justifyContent="center">
+			<Box w="100%" h="40vh" bg="blue.500" />
+			<Box w="100%" h="40vh" bg="blue.500" />
+			<Box w="100%" h="40vh" bg="blue.500" />
+			<Box w="100%" h="40vh" bg="blue.500" />
+			<Box w="100%" h="40vh" bg="blue.500" />
+		</Grid>
 	);
 }
-
-
 
 const mapStateToProps = state => {
 	return {
