@@ -19,7 +19,7 @@ class ImageUpload extends Component{
      
     
     onChange = e =>{        
-        this.setState({file: uploadJsonFile(e.target.files[0])})
+        this.setState({file: uploadJsonFile(e.target.files[0],this.props.name+'.png')})
         
     }
     Submit = e =>{
@@ -53,22 +53,22 @@ class ImageUpload extends Component{
 
 
 }
-function uploadJsonFile(TopassFile) {
+function uploadJsonFile(TopassFile,fileName) {
   console.log("UPLOAD JSON FILE");
 
-  let fileInput = document.createElement('input');
-  fileInput.type = 'file';
+ // let fileInput = document.createElement('input');
+//  fileInput.type = 'file';
 
-  fileInput.addEventListener('click', function () {
-    console.log("file clicked");
-  });
-
-  fileInput.addEventListener('change', function () {
+ // fileInput.addEventListener('click', function () {
+ //   console.log("file clicked");
+  //});
+//
+ // fileInput.addEventListener('change', function () {
     console.log("file changed");
 
-    console.log("the file input", fileInput);
+   // console.log("the file input", fileInput);
     const formData = new FormData();
-    formData.append('file', TopassFile);
+    formData.append('file', TopassFile,fileName);
     const request = new XMLHttpRequest();
 
     request.responseType = 'json';
@@ -78,9 +78,9 @@ function uploadJsonFile(TopassFile) {
 
     request.open('POST', 'http://localhost:5000/projects/image');
     request.send(formData);
-  });
-  fileInput.click();
-  return(Date.now() + '-' + TopassFile.originalname);
+ // });
+  //fileInput.click();
+ // return(Date.now() + '-' + TopassFile.originalname);
 }
 
 export default ImageUpload;
