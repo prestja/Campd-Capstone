@@ -82,17 +82,7 @@ ProjectRoute.route('/projects/:name').get(function (req, res, q) {
 		}
 	});
 });
-/*ProjectRoute.route('/projects/:owner').get(function(req, res, q){
-	Project.search(q, function(err, data){
-		if(err){
-			console.log(err);
-		}
-		else{
-			res.json(projects);
-			console.log(data);
-		}
-	});
-});*/
+
 ProjectRoute.route('/projects/:owner').get(function(req, res, q){
 	Project.findById({owner: req.params.owner}, function(err, data){
 		if(err){
@@ -120,18 +110,6 @@ ProjectRoute.post('/image', ImageUpload.any(), function(req, res){
 		return res.send({message: "No File to Upload"})
 	}
 	
-	
-	//const newImage = new Image({
-		//data: req.file.path
-	//});
-
-	//newImage.save().then((result)=>{
-		//console.log(result);
-		//res.status(200).json({
-			//success: true,
-			//document: result
-		//});
-	//}).catch((err)=> next(err));
 })
 ProjectRoute.post('/uploadJson' , upload.any() ,function (req, res){
 	console.log("In uploadJson");
