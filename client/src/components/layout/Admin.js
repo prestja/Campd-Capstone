@@ -1,11 +1,11 @@
 import React from "react";
 import { connect } from 'react-redux';
-import { Menu, MenuButton, MenuItem, MenuList, Button, Box, Stack } from "@chakra-ui/core";
+import { Menu, MenuButton, MenuItem, MenuList, Button, Box, Stack, Switch, FormLabel } from "@chakra-ui/core";
 import ListingCompact from "./ListingCompact";
 import { fetchAllProjects } from "../../actions"
 
 function Admin({projects, onView}) {
-
+	//if (projects.length<=1) {forceRefresh();}
 
 	return (
 		<Box>
@@ -19,8 +19,23 @@ function Admin({projects, onView}) {
 					<MenuItem onClick={() => uploadJsonFile()}>Merge projects from file</MenuItem>
 				</MenuList>
 			</Menu>
-			<Stack>
+			<FormLabel paddingLeft="1rem">Show: New</FormLabel>
+			<Switch color="blue" defaultIsChecked={true}/>
+			<FormLabel paddingLeft="2rem">Recruiting</FormLabel>
+			<Switch color="teal" defaultIsChecked={true}/>
+			<FormLabel paddingLeft="2rem">Active</FormLabel>
+			<Switch color="green" defaultIsChecked={true}/>
+			<FormLabel paddingLeft="2rem">Paused</FormLabel>
+			<Switch color="yellow" defaultIsChecked={true}/>
+			<FormLabel paddingLeft="2rem">Stopped</FormLabel>
+			<Switch color="orange" defaultIsChecked={true}/>
+			<FormLabel paddingLeft="2rem">Archived</FormLabel>
+			<Switch color="red" defaultIsChecked={true}/>
+			<FormLabel paddingLeft="2rem">Proposal</FormLabel>
+			<Switch color="gray" defaultIsChecked={true}/>
+			<Stack bg="green.200">
 				{projects.map(project => {
+					if (projects.length<=1) {forceRefresh();}
 					return (
 						<ListingCompact name = {project.name} owner = {project.owner} description = {project.description} _id = {project._id} status = {project.status}></ListingCompact>
 					);
@@ -28,6 +43,10 @@ function Admin({projects, onView}) {
 			</Stack>
 		</Box>
 	);
+}
+
+function forceRefresh() {
+	window.location.reload();
 }
 
 function downloadJson(projects){
@@ -89,7 +108,7 @@ function ConvertToCSV(objArray) {
 	for (var i = 0; i < array.length; i++) {
 		var line = '';
 		for (var index in array[i]) {
-			if (line != '') line += ','
+			if (line !== '') line += ','
 
 			line += array[i][index];
 		}

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "@chakra-ui/core";
 import { theme } from "@chakra-ui/core";
+import custTheme from "./components/layout/theme.js";
 
 // local imports
 import Navbar from "./components/layout/Navbar";
@@ -27,7 +28,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<ThemeProvider theme={theme}>
+			<ThemeProvider theme={custTheme}>
 				<Router>
 					<div className="App">
 						<Navbar></Navbar>

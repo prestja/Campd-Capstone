@@ -6,6 +6,7 @@ import './../layout/Style.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { registerUser } from "../../actions/authActions";
+import { Box, FormLabel, FormControl, Text, Input, Link, Button } from '@chakra-ui/core'
 
 
 
@@ -78,61 +79,59 @@ render() {
 
 
 return (
+  <Box paddingLeft="1rem" paddingTop="1rem">
   <form noValidate onSubmit={ this.handleSubmit } >
-      <h3>Sign up</h3>
-
-      <div className="form-group">
-        <div className="col-7">
-          <label>First name</label>
-          <input type="text" className="form-control" placeholder="First name" name="name" onChange={ this.handleInputChange } value={ this.state.name } error={errors.name}/>
-          <span style={errorStyle}>{errors.name}</span>
+      <Text bg="#EEEEEE" borderRadius="lg" boxShadow="lg" fontSize="xl" paddingLeft="1rem">Sign up</Text>
+      <FormControl width="75%" bg="#F3F3F3" borderRadius="lg" boxShadow="md" paddingX="10px" paddingY="3px">
+        <div className="form-group">
+          <div className="col-7">
+            <FormLabel>First name</FormLabel>
+            <Input type="text" className="form-control" placeholder="First name" name="name" onChange={ this.handleInputChange } value={ this.state.name } error={errors.name}/>
+            <span style={errorStyle}>{errors.name}</span>
+          </div>
         </div>
-      </div>
 
-      <div className="form-group">
-        <div className="col-7">
-          <label>Last name</label>
-          <input type="text" className="form-control" placeholder="Last name" name="lastname" onChange={ this.handleInputChange } value={ this.state.lastname } error={errors.lastname}/>
-          <span style={errorStyle}>{errors.lastname}</span>
+        <div className="form-group">
+          <div className="col-7">
+            <FormLabel>Last name</FormLabel>
+            <Input type="text" className="form-control" placeholder="Last name" name="lastname" onChange={ this.handleInputChange } value={ this.state.lastname } error={errors.lastname}/>
+            <span style={errorStyle}>{errors.lastname}</span>
+          </div>
         </div>
-      </div>
 
-      <div className="form-group">
-        <div className="col-7">
-          <label>Email address</label>
-          <input type="email" className="form-control" placeholder="Enter email" name="email" onChange={ this.handleInputChange } value={ this.state.email } error={errors.email} />
-          <span style={errorStyle}>{errors.email}</span>
+        <div className="form-group">
+          <div className="col-7">
+            <FormLabel>Email address</FormLabel>
+            <Input type="email" className="form-control" placeholder="Enter email" name="email" onChange={ this.handleInputChange } value={ this.state.email } error={errors.email} />
+            <span style={errorStyle}>{errors.email}</span>
+          </div>
         </div>
-      </div>
 
-      <div className="form-group">
-        <div className="col-7">
-          <label>Password</label>
-          <input type="password" className="form-control" placeholder="Enter password" name="password" onChange={ this.handleInputChange } value={ this.state.password } error={errors.password}  />
-          <span style={errorStyle}>{errors.password}</span>
+        <div className="form-group">
+          <div className="col-7">
+            <FormLabel>Password</FormLabel>
+            <Input type="password" className="form-control" placeholder="Enter password" name="password" onChange={ this.handleInputChange } value={ this.state.password } error={errors.password}  />
+            <span style={errorStyle}>{errors.password}</span>
+          </div>
         </div>
-      </div>
 
-      <div className="form-group">
-        <div className="col-7">
-          <label>Password</label>
-          <input type="password" className="form-control" placeholder="Re-Enter password" name="password2" onChange={ this.handleInputChange } value={ this.state.password2 } error={errors.password2}/>
-          <span style={errorStyle}>{errors.password2}</span>
+        <div className="form-group">
+          <div className="col-7">
+            <FormLabel>Confirm Password</FormLabel>
+            <Input type="password" className="form-control" placeholder="Re-Enter password" name="password2" onChange={ this.handleInputChange } value={ this.state.password2 } error={errors.password2}/>
+            <span style={errorStyle}>{errors.password2}</span>
+          </div>
         </div>
-      </div>
 
-      <div className="form-group">
-      <button type="submit" className="btn btn-primary mb-2">Sign Up</button>
-      </div>
-      <p className="forgot-password text-left">
-          Already registered? <a href="/login">Sign in</a>
-      </p>
-
-
-
-
+        <div className="form-group">
+        <Button bg="untgreen" type="submit" className="btn btn-primary mb-2">Sign Up</Button>
+        </div>
+        <p className="forgot-password text-left">
+            Already registered? <Link color="#007700" href="/login">Sign in</Link>
+        </p>
+      </FormControl>
   </form>
-
+  </Box>
 
 
     );

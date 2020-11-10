@@ -51,7 +51,7 @@ class ListingCompact extends React.Component {
 			<SimpleGrid  /*columns = {8}*/ paddingLeft="2px" paddingRight="2px">
 				<SimpleGrid columns={3}>
 					<Checkbox 
-						isChecked = {false}
+						defaultIsChecked = {false}
 						onClick={this.isChecked = !this.isChecked }
 						border="3px" borderRadius="md" borderColor="#333333"
 						paddingLeft='4px'
@@ -111,7 +111,7 @@ class ListingCompact extends React.Component {
 						borderBottomColor="#000000"
 						width="150px"
 						paddingLeft="2"
-						bg="#BBDDFF"
+						bg="statblue"
 					>Status: <GrAddCircle />{this.props.status}</Text>}
 					{this.props.status === "recruiting" && <Text
 						border="1px" borderRadius="md" borderColor="#666666" 
@@ -119,7 +119,7 @@ class ListingCompact extends React.Component {
 						borderBottomColor="#000000"
 						width="150px"
 						paddingLeft="2"
-						bg="#BBFFDD"
+						bg="statteal"
 					>Status: <GrUserAdd />{this.props.status}</Text>}
 					{this.props.status === "active" && <Text 
 						border="1px" borderRadius="md" borderColor="#666666" 
@@ -127,7 +127,7 @@ class ListingCompact extends React.Component {
 						borderBottomColor="#000000"
 						width="150px"
 						paddingLeft="2"
-						bg="#99FF99"
+						bg="statgreen"
 					>Status: <GrPlay />{this.props.status}</Text>}
 					{this.props.status === "paused" && <Text 
 						border="1px" borderRadius="md" borderColor="#666666" 
@@ -135,7 +135,7 @@ class ListingCompact extends React.Component {
 						borderBottomColor="#000000"
 						width="150px"
 						paddingLeft="2"
-						bg="#FFFF99"
+						bg="statyellow"
 					>Status: <GrPause />{this.props.status}</Text>}
 					{this.props.status === "stopped" && <Text
 						border="1px" borderRadius="md" borderColor="#666666" 
@@ -143,7 +143,7 @@ class ListingCompact extends React.Component {
 						borderBottomColor="#000000"
 						width="150px"
 						paddingLeft="2"
-						bg="#FFCC99"
+						bg="statorange"
 					>Status: <GrStop />{this.props.status}</Text>}
 					{this.props.status === "archived" && <Text 
 						border="1px" borderRadius="md" borderColor="#666666" 
@@ -151,7 +151,7 @@ class ListingCompact extends React.Component {
 						borderBottomColor="#000000"
 						width="150px"
 						paddingLeft="2"
-						bg="#FF9999"
+						bg="statred"
 					>Status: <GrEject />{this.props.status}</Text>}
 					{this.props.status === "proposal" && <Text 
 						border="1px" borderRadius="md" borderColor="#666666" 
@@ -159,7 +159,7 @@ class ListingCompact extends React.Component {
 						borderBottomColor="#000000"
 						width="150px"
 						paddingLeft="2"
-						bg="#BBBBBB"
+						bg="statgray"
 					>Status: <GrChatOption />{this.props.status}</Text>}
 
 					<Text

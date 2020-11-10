@@ -5,7 +5,7 @@ import './layout/Style.css';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { updateProject } from '../actions';
-import { Link, Box, Select, Button, Option, Text, FormControl, FormLabel, FormHelperText, Input } from "@chakra-ui/core";
+import { Link, Box, Select, Button, Option, Text, FormControl, FormLabel, FormHelperText, Input, Textarea } from "@chakra-ui/core";
 import { GrUserAdd, GrAddCircle, GrPlay, GrPause, GrStop, GrEject } from "react-icons/gr";
 
 //TODO get the correct image code in and figure out how to bring in the ID/other data.
@@ -70,6 +70,11 @@ class UpdateProject extends React.Component {
                     <FormLabel>Project Name</FormLabel>
                     <Input type="name" id="name" name="name" placeholder={this.props.project.name} onChange={this.handleInputChange}/>
 
+                    {/*if not admin:
+                        <Text paddingTop="2rem">Warning: Changing this project will require an admin to re-verify it!</Text>
+
+                    if admin:
+                    */}
                     <FormLabel>Project Status</FormLabel>
                     <Select id="status" required={true} placeholder={this.props.project.status} onChange={this.handleSelectChange}>
                         <option value="new">New</option>
@@ -87,7 +92,7 @@ class UpdateProject extends React.Component {
                     </FormHelperText>
 
                     <FormLabel>Project Description</FormLabel>
-                    <Input type="description" id="description" placeholder={this.state.description} onChange={this.handleSelectChange}/>
+                    <Textarea type="description" id="description" size="sm" height="10rem" placeholder={this.state.description} onChange={this.handleSelectChange}/>
 
                     <div className="form-group">
                         <div className="col-7">
@@ -98,8 +103,8 @@ class UpdateProject extends React.Component {
                     </div>
 
                     <div className="form-group">
-                        <Button bg="#00A950" color="#FFFFFF" onClick={this.handleSubmit}>Submit</Button>
-                        <Button bg="#00A950">
+                        <Button bg="untgreen" color="#FFFFFF" onClick={this.handleSubmit}>Submit</Button>
+                        <Button bg="untgreen">
                         <Link color="#FFFFFF" href={"/project/"+this.props.id}>Cancel</Link></Button>
                     </div>
                 </FormControl>
