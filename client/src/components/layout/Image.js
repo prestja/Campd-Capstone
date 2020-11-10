@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
-import { connect } from 'react-redux';
-import axios from 'axios';
 import './Style.css';
-import { Menu, MenuButton, MenuItem, MenuList, Button, Box, Stack } from "@chakra-ui/core";
-import ListingCompact from "./ListingCompact";
-import { fetchAllProjects } from "../../actions"
+
 
 class ImageUpload extends Component{
     state={ 
@@ -18,8 +14,9 @@ class ImageUpload extends Component{
 
      
     
-    onChange = e =>{        
-        this.setState({file: uploadJsonFile(e.target.files[0],this.props.name+'.png')})
+    onChange = e =>{       
+        
+        this.setState({file: uploadFile(e.target.files[0],this.props.name)})
         
     }
     Submit = e =>{
@@ -36,7 +33,8 @@ class ImageUpload extends Component{
             <div className="col-md-4 offset-md-4">
             <form Submit={this.Submit}>
                 <div className="form-group">
-                    <input type="file" onChange={this.onChange} />
+                    <input type="file" accept=".png,.jpg" onChange={this.onChange} />
+                    
                 </div>
                 <div>
                   <img src={this.state.file}/>
@@ -53,35 +51,23 @@ class ImageUpload extends Component{
 
 
 }
-function uploadJsonFile(TopassFile,fileName) {
+function uploadFile(TopassFile,fileName) {
+  var ex=TopassFile.name.split('.').pop();
   console.log("UPLOAD JSON FILE");
 
- // let fileInput = document.createElement('input');
-//  fileInput.type = 'file';
-
- // fileInput.addEventListener('click', function () {
- //   console.log("file clicked");
-  //});
-//
- // fileInput.addEventListener('change', function () {
     console.log("file changed");
+      const formData = new FormData();
+      formData.append('file', TopassFile,fileName+"."+ex);
+      const request = new XMLHttpRequest();
 
-   // console.log("the file input", fileInput);
-    const formData = new FormData();
-    formData.append('file', TopassFile,fileName);
-    const request = new XMLHttpRequest();
+      request.responseType = 'json';
+      request.onload = () => {
+        console.log(request.response);
+      };
 
-    request.responseType = 'json';
-    request.onload = () => {
-      console.log(request.response);
-    };
-
-    request.open('POST', 'http://localhost:5000/projects/image');
-    request.send(formData);
- // });
-  //fileInput.click();
- // return(Date.now() + '-' + TopassFile.originalname);
-}
+      request.open('POST', 'http://localhost:5000/projects/image');
+      request.send(formData);
+  }
 
 export default ImageUpload;
 
