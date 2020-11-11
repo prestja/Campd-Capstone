@@ -3,7 +3,7 @@ import {
 	Heading, 
 	Flex,
 	Link,
-	Stack,
+	Box,
 	Image,
 	Divider,
 	Grid,
@@ -25,19 +25,16 @@ class Navbar extends Component {
 		return (
 			<Grid templateColumns="repeat(auto-fit, 60vw)" gap={6} bg = "untaccentgray.700" color = "white" justifyContent="center">
 				<Flex>
-					<Image>
-
-					</Image>
-					<Heading>UNT Greenlight Projects Portal</Heading>	
+					<Image size = "5vw" src={require('./unt-banner.svg')}></Image>
+					<Text fontWeight = "bold" fontSize = {{base: "xl", sm: "3xl", md: "4xl"}} color = "white" textAlign= "center">UNT Greenlight</Text>
 				</Flex>
-				<Flex marginRight = "40px">
+				<Flex>
 					<Link marginRight = "1rem" color = "white" href ="/">Home</Link >
 					<Link marginRight = "1rem" color = "white" href  = "/projects">Projects</Link>
 					{!isLoggedIn ? null: <Link marginRight = "1rem" color = "white" href="/AddProject">Add Project</Link>}
 					{!isLoggedIn ? <div><Link marginRight = "1rem" color = "white" href="/login">Login</Link> <Link marginRight = "1rem" color = "white" to="/signup">Sign up</Link> </div>: <Link marginRight = "1rem" color = "white" href = "/profile">Profile</Link>}
 					{isAdmin && isLoggedIn ? <Link marginRight = "1rem" color = "white" href="/admin">Admin</Link> : null}
 				</Flex>
-					
 			</Grid>
 		);
 	}
