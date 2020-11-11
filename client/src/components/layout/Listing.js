@@ -1,11 +1,10 @@
 import React from 'react';
 import './Style.css';
 import './theme.js';
-import { Text, Box, Image, Badge, theme, Link } from "@chakra-ui/core"
+import { Text, Box, Image, Badge, Icon, Link } from "@chakra-ui/core"
 import { GrAddCircle, GrUserAdd, GrPlay, GrPause, GrStop, GrEject } from "react-icons/gr";
 
 import undraw from '../../images/projects.svg';
-import ImageUpload from './Image';
 
 class Listing extends React.Component {
 	render() {
@@ -18,39 +17,36 @@ class Listing extends React.Component {
 						
 						{/* Conditional rendering logic to properly set the colour of status badges. */}
 						{this.props.status === "new" &&
-							<Badge rounded="full" px="2" 
-									bg="statblue">
-								<GrAddCircle/>{this.props.status}
+							<Badge rounded="lg" mr = "4px" bg="statblue">
+								<Icon as = {GrAddCircle}></Icon>	
+								{this.props.status}
 				  			</Badge>						
 						}
 						{this.props.status === "recruiting" &&
-							<Badge rounded="full" px="2" 
-									bg="statteal">
-								<GrUserAdd/>{this.props.status}
+							<Badge rounded="full" px="2" bg="statteal">
+								<Icon as = {GrUserAdd}></Icon>	
+								{this.props.status}
 				  			</Badge>						
 						}
 						{this.props.status === "active" && 
-							<Badge rounded="full" px="2" 
-									bg="statgreen">
-								<GrPlay/>{this.props.status}
+							<Badge rounded="full" px="2" bg="statgreen">
+								<Icon as = {GrPlay}></Icon>	
+								{this.props.status}
 				  			</Badge>
 						}	
 						{this.props.status === "paused" &&
-							<Badge rounded="full" px="2" 
-									bg="statyellow">
-								<GrPause/>{this.props.status}
+							<Badge rounded="full" px="2" bg="statyellow">
+								<Icon as = {GrPause}/>{this.props.status}
 				  			</Badge>
 						}
 						{this.props.status === "stopped" &&
-							<Badge rounded="full" px="2" 
-									bg="statorange">
-								<GrStop/>{this.props.status}
+							<Badge rounded="full" px="2" bg="statorange">
+								<Icon as = {GrStop}/>{this.props.status}
 				  			</Badge>
 						}
 						{this.props.status === "archived" &&
-							<Badge rounded="full" px="2" 
-									bg="statred">
-								<GrEject/>{this.props.status}
+							<Badge rounded="full" px="2" bg="statred">
+								<Icon as = {GrEject}/>{this.props.status}
 				  			</Badge>
 						}	
 						<Box
@@ -72,14 +68,12 @@ class Listing extends React.Component {
 					>
 						<Link color="#007700" 
 							href={"/project/"+this.props._id}
-							>{this.props.name}</Link>
+							>{this.props.name}
+						</Link>
 					</Box>
-					<Box isTruncated>
-					{this.props.description}
-						<Box as="span" color="gray.600" fontSize="sm">
-							/ wk
-          				</Box>
-					</Box>
+					<Text width = "95%"noOfLines={3}>
+						{this.props.description}
+					</Text>
 				</Box>
 			</Box>
 		);

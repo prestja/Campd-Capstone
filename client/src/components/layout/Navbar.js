@@ -26,7 +26,7 @@ class Navbar extends Component {
 			<Grid templateColumns="repeat(auto-fit, 60vw)" gap={6} bg = "untaccentgray.700" color = "white" justifyContent="center">
 				<Flex>
 					<Image size = "5vw" src={require('./unt-banner.svg')}></Image>
-					<Text fontWeight = "bold" fontSize = {{base: "xl", sm: "3xl", md: "4xl"}} color = "white" textAlign= "center">UNT Greenlight</Text>
+					<Text fontWeight = "bold" fontSize = {{base: "xl", sm: "3xl", md: "4xl"}} color = "white" textAlign= "center">UNT Greenlight Projects Portal</Text>
 				</Flex>
 				<Flex>
 					<Link marginRight = "1rem" color = "white" href ="/">Home</Link >

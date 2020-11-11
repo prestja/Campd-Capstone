@@ -12,7 +12,7 @@ class ProjectView extends Component {
 	}
 	render() {	
 		return (
-			<Box width = "100%" height = "100%" bg = "#000000">
+			<Box width = "100%" height = "100%">
 				<Box spacing={3} padding="12px" width="75%" bg="#F3F3F3" borderRadius="lg">
 					<SimpleGrid columns = {2}>
 						<Box bg="#DDDDDD" boxShadow="md" borderRadius="lg">
@@ -44,7 +44,6 @@ class ProjectView extends Component {
 								bg="#F3F3F3" borderColor="#777777" paddingLeft="4px">
 									<Badge rounded="full" bg="statgray"><GrChatOption/>PROPOSAL</Badge>{this.props.projects[0].name}
 							</Text>}
-							
 							<Text paddingLeft="4px">PROJECT TEAM GOES HERE{/*this.props.projects[0] && this.props.projects[0].staff*/}</Text>
 							<Text paddingLeft="4px">{this.props.projects[0] && this.props.projects[0].description}</Text>
 							<Text paddingLeft="4px">CONTACT: {this.props.projects[0] && this.props.projects[0].owner} [email]</Text>

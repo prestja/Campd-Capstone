@@ -9,7 +9,6 @@ import { searchProjects } from '../actions/index';
 import '../components/layout/Style.css';
 import {Checkbox, Box } from '@chakra-ui/core';
 
-
 class SearchBar extends Component {
 	state = {
 		value: ""
@@ -55,14 +54,12 @@ class SearchBar extends Component {
 									onClick={this.handleReset}
 								>Clear Search</button>
 							</div>
-  
 						</div>
 						<Box>
-							<Checkbox size="lg" variantColor="blue" defaultIsChecked>New</Checkbox>
-							<Checkbox size="lg" variantColor="orange" defaultIsChecked>Proposal</Checkbox>
-							<Checkbox size="lg" variantColor="green" defaultIsChecked>Recruiting</Checkbox>
+							<Checkbox size="lg" colorScheme="blue" defaultIsChecked>New</Checkbox>
+							<Checkbox size="lg" colorScheme="orange" defaultIsChecked>Proposal</Checkbox>
+							<Checkbox size="lg" colorScheme="green" defaultIsChecked>Recruiting</Checkbox>
 						</Box>
-						
 					</div>
 				</div>
 			</div>

@@ -66,7 +66,7 @@ class ListingCompact extends React.Component {
 						paddingLeft = "3px"
 					><Link color="#007700" id={this.props.id} href={"/project/"+this.props._id}>{this.props.name}</Link></Text>
 					<Button
-						variantColor="red" variant="solid" size="sm" width="60px"
+						colorScheme="red" variant="solid" size="sm" width="60px"
 					>REMOVE</Button>
 				</SimpleGrid>
 				<SimpleGrid columns = {3} width="100%">
@@ -100,7 +100,7 @@ class ListingCompact extends React.Component {
 						</MenuList>
 					</Menu>
 					{/*<Button
-						variantColor="green" variant="solid" size="sm" width="30px"
+						colorScheme="green" variant="solid" size="sm" width="30px"
 						//onClick={e => this.testprint(setstatusvar)/*console.log({setstatus})}
 					>GO</Button>*/}
 					

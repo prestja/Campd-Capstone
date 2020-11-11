@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { ThemeProvider } from "@chakra-ui/core";
+import { ChakraProvider } from "@chakra-ui/core";
 import { Stack, Box } from "@chakra-ui/core";
 import custTheme from "./components/layout/theme.js";
 
@@ -28,7 +28,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<ThemeProvider theme={custTheme}>
+			<ChakraProvider theme={custTheme}>
 				<Router>
 					<Stack className="App" bg= "untsec1" minH = "100vh" maxW = "100vw" overflow="hidden">
 						<Box>
@@ -51,7 +51,7 @@ class App extends Component {
 						</Box>
 					</Stack>
 				</Router>
-			</ThemeProvider>
+			</ChakraProvider>
 		);
 	}
 }
