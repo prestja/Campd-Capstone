@@ -31,7 +31,7 @@ function Admin({projects, onView}) {
 			<Switch color="red" defaultIsChecked={true}/>
 			<FormLabel paddingLeft="2rem">Proposal</FormLabel>
 			<Switch color="gray" defaultIsChecked={true}/>
-			<Stack bg="green.200">
+			<Stack>
 				{projects.map(project => {
 					if (projects.length<=1) {forceRefresh();}
 					return (

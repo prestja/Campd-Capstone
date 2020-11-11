@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import Listing from '../components/layout/Listing';
 import { deleteProject, viewProjects } from '../actions';
 import { Grid, Box } from "@chakra-ui/core";
-import undraw from '../images/projects.svg';
-import ImageUpload from "../components/layout/Image";
 
 function ProjectList({ projects, onDelete, onView }) {
 	if (!projects.length) {
@@ -13,7 +11,7 @@ function ProjectList({ projects, onDelete, onView }) {
 		)
 	}
 	return (
-		<Grid templateColumns="repeat(auto-fit, 40vh)" gap={6} bg = "green.400" justifyContent="center">
+		<Grid templateColumns="repeat(auto-fit, 40vh)" gap={6} justifyContent="center">
 			{projects.map(project => {
 				if (project.status !== "proposal") {
 				return (

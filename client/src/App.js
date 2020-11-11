@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "@chakra-ui/core";
-import { theme } from "@chakra-ui/core";
+import { Stack, Box } from "@chakra-ui/core";
 import custTheme from "./components/layout/theme.js";
 
 // local imports
@@ -30,22 +30,26 @@ class App extends Component {
 		return (
 			<ThemeProvider theme={custTheme}>
 				<Router>
-					<div className="App">
-						<Navbar></Navbar>
-						<Route exact path = "/" component={Landing} />
-						<Route exact path = "/viewprofileproject" component={ViewProfileProject} />
-						<Route exact path = "/login" component={Login} />
-						<Route exact path = "/projects" component={Projects} />
-						<Route path = "/project/:id" component={ProjectView} />
-						<Route path = "/edit/:id" component={EditProject} />
-						<Route exact path = "/addproject" component={AddProject} />
-						<Route exact path = "/signup" component={Signup} />
-						<Route path = "/admin" component={Admin}/>
-						<Route path = "/Image/:id" Component={Image}/>
-						<Switch>
-							<PrivateRoute exact path="/profile" component={Profile} />
-						</Switch>
-					</div>
+					<Stack className="App" bg= "untsec1" minH = "100vh" w = "100%">
+						<Box>
+							<Navbar></Navbar>
+						</Box>
+						<Box minH = "100%">
+							<Route exact path = "/" component={Landing} />
+							<Route exact path = "/viewprofileproject" component={ViewProfileProject} />
+							<Route exact path = "/login" component={Login} />
+							<Route exact path = "/projects" component={Projects} />
+							<Route path = "/project/:id" component={ProjectView} />
+							<Route path = "/edit/:id" component={EditProject} />
+							<Route exact path = "/addproject" component={AddProject} />
+							<Route exact path = "/signup" component={Signup} />
+							<Route path = "/admin" component={Admin}/>
+							<Route path = "/Image/:id" Component={Image}/>
+							<Switch>
+								<PrivateRoute exact path="/profile" component={Profile} />
+							</Switch>
+						</Box>
+					</Stack>
 				</Router>
 			</ThemeProvider>
 		);
