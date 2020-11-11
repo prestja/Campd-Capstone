@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import {Stack} from "@chakra-ui/core";
 import ProjectList from '../../containers/ProjectList';
 import ProjectSearch from '../../utils/ProjectSearch';
 import { fetchAllProjects } from '../../actions';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 
 class Projects extends Component {
 	componentDidMount() {
@@ -13,10 +14,10 @@ class Projects extends Component {
 
 	render() {
 		return (
-			<div>
+			<Stack>
 				<ProjectSearch />
 				<ProjectList />
-			</div>
+			</Stack>
 		);
 	}
 }

@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { searchProjects } from '../actions/index';
 import '../components/layout/Style.css';
-import {Checkbox, Box } from '@chakra-ui/core';
+import {Checkbox, Switch, FormLabel, Box, FormControl, Stack } from '@chakra-ui/core';
 
 class SearchBar extends Component {
 	state = {
@@ -55,11 +55,15 @@ class SearchBar extends Component {
 								>Clear Search</button>
 							</div>
 						</div>
-						<Box>
-							<Checkbox size="lg" colorScheme="blue" defaultIsChecked>New</Checkbox>
-							<Checkbox size="lg" colorScheme="orange" defaultIsChecked>Proposal</Checkbox>
-							<Checkbox size="lg" colorScheme="green" defaultIsChecked>Recruiting</Checkbox>
-						</Box>
+						<Stack bg = "white" align = "center" borderRadius = "lg" direction = "row">
+								<FormLabel>Show: New</FormLabel><Switch colorScheme="blue" defaultIsChecked={true}/>
+								<FormLabel>Recruiting</FormLabel><Switch colorScheme="teal" defaultIsChecked={true}/>
+								<FormLabel>Active</FormLabel><Switch colorScheme="green" defaultIsChecked={true}/>
+								<FormLabel>Paused</FormLabel><Switch colorScheme="yellow" defaultIsChecked={true}/>
+								<FormLabel>Stopped</FormLabel><Switch colorScheme="orange" defaultIsChecked={true}/>
+								<FormLabel>Archived</FormLabel><Switch colorScheme="red" defaultIsChecked={true}/>
+								<FormLabel>Proposal</FormLabel><Switch colorScheme="gray" defaultIsChecked={true}/>
+						</Stack>
 					</div>
 				</div>
 			</div>
