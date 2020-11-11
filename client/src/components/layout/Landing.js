@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import './Style.css';
 import {Stack, Text} from "@chakra-ui/core";
 
-class Landing extends Component {
+export default class Landing extends Component {
 	render() {
 		return (
 			<Stack d="flex" mt="2" alignItems="center">
@@ -14,4 +14,3 @@ class Landing extends Component {
 		);
 	}
 }
-export default Landing;
