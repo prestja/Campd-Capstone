@@ -1,8 +1,9 @@
 import React from 'react';
 import './Style.css';
-import { Text, Box, Image, Badge, theme } from "@chakra-ui/core"
+import './theme.js';
+import { Text, Box, Image, Badge, theme, Link } from "@chakra-ui/core"
 import { GrAddCircle, GrUserAdd, GrPlay, GrPause, GrStop, GrEject } from "react-icons/gr";
-import { Link } from 'react-router-dom';
+
 import undraw from '../../images/projects.svg';
 import ImageUpload from './Image';
 
@@ -19,37 +20,37 @@ class Listing extends React.Component {
 						{/* Conditional rendering logic to properly set the colour of status badges. */}
 						{this.props.status === "new" &&
 							<Badge rounded="full" px="2" 
-									variantColor="blue">
+									bg="statblue">
 								<GrAddCircle/>{this.props.status}
 				  			</Badge>						
 						}
 						{this.props.status === "recruiting" &&
 							<Badge rounded="full" px="2" 
-									variantColor="teal">
+									bg="statteal">
 								<GrUserAdd/>{this.props.status}
 				  			</Badge>						
 						}
 						{this.props.status === "active" && 
 							<Badge rounded="full" px="2" 
-									variantColor="green">
+									bg="statgreen">
 								<GrPlay/>{this.props.status}
 				  			</Badge>
 						}	
 						{this.props.status === "paused" &&
 							<Badge rounded="full" px="2" 
-									variantColor="yellow">
+									bg="statyellow">
 								<GrPause/>{this.props.status}
 				  			</Badge>
 						}
 						{this.props.status === "stopped" &&
 							<Badge rounded="full" px="2" 
-									variantColor="orange">
+									bg="statorange">
 								<GrStop/>{this.props.status}
 				  			</Badge>
 						}
 						{this.props.status === "archived" &&
 							<Badge rounded="full" px="2" 
-									variantColor="red">
+									bg="statred">
 								<GrEject/>{this.props.status}
 				  			</Badge>
 						}	
@@ -70,8 +71,8 @@ class Listing extends React.Component {
 						lineHeight="tight"
 						color="#000000"
 					>
-						<Link color="#000000" 
-							to={"/project/"+this.props._id}
+						<Link color="#007700" 
+							href={"/project/"+this.props._id}
 							>{this.props.name}</Link>
 					</Box>
 					<Box isTruncated>

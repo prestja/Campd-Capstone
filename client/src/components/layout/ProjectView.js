@@ -15,42 +15,43 @@ class ProjectView extends Component {
 			<Box spacing={3} padding="12px" width="75%" bg="#F3F3F3" borderRadius="lg">
 				<SimpleGrid columns = {2}>
 					<Box bg="#DDDDDD" boxShadow="md" borderRadius="lg">
-						{this.props.projects[0] && this.props.projects[0].status == "new" && <Text fontSize = "lg" border="2px" borderRadius="md" 
+						{this.props.projects[0] && this.props.projects[0].status === "new" && <Text fontSize = "lg" border="2px" borderRadius="md" 
 							bg="#F3F3F3" borderColor="#777777" paddingLeft="4px">
-								<Badge rounded="full" variantColor="blue"><GrAddCircle/>NEW</Badge>{this.props.projects[0].name}
+								<Badge rounded="full" bg="statblue"><GrAddCircle/>NEW</Badge>{this.props.projects[0].name}
 						</Text>}
-						{this.props.projects[0] && this.props.projects[0].status == "recruiting" && <Text fontSize = "lg" border="2px" borderRadius="md" 
+						{this.props.projects[0] && this.props.projects[0].status === "recruiting" && <Text fontSize = "lg" border="2px" borderRadius="md" 
 							bg="#F3F3F3" borderColor="#777777" paddingLeft="4px">
-								<Badge rounded="full" variantColor="teal"><GrUserAdd/>RECRUITING</Badge>{this.props.projects[0].name}
+								<Badge rounded="full" bg="statteal"><GrUserAdd/>RECRUITING</Badge>{this.props.projects[0].name}
 						</Text>}
-						{this.props.projects[0] && this.props.projects[0].status == "active" && <Text fontSize = "lg" border="2px" borderRadius="md" 
+						{this.props.projects[0] && this.props.projects[0].status === "active" && <Text fontSize = "lg" border="2px" borderRadius="md" 
 							bg="#F3F3F3" borderColor="#777777" paddingLeft="4px">
-								<Badge rounded="full" variantColor="green"><GrPlay/>ACTIVE</Badge>{this.props.projects[0].name}
+								<Badge rounded="full" bg="statgreen"><GrPlay/>ACTIVE</Badge>{this.props.projects[0].name}
 						</Text>}
-						{this.props.projects[0] && this.props.projects[0].status == "paused" && <Text fontSize = "lg" border="2px" borderRadius="md" 
+						{this.props.projects[0] && this.props.projects[0].status === "paused" && <Text fontSize = "lg" border="2px" borderRadius="md" 
 							bg="#F3F3F3" borderColor="#777777" paddingLeft="4px">
-								<Badge rounded="full" variantColor="yellow"><GrPause/>PAUSED</Badge>{this.props.projects[0].name}
+								<Badge rounded="full" bg="statyellow"><GrPause/>PAUSED</Badge>{this.props.projects[0].name}
 						</Text>}
-						{this.props.projects[0] && this.props.projects[0].status == "stopped" && <Text fontSize = "lg" border="2px" borderRadius="md" 
+						{this.props.projects[0] && this.props.projects[0].status === "stopped" && <Text fontSize = "lg" border="2px" borderRadius="md" 
 							bg="#F3F3F3" borderColor="#777777" paddingLeft="4px">
-								<Badge rounded="full" variantColor="orange"><GrStop/>STOPPED</Badge>{this.props.projects[0].name}
+								<Badge rounded="full" bg="statorange"><GrStop/>STOPPED</Badge>{this.props.projects[0].name}
 						</Text>}
-						{this.props.projects[0] && this.props.projects[0].status == "archived" && <Text fontSize = "lg" border="2px" borderRadius="md" 
+						{this.props.projects[0] && this.props.projects[0].status === "archived" && <Text fontSize = "lg" border="2px" borderRadius="md" 
 							bg="#F3F3F3" borderColor="#777777" paddingLeft="4px">
-								<Badge rounded="full" variantColor="red"><GrEject/>ARCHIVED</Badge>{this.props.projects[0].name}
+								<Badge rounded="full" bg="statred"><GrEject/>ARCHIVED</Badge>{this.props.projects[0].name}
 						</Text>}
-						{this.props.projects[0] && this.props.projects[0].status == "proposal" && <Text fontSize = "lg" border="2px" borderRadius="md" 
+						{this.props.projects[0] && this.props.projects[0].status === "proposal" && <Text fontSize = "lg" border="2px" borderRadius="md" 
 							bg="#F3F3F3" borderColor="#777777" paddingLeft="4px">
-								<Badge rounded="full" variantColor="gray"><GrChatOption/>PROPOSAL</Badge>{this.props.projects[0].name}
+								<Badge rounded="full" bg="statgray"><GrChatOption/>PROPOSAL</Badge>{this.props.projects[0].name}
 						</Text>}
 						
-						<Text paddingLeft="4px">PROJECT TEAM GOES HERE</Text>
+						<Text paddingLeft="4px">PROJECT TEAM GOES HERE{/*this.props.projects[0] && this.props.projects[0].staff*/}</Text>
 						<Text paddingLeft="4px">{this.props.projects[0] && this.props.projects[0].description}</Text>
 						<Text paddingLeft="4px">CONTACT: {this.props.projects[0] && this.props.projects[0].owner} [email]</Text>
-						<Button bg="#00A950"><Link color="#FFFFFF" href='/projects'>Back to projects page</Link></Button>
-						<Button bg="#00A950"><Link color="#FFFFFF" id={this.props.match.params.id} href={'/edit/'+this.props.match.params.id}>Edit</Link></Button>
+						<Button bg="untgreen"><Link color="#FFFFFF" href='/projects'>Back to projects page</Link></Button>
+						<Button bg="untgreen"><Link color="#FFFFFF" id={this.props.match.params.id} href={'/edit/'+this.props.match.params.id}>Edit</Link></Button>
 					</Box>
-					<Image src={imagePath(this.props.name)} paddingLeft="5px"/>
+					<Image src={this.props.projects[0] && imagePath(this.props.projects[0].name)} paddingLeft="5px"/>
+					
 				</SimpleGrid>
 			</Box>
 		);
@@ -73,7 +74,16 @@ const mapDispatchToProps = dispatch => {
 };
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectView);
 
+//const imagePath = (path) => {
+//	try { return require('../../images/'+path+'.png'); }
+//	catch (err) { return undraw }
+//}
+
 const imagePath = (path) => {
-	try { return require('../../images/'+path+'.png'); }
-	catch (err) { return undraw }
+	try{
+		return require('../../../../routes/images/'+path+'.png');
+	}
+	catch(err){
+		return undraw
+	}
 }
