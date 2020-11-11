@@ -23,7 +23,7 @@ class Navbar extends Component {
 		const isLoggedIn = true;
 		const isAdmin = true; 
 		return (
-			<Grid templateColumns="repeat(auto-fit, 60vw)" gap={6} bg = "untaccentgray" color = "white" justifyContent="center">
+			<Grid templateColumns="repeat(auto-fit, 60vw)" gap={6} bg = "untaccentgray.700" color = "white" justifyContent="center">
 				<Flex>
 					<Image>
 

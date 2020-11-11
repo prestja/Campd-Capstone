@@ -10,7 +10,6 @@ import ImageUpload from './Image';
 class Listing extends React.Component {
 	render() {
 		return (
-			
 			<Box maxW="sm" rounded="lg" overflow="hidden"
 				boxShadow="md" bg="#EEEEEE">
 				<Image src={imagePath(this.props.name)}  maxW = "100%" />

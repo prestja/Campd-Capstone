@@ -30,7 +30,7 @@ class App extends Component {
 		return (
 			<ThemeProvider theme={custTheme}>
 				<Router>
-					<Stack className="App" bg= "untsec1" minH = "100vh" minW = "100vw" maxW = "100vw">
+					<Stack className="App" bg= "untsec1" minH = "100vh" maxW = "100vw" overflow="hidden">
 						<Box>
 							<Navbar></Navbar>
 						</Box>

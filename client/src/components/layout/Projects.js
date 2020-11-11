@@ -13,13 +13,9 @@ class Projects extends Component {
 
 	render() {
 		return (
-			<div >
-				<div >
-					<div >
-						<ProjectSearch />
-						<ProjectList />
-					</div>
-				</div>
+			<div>
+				<ProjectSearch />
+				<ProjectList />
 			</div>
 		);
 	}
