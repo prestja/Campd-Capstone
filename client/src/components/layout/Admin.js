@@ -1,14 +1,15 @@
 import React from "react";
 import { connect } from 'react-redux';
-import { Menu, MenuButton, MenuItem, MenuList, Button, Box, Stack, Switch, FormLabel } from "@chakra-ui/core";
+import { Menu, MenuButton, MenuItem, MenuList, Button, Box, Stack, Switch, FormLabel, Icon } from "@chakra-ui/core";
 import ListingCompact from "./ListingCompact";
 import { fetchAllProjects } from "../../actions"
+import { GrCaretDown } from "react-icons/gr"
 
 function Admin({projects, onView}) {
 	return (
 		<Box>
 			<Menu>
-				<MenuButton as={Button} rightIcon="chevron-down">
+				<MenuButton as={Button} rightIcon={<Icon as={GrCaretDown}></Icon>}>
 					Administrative Actions
 				</MenuButton>
 				<MenuList>
