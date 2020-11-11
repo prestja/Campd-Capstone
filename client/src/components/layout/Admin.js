@@ -5,8 +5,6 @@ import ListingCompact from "./ListingCompact";
 import { fetchAllProjects } from "../../actions"
 
 function Admin({projects, onView}) {
-
-
 	return (
 		<Box>
 			<Menu>
@@ -61,24 +59,24 @@ function uploadJsonFile(){
 	fileInput.type = 'file'
 
 	fileInput.addEventListener('click' , function(){
-			console.log("file clicked");
+		console.log("file clicked");
 	})
 
 	fileInput.addEventListener('change' , function(){
-			console.log("file changed");
+		console.log("file changed");
 
-			console.log("the file input" , fileInput);
-			const formData = new FormData();
-			formData.append('file' , fileInput.files[0]);
-			const request = new XMLHttpRequest();
+		console.log("the file input" , fileInput);
+		const formData = new FormData();
+		formData.append('file' , fileInput.files[0]);
+		const request = new XMLHttpRequest();
 
-			request.responseType = 'json';
-			request.onload = () => {
-				console.log(request.response);
-			}
+		request.responseType = 'json';
+		request.onload = () => {
+			console.log(request.response);
+		}
 
-			request.open('POST' , 'http://localhost:5000/projects/uploadJson');
-			request.send(formData);
+		request.open('POST' , 'http://localhost:5000/projects/uploadJson');
+		request.send(formData);
 	})
 	fileInput.click();
 }
@@ -93,10 +91,8 @@ function ConvertToCSV(objArray) {
 
 			line += array[i][index];
 		}
-
 		str += line + '\r\n';
 	}
-
 	return str;
 }
 

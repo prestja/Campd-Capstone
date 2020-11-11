@@ -13,7 +13,7 @@ function ProjectList({ projects, onDelete, onView }) {
 		)
 	}
 	return (
-		<Grid templateColumns="repeat(auto-fit, 40vh)" gap={6} bg = "green.200" justifyContent="center">
+		<Grid templateColumns="repeat(auto-fit, 40vh)" gap={6} bg = "green.400" justifyContent="center">
 			{projects.map(project => {
 				if (project.status !== "proposal") {
 				return (

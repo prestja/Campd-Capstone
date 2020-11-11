@@ -7,6 +7,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { searchProjects } from '../actions/index';
 import '../components/layout/Style.css';
+import {Checkbox, Box } from '@chakra-ui/core';
+
 
 class SearchBar extends Component {
 	state = {
@@ -37,7 +39,6 @@ class SearchBar extends Component {
 			<div className="search">
 				<div className="list row">
 					<div className="col-md-8">
-
 						<div className="input-group mb-3">
 							<input
 								type="value"
@@ -48,17 +49,20 @@ class SearchBar extends Component {
 								value={this.state.value}
 							/>
 							<div className="input-group-append">
-
 								<button
 									type="button"
 									className="btn btn-danger waves-effect waves-light hoverable red accent-3"
 									onClick={this.handleReset}
-								>
-									Reset Search
-              </button>
+								>Clear Search</button>
 							</div>
+  
 						</div>
-
+						<Box>
+							<Checkbox size="lg" variantColor="blue" defaultIsChecked>New</Checkbox>
+							<Checkbox size="lg" variantColor="orange" defaultIsChecked>Proposal</Checkbox>
+							<Checkbox size="lg" variantColor="green" defaultIsChecked>Recruiting</Checkbox>
+						</Box>
+						
 					</div>
 				</div>
 			</div>
