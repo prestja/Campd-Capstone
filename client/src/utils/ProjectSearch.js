@@ -7,7 +7,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { searchProjects } from '../actions/index';
 import '../components/layout/Style.css';
-import {Checkbox, Switch, FormLabel, Box, FormControl, Stack } from '@chakra-ui/core';
+import {
+	IconButton,
+	Flex,
+	SearchIcon,
+	Button,
+	Box,
+	Switch, 
+	FormLabel, 
+	Editable, EditablePreview, EditableInput,
+	Stack 
+} from '@chakra-ui/core';
 
 class SearchBar extends Component {
 	state = {
@@ -35,38 +45,21 @@ class SearchBar extends Component {
 
 	render() {
 		return (
-			<div className="search">
-				<div className="list row">
-					<div className="col-md-8">
-						<div className="input-group mb-3">
-							<input
-								type="value"
-								className="form-control"
-								placeholder="Search for a project..."
-								name="value"
-								onChange={this.handleSearchChange}
-								value={this.state.value}
-							/>
-							<div className="input-group-append">
-								<button
-									type="button"
-									className="btn btn-danger waves-effect waves-light hoverable red accent-3"
-									onClick={this.handleReset}
-								>Clear Search</button>
-							</div>
-						</div>
-						<Stack bg = "white" align = "center" borderRadius = "lg" direction = "row">
-								<FormLabel>Show: New</FormLabel><Switch colorScheme="blue" defaultIsChecked={true}/>
-								<FormLabel>Recruiting</FormLabel><Switch colorScheme="teal" defaultIsChecked={true}/>
-								<FormLabel>Active</FormLabel><Switch colorScheme="green" defaultIsChecked={true}/>
-								<FormLabel>Paused</FormLabel><Switch colorScheme="yellow" defaultIsChecked={true}/>
-								<FormLabel>Stopped</FormLabel><Switch colorScheme="orange" defaultIsChecked={true}/>
-								<FormLabel>Archived</FormLabel><Switch colorScheme="red" defaultIsChecked={true}/>
-								<FormLabel>Proposal</FormLabel><Switch colorScheme="gray" defaultIsChecked={true}/>
-						</Stack>
-					</div>
-				</div>
-			</div>
+			<Stack bg = "white" borderRadius = "lg">
+					<Editable placeholder ="Enter project search terms here">
+						<EditablePreview />
+						<EditableInput />
+					</Editable>
+				<Stack direction = "row" d= "flex">
+					<FormLabel>Show: New</FormLabel><Switch colorScheme="blue" defaultIsChecked={false}/>
+					<FormLabel>Recruiting</FormLabel><Switch colorScheme="teal" defaultIsChecked={true}/>
+					<FormLabel>Active</FormLabel><Switch colorScheme="green" defaultIsChecked={true}/>
+					<FormLabel>Paused</FormLabel><Switch colorScheme="yellow" defaultIsChecked={false}/>
+					<FormLabel>Stopped</FormLabel><Switch colorScheme="orange" defaultIsChecked={false}/>
+					<FormLabel>Archived</FormLabel><Switch colorScheme="red" defaultIsChecked={false}/>
+					<FormLabel>Proposals</FormLabel><Switch colorScheme="gray" defaultIsChecked={false}/>
+				</Stack>
+			</Stack>
 		);
 	};
 }

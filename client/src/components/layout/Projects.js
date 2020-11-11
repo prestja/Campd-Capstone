@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Stack} from "@chakra-ui/core";
+import {Box, Stack} from "@chakra-ui/core";
 import ProjectList from '../../containers/ProjectList';
 import ProjectSearch from '../../utils/ProjectSearch';
 import { fetchAllProjects } from '../../actions';
@@ -14,8 +14,12 @@ class Projects extends Component {
 
 	render() {
 		return (
-			<Stack>
+			<Stack width = "100%">
+				<Box width = "70%" alignSelf = "center">
 				<ProjectSearch />
+
+				</Box>
+
 				<ProjectList />
 			</Stack>
 		);

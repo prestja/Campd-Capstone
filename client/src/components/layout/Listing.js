@@ -10,7 +10,7 @@ class Listing extends React.Component {
 	render() {
 		return (
 			<Box maxW="sm" rounded="lg" overflow="hidden"
-				boxShadow="md" bg="#EEEEEE">
+				boxShadow="lg" bg="#EEEEEE">
 				<Image src={imagePath(this.props.name)}  maxW = "100%" />
 				<Box p="6">
 					<Box d="flex" alignItems="baseline">

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Menu, MenuButton, MenuItem, MenuList, Button, Box, Stack, Switch, FormLabel } from "@chakra-ui/core";
 import ListingCompact from "./ListingCompact";
 import { fetchAllProjects } from "../../actions"
+import ProjectSearch from "../../utils/ProjectSearch";
 
 function Admin({projects, onView}) {
 	return (
@@ -17,20 +18,9 @@ function Admin({projects, onView}) {
 					<MenuItem onClick={() => uploadJsonFile()}>Merge projects from file</MenuItem>
 				</MenuList>
 			</Menu>
-			<FormLabel paddingLeft="1rem">Show: New</FormLabel>
-			<Switch colorSchme="blue" defaultIsChecked={true}/>
-			<FormLabel paddingLeft="2rem">Recruiting</FormLabel>
-			<Switch colorScheme="teal" defaultIsChecked={true}/>
-			<FormLabel paddingLeft="2rem">Active</FormLabel>
-			<Switch colorScheme="green" defaultIsChecked={true}/>
-			<FormLabel paddingLeft="2rem">Paused</FormLabel>
-			<Switch color="yellow" defaultIsChecked={true}/>
-			<FormLabel paddingLeft="2rem">Stopped</FormLabel>
-			<Switch colorScheme="orange" defaultIsChecked={true}/>
-			<FormLabel paddingLeft="2rem">Archived</FormLabel>
-			<Switch colorScheme="red" defaultIsChecked={true}/>
-			<FormLabel paddingLeft="2rem">Proposal</FormLabel>
-			<Switch colorScheme="gray" defaultIsChecked={true}/>
+			<ProjectSearch>
+				
+			</ProjectSearch>
 			<Stack>
 				{projects.map(project => {
 					if (projects.length<=1) {forceRefresh();}
