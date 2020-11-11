@@ -1,6 +1,11 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import './Style.css';
+import {
+	Heading, 
+	Flex,
+	Link,
+	Stack,
+	Box
+} from "@chakra-ui/core";
 
 class Navbar extends Component {
 	constructor(props) {
@@ -14,25 +19,23 @@ class Navbar extends Component {
 		const isLoggedIn = true;
 		const isAdmin = true; 
 		return (
-			<div className="topnav">
-				<section className="header">
-					<div>
-						<h3 className="title">UNT Greenlight Projects Portal</h3>
-					</div>
-					<div className="banner">
-						<img className="unt-banner" alt={'University of North Texas logo'} src={require('./unt-banner.svg')} />
-					</div>
-				</section>
-				<nav>
-					<div>
-						<Link to="/">Home</Link>
-						<Link to = "/projects">Projects</Link>
-						{!isLoggedIn ? null: <Link to="/AddProject">Add Project</Link>}
-						{!isLoggedIn ? <div><Link to="/login">Login</Link> <Link to="/signup">Sign up</Link> </div>: <Link to = "/profile">Profile</Link>}
-						{isAdmin && isLoggedIn ? <Link to="/admin">Admin</Link> : null}
-					</div>
-				</nav>
-			</div>
+			<Flex
+      			align="center"
+				justify="space-between"
+				wrap="wrap"
+				bg="untgreen"
+    		>
+				<Stack minW = "100%">
+					<Heading as="h1" size="lg" letterSpacing={"-.1rem"} color = "white">UNT Greenlight Projects Portal</Heading>
+					<Box bg = "untaccentgray">
+						<Link href ="/">Home</Link>
+						<Link href  = "/projects">Projects</Link>
+						{!isLoggedIn ? null: <Link href="/AddProject">Add Project</Link>}
+						{!isLoggedIn ? <div><Link href="/login">Login</Link> <Link to="/signup">Sign up</Link> </div>: <Link href = "/profile">Profile</Link>}
+						{isAdmin && isLoggedIn ? <Link href="/admin">Admin</Link> : null}
+					</Box>
+				</Stack>
+			</Flex>
 		);
 	}
 }
