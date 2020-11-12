@@ -44,8 +44,6 @@ export const updateProject = ({ _id, name, owner, ownerID, status, description, 
 	};
 };
 
-
-
 export const updateProjectSuccess = (data) => {
 	return {
 		type: UPDATE_PROJECT,
