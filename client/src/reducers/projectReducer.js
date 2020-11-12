@@ -11,10 +11,12 @@ export default function projectReducer(state = [], action) {
 			if (value === "") {
 				return action.projects;
 			}
-			return state.filter(
-				project => project.name.toLowerCase().includes(value) ||
+			return action.projects.filter(
+				project => 
+				project.name.toLowerCase().includes(value) ||
 				project.description.toLowerCase().includes(value) ||
-				project.owner.toLowerCase().includes(value)
+				project.owner.toLowerCase().includes(value) ||
+				(project.tags && project.tags.includes(value))
 			);
 		}
 		case FETCH_PROJECT:

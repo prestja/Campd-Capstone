@@ -20,6 +20,9 @@ let Project = new Schema({
 	},
 	file: {
 		type: String
+	},
+	tags: {
+		type: Array
 	}
 }, {
 	collection: 'projects'
@@ -30,6 +33,7 @@ Project.index({ name: "text", description: "text", status: "text"},
 
 Project.statics = {
 	searchPartial: function (q, callback) {
+		console.log("seasrch partial");
 		return this.find({
 			$or: [
 				{ "name": new RegExp(q, "gi") },

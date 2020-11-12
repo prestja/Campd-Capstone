@@ -6,12 +6,10 @@ import { Grid, Box } from "@chakra-ui/core";
 
 function ProjectList({ projects, onDelete, onView }) {
 	if (!projects.length) {
-		console.log("no projects");
 		return (
-			<div>No Projects</div>
+			<div>Looks like there aren't any project matching those search terms. Modify your search or consider creating a project of your own.</div>
 		)
 	}
-	console.log(projects.length);
 	return (
 		<Grid templateColumns="repeat(auto-fit, 35vh)" gap={6} justifyContent="center">
 			{

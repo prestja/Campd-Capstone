@@ -17,7 +17,6 @@ import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
-
 store.dispatch(fetchAllProjects());
 
 // Check for token to keep user logged in

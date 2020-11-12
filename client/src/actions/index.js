@@ -105,7 +105,7 @@ export const searchProject = (value, projects) => {
 
 export const searchProjects = (value) => {
 	return (dispatch) => {
-		return axios.get(`${apiUrl}/projects/`)
+		return axios.get(`${apiUrl}`)
 			.then(response => {
 				dispatch(searchProject(value, response.data))
 			})
