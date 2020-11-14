@@ -14,12 +14,10 @@ class Projects extends Component {
 
 	render() {
 		return (
-			<Stack width = "100%">
-				<Box width = "70%" alignSelf = "center">
+			<Stack>
+				<Box width = {{base: "99%", lg: "70%"}} alignSelf = "center">
 				<ProjectSearch />
-
 				</Box>
-
 				<ProjectList />
 			</Stack>
 		);

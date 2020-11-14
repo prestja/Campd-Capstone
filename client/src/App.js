@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, ProtectedRoute, Switch } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/core";
 import { Stack, Box } from "@chakra-ui/core";
 import custTheme from "./components/layout/theme.js";
@@ -27,6 +27,8 @@ class App extends Component {
 	}
 
 	render() {
+		const isLoggedIn = true;
+		const isAdmin = true;
 		return (
 			<ChakraProvider theme={custTheme}>
 				<Router>
@@ -43,8 +45,8 @@ class App extends Component {
 							<Route path = "/edit/:id" component={EditProject} />
 							<Route exact path = "/addproject" component={AddProject} />
 							<Route exact path = "/signup" component={Signup} />
-							<Route path = "/admin" component={Admin}/>
 							<Route path = "/Image/:id" Component={Image}/>
+							<Route exact path="/admin" component={Admin} />
 							<Switch>
 								<PrivateRoute exact path="/profile" component={Profile} />
 							</Switch>

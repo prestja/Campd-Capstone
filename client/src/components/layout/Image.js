@@ -11,8 +11,6 @@ class ImageUpload extends Component{
         description: this.props.description,
         file: ''
     }
-
-     
     
     onChange = e =>{       
         

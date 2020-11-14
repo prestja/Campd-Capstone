@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 import {
-	Heading, 
 	Flex,
 	Link,
-	Box,
 	Image,
-	Divider,
 	Grid,
 	Text,
-	AspectRatioBox
 } from "@chakra-ui/core";
 
 class Navbar extends Component {

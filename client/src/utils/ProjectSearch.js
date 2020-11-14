@@ -8,13 +8,9 @@ import { connect } from 'react-redux';
 import { searchProjects } from '../actions/index';
 import '../components/layout/Style.css';
 import {
-	IconButton,
-	Flex,
-	SearchIcon,
-	Button,
-	Box,
-	Switch, 
+	Divider,
 	FormLabel, 
+	Switch,
 	Editable, EditablePreview, EditableInput,
 	Stack 
 } from '@chakra-ui/core';
@@ -26,14 +22,13 @@ class SearchBar extends Component {
 
 	handleSearchChange = e => {
 		this.setState({
-			value: e.target.value
+			value: e
 		});
 		this.handleSubmit(e);
 	};
 
 	handleSubmit = e => {
-		e.preventDefault();
-		this.props.onSearch(e.target.value.toLowerCase());
+		this.props.onSearch(e.toLowerCase());
 	};
 
 	handleReset = (e) => {
@@ -46,10 +41,15 @@ class SearchBar extends Component {
 	render() {
 		return (
 			<Stack bg = "white" borderRadius = "lg">
-					<Editable placeholder ="Enter project search terms here">
-						<EditablePreview />
-						<EditableInput />
-					</Editable>
+				<Editable 
+					placeholder ="Enter project search terms here"
+					type = "value"
+					value = {this.state.value}
+					onChange = {this.handleSearchChange}>
+					<EditablePreview />
+					<EditableInput />
+				</Editable>
+				<Divider></Divider>
 				<Stack direction = "row" d= "flex">
 					<FormLabel>Show: New</FormLabel><Switch colorScheme="blue" defaultIsChecked={false}/>
 					<FormLabel>Recruiting</FormLabel><Switch colorScheme="teal" defaultIsChecked={true}/>

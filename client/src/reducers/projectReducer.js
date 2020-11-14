@@ -1,5 +1,3 @@
-// projectReducer.js
-
 import { ADD_PROJECT, DELETE_PROJECT, SEARCH_PROJECT, FETCH_PROJECT, VIEW_PROJECT } from '../actions/types';
 
 export default function projectReducer(state = [], action) {
@@ -14,9 +12,11 @@ export default function projectReducer(state = [], action) {
 				return action.projects;
 			}
 			return action.projects.filter(
-				project => project.name.toLowerCase().includes(value) ||
+				project => 
+				project.name.toLowerCase().includes(value) ||
 				project.description.toLowerCase().includes(value) ||
-				project.owner.toLowerCase().includes(value)
+				project.owner.toLowerCase().includes(value) ||
+				(project.tags && project.tags.includes(value))
 			);
 		}
 		case FETCH_PROJECT:

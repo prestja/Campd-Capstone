@@ -44,8 +44,6 @@ export const updateProject = ({ _id, name, owner, ownerID, status, description, 
 	};
 };
 
-
-
 export const updateProjectSuccess = (data) => {
 	return {
 		type: UPDATE_PROJECT,
@@ -107,7 +105,7 @@ export const searchProject = (value, projects) => {
 
 export const searchProjects = (value) => {
 	return (dispatch) => {
-		return axios.get(`${apiUrl}/projects/`)
+		return axios.get(`${apiUrl}`)
 			.then(response => {
 				dispatch(searchProject(value, response.data))
 			})
