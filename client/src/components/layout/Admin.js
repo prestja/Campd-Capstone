@@ -3,11 +3,8 @@ import { connect } from 'react-redux';
 import { Menu, MenuButton, MenuItem, MenuList, Button, Box, Stack, Switch, FormLabel, Icon } from "@chakra-ui/core";
 import ListingCompact from "./ListingCompact";
 import { fetchAllProjects } from "../../actions"
-<<<<<<< HEAD
 import { GrCaretDown } from "react-icons/gr"
-=======
 import ProjectSearch from "../../utils/ProjectSearch";
->>>>>>> ffe3c605ffeb75220b156df0941753b3bb639f09
 
 function Admin({projects, onView}) {
 	return (

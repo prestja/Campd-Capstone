@@ -48,7 +48,7 @@ class ListingCompact extends React.Component {
 			<Box paddingTop="10px" alignSelf="center">
 			<Flex width="99vw" paddingTop='1' alignSelf="center" bg="#EEEEEE" 
 			borderWidth="3px" borderColor="#000000" borderRadius="lg" boxShadow="md">
-			<SimpleGrid  /*columns = {8}*/ paddingLeft="2px" paddingRight="2px">
+			<SimpleGrid paddingLeft="2px" paddingRight="2px">
 				<SimpleGrid columns={3}>
 					<Checkbox 
 						defaultIsChecked = {false}
@@ -56,17 +56,17 @@ class ListingCompact extends React.Component {
 						border="3px" borderRadius="md" borderColor="#333333"
 						paddingLeft='4px'
 						alignItems="center"
-						width={"20px"}
+						width={"2%"}
 					></Checkbox>
 					<Text
-						width="1350px"
+						width="90vw"
 						border="1px" borderRadius="md" borderColor="#666666"
 						borderTopWidth="1px" borderTopColor="#000000"
 						borderBottomWidth="1px" borderBottomColor="#000000"
 						paddingLeft = "3px"
 					><Link color="#007700" id={this.props.id} href={"/project/"+this.props._id}>{this.props.name}</Link></Text>
 					<Button
-						colorScheme="red" variant="solid" size="sm" width="60px"
+						colorScheme="red" variant="solid" size="sm" width="7%"
 					>REMOVE</Button>
 				</SimpleGrid>
 				<SimpleGrid columns = {3} width="100%">

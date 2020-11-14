@@ -9,7 +9,12 @@ import { connect } from 'react-redux';
 class ProjectView extends Component {
 	componentDidMount() {
 		this.props.onMount(this.props.match.params.id);
-	}
+	};
+
+	testPrint() {
+		console.log(this.props);
+	};
+
 	render() {	
 		return (
 			<Box width = "100%" height = "100%">
@@ -48,7 +53,8 @@ class ProjectView extends Component {
 							<Text paddingLeft="4px">{this.props.projects[0] && this.props.projects[0].description}</Text>
 							<Text paddingLeft="4px">CONTACT: {this.props.projects[0] && this.props.projects[0].owner} [email]</Text>
 							<Button bg="untgreen"><Link color="#FFFFFF" href='/projects'>Back to projects page</Link></Button>
-							<Button bg="untgreen"><Link color="#FFFFFF" id={this.props.match.params.id} href={'/edit/'+this.props.match.params.id}>Edit</Link></Button>
+							{this.props.projects[0] && <Button bg="untgreen"><Link color="#FFFFFF" id={this.props.match.params.id} project={this.props.projects[0]} href={'/edit/'+this.props.projects[0]._id/*this.props.match.params.id*/}>Edit</Link></Button>}
+							<Button onClick={() => this.testPrint()}></Button>
 						</Box>
 						<Image src={this.props.projects[0] && imagePath(this.props.projects[0].name)} paddingLeft="5px"/>
 					</SimpleGrid>
