@@ -60,7 +60,6 @@ class ProjectView extends Component {
 					</SimpleGrid>
 				</Box>
 			</Box>
-			
 		);
 	}
 }

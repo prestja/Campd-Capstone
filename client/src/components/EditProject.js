@@ -8,41 +8,24 @@ import { updateProject } from '../actions';
 import { Link, Box, Select, Button, Option, Text, FormControl, FormLabel, FormHelperText, Input, Textarea } from "@chakra-ui/core";
 import { GrUserAdd, GrAddCircle, GrPlay, GrPause, GrStop, GrEject } from "react-icons/gr";
 
-//TODO get the correct image code in and figure out how to bring in the ID/other data.
-class UpdateProject extends React.Component {
+class UpdateProject extends React.Component {    
+    // this constructor is dead useless, take no stock in it
     constructor(props) {
         super(props);
-        // Don't call this.setState() here!
         this.state = { _id: props.project._id,
-              name: props.project.name,
-              owner: props.project.owner,
-              ownerID: '',
-              status: props.project.status,
-              description: props.project.description,
-              file: '',
-              test: props, };
-        console.log(this.state);
-      }
-    /*state = {
-        _id: this.props.project._id,
-        name: this.props.project.name,
-		owner: this.props.project.owner,
-		ownerID: '',
-		status: this.props.project.status,
-		description: this.props.project.description,
-        file: '',
-        test: this.props,
-    };*/
-    
-    testprint() {
-        console.log(this.props);
-        console.log(this.state);
-	};
+            name: props.project.name,
+            owner: props.project.owner,
+            ownerID: '',
+            status: props.project.status,
+            description: props.project.description,
+            link: '',
+        }
+    }
 
     handleInputChange = e => {    
         this.setState({
             [e.target.name]: e.target.value
-        });    
+        });
     };
 
     handleSelectChange = e => {
@@ -51,17 +34,16 @@ class UpdateProject extends React.Component {
         });
     };
     
-    
     handleSubmit = e => {
+        console.log(this.state);
+        console.log(this.props);
         e.preventDefault();
-        console.log(this.state)
         if (this.state.name == '') {this.setState({name: this.props.project.name})}
         if (this.state.description == '') {this.setState({description: this.props.project.description})}
-        console.log(this.state)
-        //if (this.state.name.trim() && this.state.description.trim()) {
-            //this.props.onUpdateProject(this.state);
-            //this.handleReset();
-        //}
+        if (this.state.name.trim() && this.state.description.trim()) {
+            this.props.onUpdateProject(this.state);
+            this.handleReset();
+        }
     };
     
     handleReset = () => {
@@ -71,11 +53,28 @@ class UpdateProject extends React.Component {
             ownerID: '',
             status: '',
             description: '',
-            file: ''
+            link: ''
         });
     };
-    
-    
+
+    // this is the real gourmet stuff
+    componentDidUpdate(prevProps, prevState, snapshot)
+    {
+        if (prevProps == this.props) // callback can occur when state is changed
+            return;
+        console.log("componentDidUpdate");
+        console.log(this.props);
+        this.state = { 
+            _id: this.props.project._id,
+            name: this.props.project.name,
+            owner: this.props.project.owner,
+            ownerID: "",
+            status: this.props.project.status,
+            description: this.props.project.description,
+            link: this.props.project.link
+        }
+        console.log(this.state);
+    }
     
     render() {
         const {user} = this.props.auth;
@@ -114,7 +113,7 @@ class UpdateProject extends React.Component {
                         <div className="col-7">
                             <label>File Attachment</label>
                             <input type="file" className="form-control-file" id="attachment" name="file" onChange={ this.handleInputChange }
-                                value={ this.state.file }/>
+                                value={ this.state.link }/>
                         </div>
                     </div>
 
