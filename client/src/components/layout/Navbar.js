@@ -7,6 +7,7 @@ import {
 	TabList,
 	Tab,
 	Tabs,
+	Link
 } from "@chakra-ui/core";
 
 class Navbar extends Component {
