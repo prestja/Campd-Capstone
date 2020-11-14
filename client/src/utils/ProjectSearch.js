@@ -27,6 +27,10 @@ class SearchBar extends Component {
 		this.handleSubmit(e);
 	};
 
+	handleStatusChange = e => {
+
+	}
+
 	handleSubmit = e => {
 		this.props.onSearch(e.toLowerCase());
 	};
@@ -36,6 +40,11 @@ class SearchBar extends Component {
 			value: ""
 		});
 		this.handleSearchChange(e);
+	};
+
+	handleSwitch = (n, b) => {
+		console.log(n);
+		console.log(b);
 	};
 
 	render() {
@@ -51,13 +60,13 @@ class SearchBar extends Component {
 				</Editable>
 				<Divider></Divider>
 				<Stack direction = "row" d= "flex">
-					<FormLabel>Show: New</FormLabel><Switch colorScheme="blue" defaultIsChecked={false}/>
-					<FormLabel>Recruiting</FormLabel><Switch colorScheme="teal" defaultIsChecked={true}/>
-					<FormLabel>Active</FormLabel><Switch colorScheme="green" defaultIsChecked={true}/>
-					<FormLabel>Paused</FormLabel><Switch colorScheme="yellow" defaultIsChecked={false}/>
-					<FormLabel>Stopped</FormLabel><Switch colorScheme="orange" defaultIsChecked={false}/>
-					<FormLabel>Archived</FormLabel><Switch colorScheme="red" defaultIsChecked={false}/>
-					<FormLabel>Proposals</FormLabel><Switch colorScheme="gray" defaultIsChecked={false}/>
+					<FormLabel>Show: New</FormLabel><Switch colorScheme="blue" defaultIsChecked={this.props.new} onChange={(e) => this.handleSwitch("news", true)}/>
+					<FormLabel>Recruiting</FormLabel><Switch colorScheme="teal" defaultIsChecked={this.props.recruiting} onChange={(e) => this.handleSwitch("recruiting", true)}/>
+					<FormLabel>Active</FormLabel><Switch colorScheme="green" defaultIsChecked={this.props.active} onChange={(e) => this.handleSwitch("active", true)}/>
+					<FormLabel>Paused</FormLabel><Switch colorScheme="yellow" defaultIsChecked={this.props.paused} onChange={(e) => this.handleSwitch("paused", true)}/>
+					<FormLabel>Stopped</FormLabel><Switch colorScheme="orange" defaultIsChecked={this.props.stopped} onChange={(e) => this.handleSwitch("stopped", true)}/>
+					<FormLabel>Archived</FormLabel><Switch colorScheme="red" defaultIsChecked={this.props.archived} onChange={(e) => this.handleSwitch("archived", true)}/>
+					<FormLabel>Proposals</FormLabel><Switch colorScheme="gray" defaultIsChecked={this.props.proposals} onChange={(e) => this.handleSwitch("proposals", true)}/>
 				</Stack>
 			</Stack>
 		);

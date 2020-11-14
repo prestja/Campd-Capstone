@@ -16,7 +16,7 @@ class Projects extends Component {
 		return (
 			<Stack>
 				<Box width = {{base: "99%", lg: "70%"}} alignSelf = "center">
-				<ProjectSearch />
+				<ProjectSearch new = {true} recruiting = {true} active = {true}/>
 				</Box>
 				<ProjectList />
 			</Stack>
