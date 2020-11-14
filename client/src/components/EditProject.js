@@ -10,17 +10,33 @@ import { GrUserAdd, GrAddCircle, GrPlay, GrPause, GrStop, GrEject } from "react-
 
 //TODO get the correct image code in and figure out how to bring in the ID/other data.
 class UpdateProject extends React.Component {
-	state = {
-		name: this.props.project.name,
+    constructor(props) {
+        super(props);
+        // Don't call this.setState() here!
+        this.state = { _id: props.project._id,
+              name: props.project.name,
+              owner: props.project.owner,
+              ownerID: '',
+              status: props.project.status,
+              description: props.project.description,
+              file: '',
+              test: props, };
+        console.log(this.state);
+      }
+    /*state = {
+        _id: this.props.project._id,
+        name: this.props.project.name,
 		owner: this.props.project.owner,
 		ownerID: '',
 		status: this.props.project.status,
 		description: this.props.project.description,
-		file: '',
-    };
+        file: '',
+        test: this.props,
+    };*/
     
-    testprint(e) {
-		console.log(e);
+    testprint() {
+        console.log(this.props);
+        console.log(this.state);
 	};
 
     handleInputChange = e => {    
@@ -43,8 +59,8 @@ class UpdateProject extends React.Component {
         if (this.state.description == '') {this.setState({description: this.props.project.description})}
         console.log(this.state)
         //if (this.state.name.trim() && this.state.description.trim()) {
-            this.props.onUpdateProject(this.state);
-            this.handleReset();
+            //this.props.onUpdateProject(this.state);
+            //this.handleReset();
         //}
     };
     
@@ -92,7 +108,7 @@ class UpdateProject extends React.Component {
                     </FormHelperText>
 
                     <FormLabel>Project Description</FormLabel>
-                    <Textarea type="description" id="description" size="sm" height="10rem" placeholder={this.state.description} onChange={this.handleSelectChange}/>
+                    <Textarea type="description" id="description" size="sm" height="10rem" placeholder={this.props.project.description} onChange={this.handleSelectChange}/>
 
                     <div className="form-group">
                         <div className="col-7">
@@ -106,6 +122,7 @@ class UpdateProject extends React.Component {
                         <Button bg="untgreen" color="#FFFFFF" onClick={this.handleSubmit}>Submit</Button>
                         <Button bg="untgreen">
                         <Link color="#FFFFFF" href={"/project/"+this.props.id}>Cancel</Link></Button>
+                        <Button onClick={() => this.testprint()}/>
                     </div>
                 </FormControl>
                     
