@@ -5,6 +5,8 @@ import './layout/Style.css';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import ImageUpload from './layout/Image'
+import { Tag, TagIcon, TagLabel, TagCloseButton } from "@chakra-ui/core";
+import { Stack } from "@chakra-ui/core";
 
 class AddProject extends React.Component {
   state = {
@@ -13,6 +15,7 @@ class AddProject extends React.Component {
       ownerID: this.props.auth.user.id,
       status: '',
       description: '',
+      tags: '',
       file: ''
   };
 
@@ -35,7 +38,7 @@ class AddProject extends React.Component {
     console.log(this.state)
     if (this.state.name.trim() && this.state.description.trim()) {
       this.props.onAddProject(this.state);
-      
+
       this.handleReset();
     }
   };
@@ -47,10 +50,21 @@ class AddProject extends React.Component {
       ownerID: '',
       status: '',
       description: '',
+      tags: '',
       file: ''
     });
   };
+/*
+  function add()
+  {
 
+  }
+
+  function del()
+  {
+
+  }
+*/
 
   render() {
     const {user} = this.props.auth;
@@ -105,6 +119,14 @@ class AddProject extends React.Component {
 
           <div className="form-group">
             <div className="col-7">
+              <label>Tags</label>
+            <input type="text" data-role="taginput" data-tag-trigger="Space" className="form-control" id="tags" name="tags" required={true} onChange={ this.handleInputChange }
+          value={ this.state.tags } />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div className="col-7">
               <label>File Attachment</label>
               <input type="file" className="form-control-file" id="attachment" name="file" onChange={ this.handleInputChange }
             value={ this.state.file }/>
@@ -118,7 +140,7 @@ class AddProject extends React.Component {
             </button>
         </div>
       </form>
-     
+
       </div>
 
     );

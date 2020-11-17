@@ -45,7 +45,7 @@ ProjectRoute.route('/update').post(function (req, res) {
 			name: req.body.name,
 			owner: req.body.owner,
 			status: req.body.status,
-			description: req.body.description 
+			description: req.body.description
 		},
 		function(err, result) {
 			if (err) {
@@ -119,8 +119,8 @@ ProjectRoute.post('/image', ImageUpload.any(), function(req, res){
 	if(!req.files[0]){
 		return res.send({message: "No File to Upload"})
 	}
-	
-	
+
+
 	//const newImage = new Image({
 		//data: req.file.path
 	//});
@@ -154,6 +154,7 @@ ProjectRoute.post('/uploadJson' , upload.any() ,function (req, res){
 					status: props[3],
 					description: props[4],
 					link: props[5],
+          tags: props[6],
 				})
 		})
 

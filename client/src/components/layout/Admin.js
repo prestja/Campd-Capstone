@@ -16,7 +16,7 @@ function Admin({projects, onView}) {
 				<MenuList>
 					<MenuItem onClick={() => downloadCSV(projects)} >Download selected projects as CSV</MenuItem>
 					<MenuItem onClick={() => downloadJson(projects)}>Download selected projects as JSON</MenuItem>
-					<MenuItem onClick={() => uploadJsonFile()}>Merge projects from file</MenuItem>
+					<MenuItem onClick={() => uploadJsonFile(projects)}>Merge projects from file</MenuItem>
 				</MenuList>
 			</Menu>
 			<Stack>
@@ -54,7 +54,7 @@ function downloadCSV(projects){
 	link.click();
 }
 
-function uploadJsonFile(){
+function uploadJsonFile(projects){
 	console.log("UPLOAD JSON FILE");
 
 	let fileInput = document.createElement('input');
@@ -76,7 +76,25 @@ function uploadJsonFile(){
 			request.onload = () => {
 				console.log(request.response);
 			}
+			var dbVal = JSON.parse(projects);
+			//var newVal = [];
 
+			for(var i = 0; i < dbVal.length; i++)
+			{
+				//var found = false;
+				for(var j = 0; j < formData.length; j++)
+				{
+					if(formData[j]._id != dbVal[i]._id)
+					{
+						formData[j].push(dbVal[i]);
+					}
+					else{
+						console.log("entry is repeated");
+					}
+				}
+
+			}
+			//console.log("Test");
 			request.open('POST' , 'http://localhost:5000/projects/uploadJson');
 			request.send(formData);
 	})
