@@ -77,7 +77,7 @@ class SearchBar extends Component {
 		return (
 			<Stack bg = "white" borderRadius = "lg">
 				<Editable 
-					placeholder ="Enter project search terms here"
+					placeholder ="Enter the name, description, or set of tags for projects you are interested in"
 					type = "value"
 					value = {this.state.terms}
 					onChange = {this.handleSearchChange}>

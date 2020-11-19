@@ -46,7 +46,7 @@ class Navbar extends Component {
 
 		return (
 			<Flex bg = "untaccentgray.700">
-				<Image size = "5vw" src={require('./unt-banner.svg')}></Image>
+				<Image size = "5vw" ml= "30px" mb="30px" mr="30px" src={require('./unt-banner.svg')}></Image>
 				<Grid templateColumns="repeat(auto-fit, 60vw)" gap={6} color = "white" justifyContent="center">
 					{/* First row */}
 					<Flex>
