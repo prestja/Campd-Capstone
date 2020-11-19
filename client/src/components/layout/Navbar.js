@@ -19,9 +19,9 @@ class Navbar extends Component {
 	}
 
 	render() {
-		const isLoggedIn = true;
+		const isLoggedIn = false;
 		const isAdmin = true;
-		const tabData = [
+		let tabData = [
 			{
 				  label: "Home",
 				  href: "/",
@@ -31,6 +31,19 @@ class Navbar extends Component {
 				  href: "/projects",
 			},
 		];
+		if (isLoggedIn)
+		{
+			tabData.push({label: "Profile", href: "/profile"});
+		}
+		else
+		{
+			tabData.push({label: "Login", href: "/login"});
+		}
+		if (isAdmin)
+		{
+			tabData.push({label: "Administration", href: "/admin"})
+		}
+
 		return (
 			<Flex bg = "white">
 				<Image size = "5vw" src={require('./unt-banner.svg')}></Image>

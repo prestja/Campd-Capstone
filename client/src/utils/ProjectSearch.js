@@ -17,6 +17,7 @@ import {
 
 class SearchBar extends Component {
 	state = {
+		terms: "",
 		filters: {
 			new: false,
 			recruiting: false,
@@ -29,9 +30,8 @@ class SearchBar extends Component {
 	};
 
 	componentDidMount() {
-		console.log("componenetDidMOutn");
+		console.log("componentDidMount");
 		this.setState({
-			...this.state,
 			filters: {
 				new: this.props.new,
 				recruiting: this.props.recruiting,
@@ -39,12 +39,9 @@ class SearchBar extends Component {
 				paused: this.props.paused,
 				stopped: this.props.stopped,
 				archived: this.props.archived,
-				proposals: this.props.proposals
+				proposals: this.props.proposals,
 			}
 		});
-		console.log(this.state);
-		console.log(this.props);
-
 	}
 	
 	handleSearchChange = e => {
@@ -55,21 +52,25 @@ class SearchBar extends Component {
 		this.handleSubmit(e);
 	};
 
-	handleSubmit = e => {
-		this.props.onSearch(e.toLowerCase());
+	handleSubmit = (e, f) => {
+		this.props.onSearch(e.toLowerCase(), f);
 	};
 
 	handleReset = (e) => {
 		this.setState({
-			value: ""
+			terms: ""
 		});
 		this.handleSearchChange(e);
 	};
 
 	handleSwitch = (n) => {
+		// create and modify a copy of our state with the changed filter
 		let copy = this.state;
 		copy.filters[n] = !copy.filters[n];
+		// then apply the filter
 		this.setState(copy);
+		// submit the search as usual
+		this.handleSubmit(this.state.terms, this.state.filters);
 	};
 
 	render() {
@@ -104,8 +105,8 @@ function mapStateToProps({ projects }) {
 
 function mapDispatchToProps(dispatch) {
 	return {
-		onSearch: value => {
-			dispatch(searchProjects(value));
+		onSearch: (value, filters) => {
+			dispatch(searchProjects(value, filters));
 		}
 	};
 }
