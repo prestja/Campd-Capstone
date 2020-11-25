@@ -2,25 +2,26 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import './Style.css';
-import { Menu, MenuButton, MenuItem, MenuList, Button, Box, Stack } from "@chakra-ui/core";
+import { Menu, MenuButton, MenuItem, MenuList, Button, Box, Stack } from "@chakra-ui/react";
 import ListingCompact from "./ListingCompact";
 import { fetchAllProjects } from "../../actions"
 
 class ImageUpload extends Component{
-    state={ 
+    state={
         name: this.props.name,
         owner: this.props.owner,
         ownerID: this.props.owner,
         status: '',
         description: this.props.description,
+        tags: '',
         file: ''
     }
 
-     
-    
-    onChange = e =>{        
+
+
+    onChange = e =>{
         this.setState({file: uploadJsonFile(e.target.files[0])})
-        
+
     }
     Submit = e =>{
         e.preventDefault();
@@ -84,4 +85,3 @@ function uploadJsonFile(TopassFile) {
 }
 
 export default ImageUpload;
-

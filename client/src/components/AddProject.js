@@ -5,8 +5,8 @@ import './layout/Style.css';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import ImageUpload from './layout/Image'
-import { Tag, TagIcon, TagLabel, TagCloseButton } from "@chakra-ui/core";
-import { Stack } from "@chakra-ui/core";
+import { Tags2 } from './Tags2';
+import { Stack } from "@chakra-ui/react";
 
 class AddProject extends React.Component {
   state = {
@@ -32,6 +32,11 @@ class AddProject extends React.Component {
     });
   };
 
+  handleTagChange = (tag) => {
+    this.setState({
+      tags: tag.map((i) => (i.text))
+    });
+  }
 
   handleSubmit = e => {
     e.preventDefault();
@@ -120,8 +125,9 @@ class AddProject extends React.Component {
           <div className="form-group">
             <div className="col-7">
               <label>Tags</label>
-            <input type="text" data-role="taginput" data-tag-trigger="Space" className="form-control" id="tags" name="tags" required={true} onChange={ this.handleInputChange }
-          value={ this.state.tags } />
+
+              <Tags2 className="form-control" id="tags" name="tags" tags={this.handleTagChange} value={ this.state.tags }/>
+
             </div>
           </div>
 

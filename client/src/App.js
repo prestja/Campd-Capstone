@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { ThemeProvider } from "@chakra-ui/core";
-import { theme } from "@chakra-ui/core";
+import { ChakraProvider } from "@chakra-ui/react";
+import { theme } from "@chakra-ui/react";
 
 // local imports
 import Navbar from "./components/layout/Navbar";
@@ -27,7 +27,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<ThemeProvider theme={theme}>
+			<ChakraProvider theme={theme}>
 				<Router>
 					<div className="App">
 						<Navbar></Navbar>
@@ -46,7 +46,7 @@ class App extends Component {
 						</Switch>
 					</div>
 				</Router>
-			</ThemeProvider>
+			</ChakraProvider>
 		);
 	}
 }

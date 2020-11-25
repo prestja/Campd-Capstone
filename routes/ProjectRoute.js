@@ -45,7 +45,8 @@ ProjectRoute.route('/update').post(function (req, res) {
 			name: req.body.name,
 			owner: req.body.owner,
 			status: req.body.status,
-			description: req.body.description
+			description: req.body.description,
+      tags: req.body.tags
 		},
 		function(err, result) {
 			if (err) {

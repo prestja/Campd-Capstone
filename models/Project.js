@@ -18,6 +18,9 @@ let Project = new Schema({
 	description: {
 		type: String
 	},
+	tags: {
+		type: Array
+	},
 	file: {
 		type: String
 	}

@@ -1,7 +1,7 @@
 // layout/EditProject.js
 
 import React, { Component } from 'react';
-import { Button } from '@chakra-ui/core';
+import { Button } from '@chakra-ui/react';
 import { connect } from 'react-redux';
 import { viewProjects, updateProject } from '../../actions';
 import UpdateProject from '../EditProject';
@@ -19,7 +19,7 @@ class EditProject extends Component{
 			<div >
 				<div >
 					<div >
-						{this.props.projects[0] && <UpdateProject id={this.props.match.params.id} project={this.props.projects[0]}/>}					
+						{this.props.projects[0] && <UpdateProject id={this.props.match.params.id} project={this.props.projects[0]}/>}
 					</div>
 				</div>
 			</div>

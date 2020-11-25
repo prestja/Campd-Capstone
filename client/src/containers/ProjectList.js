@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Listing from '../components/layout/Listing';
 import { deleteProject, viewProjects } from '../actions';
-import { Grid, Box } from "@chakra-ui/core";
+import { Grid, Box } from "@chakra-ui/react";
 import undraw from '../images/projects.svg';
 import ImageUpload from "../components/layout/Image";
 

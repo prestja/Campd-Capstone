@@ -5,7 +5,7 @@ import './layout/Style.css';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { updateProject } from '../actions';
-import { Link, Box, Select, Button, Option, Text, FormControl, FormLabel, FormHelperText, Input } from "@chakra-ui/core";
+import { Link, Box, Select, Button, Option, Text, FormControl, FormLabel, FormHelperText, Input } from "@chakra-ui/react";
 import { GrUserAdd, GrAddCircle, GrPlay, GrPause, GrStop, GrEject } from "react-icons/gr";
 
 //TODO get the correct image code in and figure out how to bring in the ID/other data.
@@ -18,15 +18,15 @@ class UpdateProject extends React.Component {
 		description: this.props.project.description,
 		file: '',
     };
-    
+
     testprint(e) {
 		console.log(e);
 	};
 
-    handleInputChange = e => {    
+    handleInputChange = e => {
         this.setState({
             [e.target.name]: e.target.value
-        });    
+        });
     };
 
     handleSelectChange = e => {
@@ -34,8 +34,8 @@ class UpdateProject extends React.Component {
             status: e.target.value
         });
     };
-    
-    
+
+
     handleSubmit = e => {
         e.preventDefault();
         console.log(this.state)
@@ -47,7 +47,7 @@ class UpdateProject extends React.Component {
             this.handleReset();
         //}
     };
-    
+
     handleReset = () => {
         this.setState({
             name: '',
@@ -58,9 +58,9 @@ class UpdateProject extends React.Component {
             file: ''
         });
     };
-    
-    
-    
+
+
+
     render() {
         const {user} = this.props.auth;
         return (
@@ -103,7 +103,7 @@ class UpdateProject extends React.Component {
                         <Link color="#FFFFFF" href={"/project/"+this.props.id}>Cancel</Link></Button>
                     </div>
                 </FormControl>
-                    
+
             </Box>
         );
       }

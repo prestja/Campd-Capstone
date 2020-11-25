@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './Style.css';
-import { Box, Button, SimpleGrid, Checkbox, Text, Menu, MenuButton, MenuItem, MenuList, Flex, Icon, Link } from "@chakra-ui/core"
+import { Box, Button, SimpleGrid, Checkbox, Text, Menu, MenuButton, MenuItem, MenuList, Flex, Icon, Link } from "@chakra-ui/react"
 import { GrAddCircle, GrUserAdd, GrPlay, GrPause, GrStop, GrEject, GrChatOption } from "react-icons/gr";
 import { updateProject } from '../../actions';
 import { connect } from 'mongoose';
@@ -17,7 +17,7 @@ class ListingCompact extends React.Component {
 	/*setOpen = project => () => {
 		return {
 			updateProject(_id: project._id, this.props.name, this.props.owner, 0, "open", this.props.description));
-			
+
 		}
 	}*/
 	setOpen(project) {
@@ -37,7 +37,7 @@ class ListingCompact extends React.Component {
 	//setValue(e, val) {
 	//	mapDispatchToProps.onUpdateProject([e.props._id, e.props.name, e.props.owner, 0, val, e.props.description, 0])
 	//};
-	
+
 	testprint(e, val) {
 		//console.log(e.props._id, e.props.name, e.props.owner, val, e.props.description);
 		console.log(val);
@@ -46,11 +46,11 @@ class ListingCompact extends React.Component {
 	render() {
 		return (
 			<Box paddingTop="10px" alignSelf="center">
-			<Flex width="1440px" paddingTop='1' alignSelf="center" bg="#EEEEEE" 
+			<Flex width="1440px" paddingTop='1' alignSelf="center" bg="#EEEEEE"
 			borderWidth="3px" borderColor="#000000" borderRadius="lg" boxShadow="md">
 			<SimpleGrid  /*columns = {8}*/ paddingLeft="2px" paddingRight="2px">
 				<SimpleGrid columns={3}>
-					<Checkbox 
+					<Checkbox
 						isChecked = {false}
 						onClick={this.isChecked = !this.isChecked }
 						border="3px" borderRadius="md" borderColor="#333333"
@@ -73,7 +73,7 @@ class ListingCompact extends React.Component {
 					{/*<Select
 						width={"150px"}
 						size="sm"
-						variant="outline" 
+						variant="outline"
 						placeholder="Modify Status"
 						value={selection}
 						onChange={onChange}
@@ -103,10 +103,10 @@ class ListingCompact extends React.Component {
 						variantColor="green" variant="solid" size="sm" width="30px"
 						//onClick={e => this.testprint(setstatusvar)/*console.log({setstatus})}
 					>GO</Button>*/}
-					
+
 					{/*Conditional rendering for current status:*/}
-					{this.props.status === "new" && <Text 
-						border="1px" borderRadius="md" borderColor="#666666" 
+					{this.props.status === "new" && <Text
+						border="1px" borderRadius="md" borderColor="#666666"
 						borderTopColor="#000000"
 						borderBottomColor="#000000"
 						width="150px"
@@ -114,23 +114,23 @@ class ListingCompact extends React.Component {
 						bg="#BBDDFF"
 					>Status: <GrAddCircle />{this.props.status}</Text>}
 					{this.props.status === "recruiting" && <Text
-						border="1px" borderRadius="md" borderColor="#666666" 
+						border="1px" borderRadius="md" borderColor="#666666"
 						borderTopColor="#000000"
 						borderBottomColor="#000000"
 						width="150px"
 						paddingLeft="2"
 						bg="#BBFFDD"
 					>Status: <GrUserAdd />{this.props.status}</Text>}
-					{this.props.status === "active" && <Text 
-						border="1px" borderRadius="md" borderColor="#666666" 
+					{this.props.status === "active" && <Text
+						border="1px" borderRadius="md" borderColor="#666666"
 						borderTopColor="#000000"
 						borderBottomColor="#000000"
 						width="150px"
 						paddingLeft="2"
 						bg="#99FF99"
 					>Status: <GrPlay />{this.props.status}</Text>}
-					{this.props.status === "paused" && <Text 
-						border="1px" borderRadius="md" borderColor="#666666" 
+					{this.props.status === "paused" && <Text
+						border="1px" borderRadius="md" borderColor="#666666"
 						borderTopColor="#000000"
 						borderBottomColor="#000000"
 						width="150px"
@@ -138,23 +138,23 @@ class ListingCompact extends React.Component {
 						bg="#FFFF99"
 					>Status: <GrPause />{this.props.status}</Text>}
 					{this.props.status === "stopped" && <Text
-						border="1px" borderRadius="md" borderColor="#666666" 
+						border="1px" borderRadius="md" borderColor="#666666"
 						borderTopColor="#000000"
 						borderBottomColor="#000000"
 						width="150px"
 						paddingLeft="2"
 						bg="#FFCC99"
 					>Status: <GrStop />{this.props.status}</Text>}
-					{this.props.status === "archived" && <Text 
-						border="1px" borderRadius="md" borderColor="#666666" 
+					{this.props.status === "archived" && <Text
+						border="1px" borderRadius="md" borderColor="#666666"
 						borderTopColor="#000000"
 						borderBottomColor="#000000"
 						width="150px"
 						paddingLeft="2"
 						bg="#FF9999"
 					>Status: <GrEject />{this.props.status}</Text>}
-					{this.props.status === "proposal" && <Text 
-						border="1px" borderRadius="md" borderColor="#666666" 
+					{this.props.status === "proposal" && <Text
+						border="1px" borderRadius="md" borderColor="#666666"
 						borderTopColor="#000000"
 						borderBottomColor="#000000"
 						width="150px"

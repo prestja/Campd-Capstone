@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
-import { Menu, MenuButton, MenuItem, MenuList, Button, Box, Stack } from "@chakra-ui/core";
+import { Menu, MenuButton, MenuItem, MenuList, Button, Box, Stack } from "@chakra-ui/react";
 import ListingCompact from "./ListingCompact";
 import { fetchAllProjects } from "../../actions"
 
