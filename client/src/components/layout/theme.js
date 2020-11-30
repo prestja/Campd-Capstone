@@ -11,6 +11,8 @@ const custTheme = {
         statorange: "#FFDDBB",
         statred: "#FFBBBB",
         statgray: "#BBBBBB",
+        /*Everything below this comment is the UNT official colors - see the colors page on the 
+            UNT Identity Guide for more information.*/
         untgreen: "#00853E",
         untsec1: "#00A950",
         untsec2: "#509E2F",
@@ -19,6 +21,8 @@ const custTheme = {
         untaccentpurple: "#AD1AAC",
         untaccentgray: 
         {
+            /*Automatically-generated palette to give us a range of grays that are 
+                still the same shade as UNT Accent Gray. I advise using these whenever possible.*/
             50: '#f1f1fc',
             100: '#d3dadd',
             200: '#bcbfc3',

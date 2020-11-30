@@ -20,6 +20,7 @@ class SearchBar extends Component {
 		value: ""
 	};
 
+	/*Updates the state of the page whenever the text in the searchbar changes, and automatically "submits" the entry for dynamic searching. */
 	handleSearchChange = e => {
 		this.setState({
 			value: e
@@ -27,6 +28,7 @@ class SearchBar extends Component {
 		this.handleSubmit(e);
 	};
 
+	/*Whenever called by the above function, a database call is made to search the entire projects list for the entered value. */
 	handleSubmit = e => {
 		this.props.onSearch(e.toLowerCase());
 	};
@@ -41,7 +43,9 @@ class SearchBar extends Component {
 	render() {
 		return (
 			<Stack bg = "white" borderRadius = "lg">
+				{/*Project search bar: */}
 				<Editable 
+					paddingLeft="5px"
 					placeholder ="Enter project search terms here"
 					type = "value"
 					value = {this.state.value}
@@ -50,6 +54,7 @@ class SearchBar extends Component {
 					<EditableInput />
 				</Editable>
 				<Divider></Divider>
+				{/*List of switches to toggle which statuses are being displayed. TODO Currently, they don't do anything, but the switches themselves are functional. */}
 				<Stack direction = "row" d= "flex">
 					<FormLabel>Show: New</FormLabel><Switch colorScheme="blue" defaultIsChecked={false}/>
 					<FormLabel>Recruiting</FormLabel><Switch colorScheme="teal" defaultIsChecked={true}/>

@@ -1,47 +1,28 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './Style.css';
-import { Box, Button, SimpleGrid, Checkbox, Text, Menu, MenuButton, MenuItem, MenuList, Flex, Icon, Link } from "@chakra-ui/core"
+import { Box, Button, SimpleGrid, Checkbox, Text, Flex, Icon, Link } from "@chakra-ui/core"
 import { GrAddCircle, GrUserAdd, GrPlay, GrPause, GrStop, GrEject, GrChatOption } from "react-icons/gr";
-import { updateProject } from '../../actions';
-import { connect } from 'mongoose';
+import { deleteProject } from '../../actions';
+import { connect } from "react-redux";
 
-//const mapDispatchToProps = dispatch => {
-//	return {
-//		onUpdateProject: project => {
-//			dispatch(updateProject(project));
-//		}
-//	};
-//};
-//connect(null, mapDispatchToProps)(ListingCompact);
 class ListingCompact extends React.Component {
-	/*setOpen = project => () => {
-		return {
-			updateProject(_id: project._id, this.props.name, this.props.owner, 0, "open", this.props.description));
-			
-		}
-	}*/
-	setOpen(project) {
-		return function() {
-			updateProject(project._id, project.name, project.owner, 0, "open", project.description, 0)
-		}
+	state = {
+		showConf: false,
+		checked: false
 	};
-	setActive = e => {
-
+	delProj = e => {
+		this.setState({showConf: true});
 	}
-	setSuspend = e => {
-
+	delCancel = e => {
+		this.setState({showConf: false});
 	}
-	setArchive = e => {
-
+	delConfirm = e => {
+		this.props.onDeleteProject(this.props._id)
 	}
-	//setValue(e, val) {
-	//	mapDispatchToProps.onUpdateProject([e.props._id, e.props.name, e.props.owner, 0, val, e.props.description, 0])
-	//};
-	
-	testprint(e, val) {
-		//console.log(e.props._id, e.props.name, e.props.owner, val, e.props.description);
-		console.log(val);
-	};
+
+	checkboxchange = e => {
+		this.setState({checked: !this.state.checked});
+	}
 
 	render() {
 		return (
@@ -49,28 +30,43 @@ class ListingCompact extends React.Component {
 			<Flex width="99vw" paddingTop='1' alignSelf="center" bg="#EEEEEE" 
 			borderWidth="3px" borderColor="#000000" borderRadius="lg" boxShadow="md">
 			<SimpleGrid paddingLeft="2px" paddingRight="2px">
+				{/*Top row: Checkbox, name, delete button*/}
 				<SimpleGrid columns={3}>
+					{/*Checkbox to select for download functions */}
 					<Checkbox 
-						defaultIsChecked = {false}
-						onClick={this.isChecked = !this.isChecked }
+						defaultIsChecked={this.state.checked}
+						onChange={/*TODO these function and are tracked by this.state.checked, but they aren't connected to anything*/ this.checkboxchange }
 						border="3px" borderRadius="md" borderColor="#333333"
 						paddingLeft='4px'
 						alignItems="center"
 						width={"2%"}
 					></Checkbox>
+					{/*Name box. Names are rendered as links to allow user to click through to project details.
+						Connects to /src/components/layout/ProjectView.js */}
 					<Text
-						width="90vw"
+						width="93vw"
 						border="1px" borderRadius="md" borderColor="#666666"
 						borderTopWidth="1px" borderTopColor="#000000"
 						borderBottomWidth="1px" borderBottomColor="#000000"
 						paddingLeft = "3px"
 					><Link color="#007700" id={this.props.id} href={"/project/"+this.props._id}>{this.props.name}</Link></Text>
-					<Button
-						colorScheme="red" variant="solid" size="sm" width="7%"
-					>REMOVE</Button>
+					{/*Delete button, TODO this doesn't actually do anything yet */}
+					{!this.state.showConf ? 
+						/*Before clicking delete*/ 
+							<Button
+								colorScheme="red" variant="solid" size="sm" width="70px" onClick={this.delProj}
+							>REMOVE</Button> : 
+						/*After clicking delete, confirmation buttons*/
+						<Box width='70px'>
+							<Button width='35px' size='sm' variant='solid' colorScheme='green' onClick={this.delConfirm}>YES</Button>
+							<Button width='35px' size='sm' variant='solid' colorScheme='red' onClick={this.delCancel}>NO</Button>
+						</Box>
+					}
 				</SimpleGrid>
+
+				{/*Second row: Status box, project owner, email to contact project owner */}
 				<SimpleGrid columns = {3} width="100%">
-					{/*Conditional rendering for current status:*/}
+					{/*Current status box, conditionally rendered so that each one has different colours and icons: */}
 					{this.props.status === "new" && <Text 
 						border="1px" borderRadius="md" borderColor="#666666" 
 						borderTopColor="#000000"
@@ -128,27 +124,34 @@ class ListingCompact extends React.Component {
 						bg="statgray"
 					>Status: <Icon as = {GrChatOption} />{this.props.status}</Text>}
 
+					{/*Project Owner Textbox */}
 					<Text
 						border="1px" borderRadius="md" borderColor="#666666"
 						borderTopColor="#000000"
 						borderBottomColor="#000000"
 						paddingLeft="3px"
+						width="62vw"
 					>Project Owner: {this.props.owner}</Text>
+					{/*Owner's email textbox */}
 					<Text
-						width="537px"
+						width="550px"
 						border="1px" borderRadius="md" borderColor="#666666"
 						borderTopColor="#000000"
 						borderBottomColor="#000000"
 						paddingLeft="3px"
 					>CONTACT EMAIL GOES HERE</Text>
 				</SimpleGrid>
-					<Text
-						width={"100%"}
-						border="1px" borderRadius="md" borderColor="#666666"
-						borderTopColor="#000000"
-						borderBottomColor="#000000"
-						paddingLeft="3px"
-					>STAFF LIST GOES HERE</Text>
+				
+				{/*Textbox for the list of staff on the project */}
+				<Text
+					width={"100%"}
+					border="1px" borderRadius="md" borderColor="#666666"
+					borderTopColor="#000000"
+					borderBottomColor="#000000"
+					paddingLeft="3px"
+				>STAFF LIST GOES HERE</Text>
+
+				{/*Extended textbox containing the project's description */}
 				<Text
 					border="1px" borderRadius="md" borderColor="#666666"
 					borderTopColor="#000000"
@@ -163,4 +166,12 @@ class ListingCompact extends React.Component {
 	}
 }
 
-export default ListingCompact;
+const mapDispatchToProps = dispatch => {
+	return {
+		onDeleteProject: id => {
+			dispatch(deleteProject(id))
+		}
+	};
+};
+
+export default connect(null,mapDispatchToProps)(ListingCompact);

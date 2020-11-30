@@ -49,16 +49,16 @@ class ImageUpload extends Component{
 
 
 }
-function uploadFile(TopassFile,fileName) {
-  var ex=TopassFile.name.split('.').pop();
-  if(ex==""){
+function uploadFile(passFile,fileName) {
+  var ex=passFile.name.split('.').pop();
+  if(ex===""){
     ex="png";
   }
   console.log("UPLOAD JSON FILE");
 
     console.log("file changed");
       const formData = new FormData();
-      formData.append('file', TopassFile,fileName+"."+ex);
+      formData.append('file', passFile,fileName+"."+ex);
       const request = new XMLHttpRequest();
 
       request.responseType = 'json';
