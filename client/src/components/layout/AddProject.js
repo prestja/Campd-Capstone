@@ -10,8 +10,9 @@ class AddProject extends Component {
       <div >
         <div >
           <div >
+            {/* /src/containers/CreateProject.js is a middleman that establishes a react-redux connect to the actual
+							    project submission page body, found at /src/components/AddProject.js */}
             <CreateProject />
-            
           </div>
         </div>
       </div>

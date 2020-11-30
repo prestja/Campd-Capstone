@@ -5,7 +5,7 @@ import './Style.css';
 import { Link } from "react-router-dom";
 
 
-
+// TODO: I'm fairly certain this is a legacy file that does nothing, but I'm not SURE.
 
 export default ({ project: { name, owner, status, description, file, _id }, onDelete, onView }) => {
 

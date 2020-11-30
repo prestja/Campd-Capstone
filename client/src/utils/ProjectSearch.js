@@ -29,6 +29,7 @@ class SearchBar extends Component {
 		}
 	};
 
+<<<<<<< HEAD
 	componentDidMount() {
 		console.log("componentDidMount");
 		this.setState({
@@ -44,6 +45,9 @@ class SearchBar extends Component {
 		});
 	}
 	
+=======
+	/*Updates the state of the page whenever the text in the searchbar changes, and automatically "submits" the entry for dynamic searching. */
+>>>>>>> databasefix
 	handleSearchChange = e => {
 		this.setState({
 			...this.state,
@@ -52,8 +56,14 @@ class SearchBar extends Component {
 		this.handleSubmit(e);
 	};
 
+<<<<<<< HEAD
 	handleSubmit = (e, f) => {
 		this.props.onSearch(e.toLowerCase(), f);
+=======
+	/*Whenever called by the above function, a database call is made to search the entire projects list for the entered value. */
+	handleSubmit = e => {
+		this.props.onSearch(e.toLowerCase());
+>>>>>>> databasefix
 	};
 
 	handleReset = (e) => {
@@ -76,7 +86,9 @@ class SearchBar extends Component {
 	render() {
 		return (
 			<Stack bg = "white" borderRadius = "lg">
+				{/*Project search bar: */}
 				<Editable 
+					paddingLeft="5px"
 					placeholder ="Enter project search terms here"
 					type = "value"
 					value = {this.state.terms}
@@ -85,6 +97,7 @@ class SearchBar extends Component {
 					<EditableInput />
 				</Editable>
 				<Divider></Divider>
+				{/*List of switches to toggle which statuses are being displayed. TODO Currently, they don't do anything, but the switches themselves are functional. */}
 				<Stack direction = "row" d= "flex">
 					<FormLabel>Show: New</FormLabel><Switch colorScheme="blue" isChecked={this.state.filters.new} onChange={(e) => this.handleSwitch("new")}/>
 					<FormLabel>Recruiting</FormLabel><Switch colorScheme="teal" isChecked={this.state.filters.recruiting} onChange={(e) => this.handleSwitch("recruiting")}/>

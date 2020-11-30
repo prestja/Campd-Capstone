@@ -4,7 +4,7 @@ import './Style.css';
 import ViewAProfileProject from '../../containers/ViewAProfileProject';
 
 
-
+// TODO: I'm fairly certain this is a legacy file that does nothing, but I'm not SURE.
 
 class ViewProfileProject extends Component {
 
