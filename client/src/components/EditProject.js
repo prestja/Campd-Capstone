@@ -8,44 +8,69 @@ import { updateProject } from '../actions';
 import { Link, Box, Select, Button, Option, Text, FormControl, FormLabel, FormHelperText, Input, Textarea } from "@chakra-ui/core";
 import { GrUserAdd, GrAddCircle, GrPlay, GrPause, GrStop, GrEject } from "react-icons/gr";
 
-//TODO get the correct image code in and figure out how to bring in the ID/other data.
-class UpdateProject extends React.Component {
-	state = {
-		name: this.props.project.name,
-		owner: this.props.project.owner,
-		ownerID: '',
-		status: this.props.project.status,
-		description: this.props.project.description,
-		file: '',
+class UpdateProject extends React.Component {    
+    componentDidMount() {
+        fetch("http://127.0.0.1:5000/projects/" + this.props.id)
+        .then(res => res.json())
+        .then(
+            (result) => {
+                this.setState ( 
+                {
+                    project: result,
+                    originalProject: result
+                });
+            },
+            (error) => {}
+        );
     };
-    
-    testprint(e) {
-		console.log(e);
-	};
+
+    constructor(props) {
+        super(props);
+        this.state = { 
+            project: {
+                _id: "",
+                name: "",
+                owner: "",
+                ownerID: "",
+                status: "",
+                description: "",
+                link: "",
+            },
+            originalProject: {
+                _id: "",
+                name: "",
+                owner: "",
+                ownerID: "",
+                status: "",
+                description: "",
+                link: "",
+            }
+        }
+    }
 
     handleInputChange = e => {    
         this.setState({
-            [e.target.name]: e.target.value
-        });    
+            project: {
+                [e.target.name]: e.target.value
+            }
+        });
     };
 
     handleSelectChange = e => {
         this.setState({
-            status: e.target.value
+            ...this.state,
+            project : {
+                ...this.state.project,
+                status: e.target.value
+            }
         });
     };
     
-    
     handleSubmit = e => {
         e.preventDefault();
-        console.log(this.state)
-        if (this.state.name == '') {this.setState({name: this.props.project.name})}
-        if (this.state.description == '') {this.setState({description: this.props.project.description})}
-        console.log(this.state)
-        //if (this.state.name.trim() && this.state.description.trim()) {
-            this.props.onUpdateProject(this.state);
-            this.handleReset();
-        //}
+        if (this.state.project.name == '') {this.setState({project: {name: this.state.originalProject.name}})}
+        if (this.state.project.description == '') {this.setState({project: {description: this.state.originalProject.description}})}
+        this.props.onUpdateProject(this.state.project);
     };
     
     handleReset = () => {
@@ -55,11 +80,9 @@ class UpdateProject extends React.Component {
             ownerID: '',
             status: '',
             description: '',
-            file: ''
+            link: ''
         });
     };
-    
-    
     
     render() {
         const {user} = this.props.auth;
@@ -68,7 +91,7 @@ class UpdateProject extends React.Component {
                 <Text paddingTop="5px">Edit an existing project:</Text>
                 <FormControl width="75%" bg="#F3F3F3" borderRadius="lg" boxShadow="md" paddingX="10px" paddingY="3px">
                     <FormLabel>Project Name</FormLabel>
-                    <Input type="name" id="name" name="name" placeholder={this.props.project.name} onChange={this.handleInputChange}/>
+                    <Input type="name" id="name" name="name" placeholder={this.state.originalProject.name} onChange={this.handleInputChange}/>
 
                     {/*if not admin:
                         <Text paddingTop="2rem">Warning: Changing this project will require an admin to re-verify it!</Text>
@@ -76,7 +99,7 @@ class UpdateProject extends React.Component {
                     if admin:
                     */}
                     <FormLabel>Project Status</FormLabel>
-                    <Select id="status" required={true} placeholder={this.props.project.status} onChange={this.handleSelectChange}>
+                    <Select id="status" required={true} placeholder={this.state.originalProject.status} onChange={this.handleSelectChange}>
                         <option value="new">New</option>
                         <option value="recruiting">Recruiting</option>
                         <option value="active">Active</option>
@@ -86,19 +109,19 @@ class UpdateProject extends React.Component {
                     </Select>
 
                     <FormLabel>Project Staff</FormLabel>
-                    <Input type="staff" id="staff" placeholder={this.state.staff} onChange={this.handleInputChange}/>
+                    <Input type="staff" id="staff" placeholder={this.state.originalProject.staff} onChange={this.handleInputChange}/>
                     <FormHelperText id="email-helper-text">
                         For readability, we recommend separating names with commas.
                     </FormHelperText>
 
                     <FormLabel>Project Description</FormLabel>
-                    <Textarea type="description" id="description" size="sm" height="10rem" placeholder={this.state.description} onChange={this.handleSelectChange}/>
+                    {this.state.originalProject.description != "" ? <Textarea type="description" id="description" size="sm" height="10rem" placeholder={this.state.originalProject.description} onChange={this.handleSelectChange}/> : null}
 
                     <div className="form-group">
                         <div className="col-7">
                             <label>File Attachment</label>
                             <input type="file" className="form-control-file" id="attachment" name="file" onChange={ this.handleInputChange }
-                                value={ this.state.file }/>
+                                value={ this.state.link }/>
                         </div>
                     </div>
 
@@ -106,27 +129,28 @@ class UpdateProject extends React.Component {
                         <Button bg="untgreen" color="#FFFFFF" onClick={this.handleSubmit}>Submit</Button>
                         <Button bg="untgreen">
                         <Link color="#FFFFFF" href={"/project/"+this.props.id}>Cancel</Link></Button>
+                        <Button onClick={() => this.testprint()}/>
                     </div>
                 </FormControl>
-                    
             </Box>
         );
-      }
+    }
 }
 
 UpdateProject.propTypes = {
     auth: PropTypes.object.isRequired
-  };
-  const mapStateToProps = state => ({
+};
+
+const mapStateToProps = state => ({
     auth: state.auth
-  });
-  const mapDispatchToProps = dispatch => {
+});
+  
+const mapDispatchToProps = dispatch => {
 	return {
 		onUpdateProject: project => {
 			dispatch(updateProject(project));
 		}
 	}
 };
-  export default connect(
-    mapStateToProps, mapDispatchToProps
-  )(UpdateProject);
+
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateProject);

@@ -8,12 +8,12 @@ const apiUrl = 'http://localhost:5000/projects';
 export const createProject = ({ name, owner, ownerID, status, description, file }) => {
 	return (dispatch) => {
 		return axios.post(`${apiUrl}/add`, { name, owner, ownerID, status, description, file })
-			.then(response => {
-				dispatch(createProjectSuccess(response.data))
-			})
-			.catch(error => {
-				throw (error);
-			});
+		.then(response => {
+			dispatch(createProjectSuccess(response.data))
+		})
+		.catch(error => {
+			throw (error);
+		});
 	};
 };
 
@@ -71,12 +71,12 @@ export const deleteProjectSuccess = id => {
 export const deleteProject = id => {
 	return (dispatch) => {
 		return axios.get(`${apiUrl}/delete/${id}`)
-			.then(response => {
-				dispatch(deleteProjectSuccess(response.data))
-			})
-			.catch(error => {
-				throw (error);
-			});
+		.then(response => {
+			dispatch(deleteProjectSuccess(response.data))
+		})
+		.catch(error => {
+			throw (error);
+		});
 	};
 };
 
@@ -90,28 +90,28 @@ export const fetchProjects = (projects) => {
 export const fetchAllProjects = () => {
 	return (dispatch) => {
 		return axios.get(apiUrl)
-			.then(response => {
-				dispatch(fetchProjects(response.data))
-			})
-			.catch(error => {
-				throw (error);
-			});
+		.then(response => {
+			dispatch(fetchProjects(response.data))
+		})
+		.catch(error => {
+			throw (error);
+		});
 	};
 };
 
-export const searchProject = (value, projects) => {
-	return { type: SEARCH_PROJECT, value, projects };
+export const searchProject = (value, filters, projects) => {
+	return { type: SEARCH_PROJECT, value, filters, projects };
 }
 
-export const searchProjects = (value) => {
+export const searchProjects = (value, filters) => {
 	return (dispatch) => {
 		return axios.get(`${apiUrl}`)
-			.then(response => {
-				dispatch(searchProject(value, response.data))
-			})
-			.catch(error => {
-				throw (error);
-			});
+		.then(response => {
+			dispatch(searchProject(value, filters, response.data))
+		})
+		.catch(error => {
+			throw (error);
+		});
 	};
 };
 
@@ -122,11 +122,11 @@ export const viewProject = (idvalue, projects) => {
 export const viewProjects = (idvalue) => {
 	return (dispatch) => {
 		return axios.get(apiUrl)
-			.then(response => {
-				dispatch(viewProject(idvalue, response.data))
-			})
-			.catch(error => {
-				throw (error);
-			});
+		.then(response => {
+			dispatch(viewProject(idvalue, response.data))
+		})
+		.catch(error => {
+			throw (error);
+		});
 	};
 };

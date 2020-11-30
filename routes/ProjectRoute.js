@@ -3,6 +3,7 @@ const app = express();
 const ProjectRoute = express.Router();
 const fs = require('fs');
 const multer = require('multer');
+
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, __dirname + '/uploads')
@@ -39,6 +40,7 @@ ProjectRoute.route('/add').post(function (req, res) {
 });
 
 ProjectRoute.route('/update').post(function (req, res) {
+	console.log("CALLED");
 	Project.findByIdAndUpdate(
 		{ _id: req.body._id },
 		{
@@ -70,20 +72,16 @@ ProjectRoute.route('/').get(function (req, res) {
 	});
 });
 
-// Defined get data(index or listing) route to search for a project
-ProjectRoute.route('/projects/:name').get(function (req, res, q) {
-	Project.search(q, function (err, data) {
-		if (err) {
-			console.log(err);
-		}
-		else {
-			res.json(projects);
-			console.log(data);
-		}
+ProjectRoute.route('/:id').get(function (req, res) {
+	Project.findById({ _id: req.params.id }, function (err, project) {
+		if (err) res.json(err);
+		else res.json(project);
 	});
 });
 
-ProjectRoute.route('/projects/:owner').get(function(req, res, q){
+// todo: fold this into / function
+/*
+ProjectRoute.route('/:owner').get(function(req, res, q){
 	Project.findById({owner: req.params.owner}, function(err, data){
 		if(err){
 			console.log(err);
@@ -94,6 +92,8 @@ ProjectRoute.route('/projects/:owner').get(function(req, res, q){
 		}
 	});
 });
+*/
+
 // Defined delete | remove | destroy route
 ProjectRoute.route('/delete/:id').get(function (req, res) {
 	Project.findByIdAndRemove({ _id: req.params.id }, function (err, project) {
