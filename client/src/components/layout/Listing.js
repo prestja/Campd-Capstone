@@ -2,7 +2,7 @@ import React from 'react';
 import './Style.css';
 import './theme.js';
 import { Text, Box, Image, Badge, Icon, Link } from "@chakra-ui/core"
-import { GrAddCircle, GrUserAdd, GrPlay, GrPause, GrStop, GrEject } from "react-icons/gr";
+import { GrAddCircle, GrUserAdd, GrPlay, GrPause, GrStop, GrEject, GrChatOption } from "react-icons/gr";
 
 import undraw from '../../images/projects.svg';
 
@@ -53,6 +53,12 @@ class Listing extends React.Component {
 							<Badge rounded="full" px="2" bg="statred">
 								<Icon as = {GrEject}/>{this.props.status}
 				  			</Badge>
+						}
+						{this.props.status === "proposal" && 
+							<Badge rounded="full" px="2" bg="statgray">
+								<Icon as = {GrChatOption}/>{this.props.status}
+							</Badge>
+
 						}
 						{/*Box for containing the name of the project's owner */}	
 						<Box

@@ -22,15 +22,9 @@ function Admin({projects, onView}) {
 			</Menu>
 
 			{/* src/utils/ProjectSearch.js - Search bar and switches to filter through projects */}
-			<ProjectSearch />
+			<ProjectSearch new = {true} recruiting = {true} active = {true} paused = {true} stopped = {true} archived = {true} proposal = {true} />
 			<Stack>
 				{projects.map(project => {
-					/* TODO but also FIXME this really is not good code at all, it's a very-quick-and-even-dirtier fix for a bug where viewing details and then going
-						straight to the admin page doesn't restore the full list of projects - this happens because /admin doesn't include a database 
-						query like /projects does, it just relies on the already existing projects[] list, which gets repopulated either on refreshing (as
-						it does here) or visiting the /projects page. It's also going to break the admin page entirely if for some reason all of the
-						projects or all but one of the projects in the database are deleted.*/
-					if (projects.length<=1) {forceRefresh();}
 					return (
 						/* src/components/layout/ListingCompact.js - The individual entry for each project on the admin page */
 						<ListingCompact name = {project.name} owner = {project.owner} description = {project.description} _id = {project._id} status = {project.status}></ListingCompact>

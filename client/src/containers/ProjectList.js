@@ -19,12 +19,12 @@ function ProjectList({ projects, onDelete, onView }) {
 			{
 				projects.map(project => {
 				//Proposed but unverified projects don't show up on the user projects page, only on the admin page.
-					if (project.status !== "proposal") {
+					//if (project.status !== "proposal") {
 						return (
 							// src/components/layout/Listing.js - the individual "card" displays of each project.
 							<Listing file={project.file} name = {project.name} owner = {project.owner} description = {project.description} _id = {project._id} status = {project.status}></Listing>
 						);
-					}
+					//}
 				})
 			}
 		</Grid>

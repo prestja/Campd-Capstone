@@ -25,7 +25,7 @@ class SearchBar extends Component {
 			paused: false,
 			stopped: false,
 			archived: false,
-			proposals: false
+			proposal: false
 		}
 	};
 
@@ -39,7 +39,7 @@ class SearchBar extends Component {
 				paused: this.props.paused || false,
 				stopped: this.props.stopped || false,
 				archived: this.props.archived || false,
-				proposals: this.props.proposals || false,
+				proposal: this.props.proposal || false,
 			}
 		});
 	}
@@ -104,7 +104,7 @@ class SearchBar extends Component {
 					<FormLabel>Stopped</FormLabel>
 					<Switch colorScheme="red" isChecked={this.state.filters.archived} onChange={(e) => this.handleSwitch("archived")}/>
 					<FormLabel>Archived</FormLabel>
-					<Switch colorScheme="gray" isChecked={this.state.filters.proposals} onChange={(e) => this.handleSwitch("proposals")}/>
+					<Switch colorScheme="gray" isChecked={this.state.filters.proposal} onChange={(e) => this.handleSwitch("proposal")}/>
 					<FormLabel>Proposals</FormLabel>
 				</Stack>
 			</Stack>

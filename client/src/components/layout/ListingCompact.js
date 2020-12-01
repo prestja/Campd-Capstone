@@ -18,6 +18,7 @@ class ListingCompact extends React.Component {
 	}
 	delConfirm = e => {
 		this.props.onDeleteProject(this.props._id)
+		this.setState({showConf: false});
 	}
 
 	checkboxchange = e => {
