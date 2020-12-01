@@ -1,6 +1,13 @@
 import axios from 'axios';
 import React from 'react';
 import { WithContext as ReactTags } from 'react-tag-input';
+import {
+  Tag,
+  TagLabel,
+  TagLeftIcon,
+  TagRightIcon,
+  TagCloseButton,
+} from "@chakra-ui/react"
 
 const KeyCodes = {
   comma: 188,
