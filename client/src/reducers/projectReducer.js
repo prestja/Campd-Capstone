@@ -7,24 +7,25 @@ export default function projectReducer(state = [], action) {
 		case DELETE_PROJECT:
 			return state.filter(project => project._id !== action.payload.id);
 		case SEARCH_PROJECT: {
-			
 			if (action.value === "") {
 				return action.projects;
 			}
+			console.log(action);
 			const {filters} = action;
-			console.log(filters);
-			let firstPass = action.project.filter(project => filters[project.status.toLowerCase()] == true);
-			console.log(firstPass.length);
-			return firstPass.filter(
-				project => 
-				(	
-					// filter by name and tag properties
-					project.name.toLowerCase().includes(action.value) ||
-					project.description.toLowerCase().includes(action.value) ||
-					project.owner.toLowerCase().includes(action.value) ||
-					(project.tags && project.tags.includes(action.value))
-				)
-			);
+			if (action.projects) {
+				let firstPass = action.projects.filter(project => filters[project.status.toLowerCase()] === true);
+				console.log(firstPass.length);
+				return firstPass.filter(
+					project => 
+					(	
+						// filter by name and tag properties
+						project.name.toLowerCase().includes(action.value) ||
+						project.description.toLowerCase().includes(action.value) ||
+						project.owner.toLowerCase().includes(action.value) ||
+						(project.tags && project.tags.includes(action.value))
+					)
+				);
+			}
 		}
 		case FETCH_PROJECT:
 			return action.projects;

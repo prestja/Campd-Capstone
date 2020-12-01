@@ -29,29 +29,31 @@ class SearchBar extends Component {
 		}
 	};
 
+	/*When the searchbar is loaded, its initial project filers are set based on the parameters passed in by the parent component. */
 	componentDidMount() {
-		console.log("componentDidMount");
 		this.setState({
 			filters: {
-				new: this.props.new,
-				recruiting: this.props.recruiting,
-				active: this.props.active,
-				paused: this.props.paused,
-				stopped: this.props.stopped,
-				archived: this.props.archived,
-				proposals: this.props.proposals,
+				new: this.props.new || false,
+				recruiting: this.props.recruiting || false,
+				active: this.props.active || false,
+				paused: this.props.paused || false,
+				stopped: this.props.stopped || false,
+				archived: this.props.archived || false,
+				proposals: this.props.proposals || false,
 			}
 		});
 	}
 	
+	/*Updates the state of the page whenever the text in the searchbar changes, and automatically "submits" the entry for dynamic searching. */
 	handleSearchChange = e => {
 		this.setState({
 			...this.state,
 			terms: e,
 		});
-		this.handleSubmit(e);
+		this.handleSubmit(e, this.state.filters);
 	};
 
+	/*Whenever called by the above function, a database call is made to search the entire projects list for the entered value. */
 	handleSubmit = (e, f) => {
 		this.props.onSearch(e.toLowerCase(), f);
 	};
@@ -70,14 +72,17 @@ class SearchBar extends Component {
 		// then apply the filter
 		this.setState(copy);
 		// submit the search as usual
+		console.log(this.state);
 		this.handleSubmit(this.state.terms, this.state.filters);
 	};
 
 	render() {
 		return (
 			<Stack bg = "white" borderRadius = "lg">
+				{/*Project search bar: */}
 				<Editable 
-					placeholder ="Enter the name, description, or set of tags for projects you are interested in"
+					paddingLeft="5px"
+					placeholder ="Enter project search terms here"
 					type = "value"
 					value = {this.state.terms}
 					onChange = {this.handleSearchChange}>
@@ -85,6 +90,7 @@ class SearchBar extends Component {
 					<EditableInput />
 				</Editable>
 				<Divider></Divider>
+				{/*List of switches to toggle which statuses are being displayed. TODO Currently, they don't do anything, but the switches themselves are functional. */}
 				<Stack direction = "row" d= "flex">
 					<FormLabel>Show: New</FormLabel><Switch colorScheme="blue" isChecked={this.state.filters.new} onChange={(e) => this.handleSwitch("new")}/>
 					<FormLabel>Recruiting</FormLabel><Switch colorScheme="teal" isChecked={this.state.filters.recruiting} onChange={(e) => this.handleSwitch("recruiting")}/>

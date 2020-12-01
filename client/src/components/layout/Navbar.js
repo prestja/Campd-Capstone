@@ -1,14 +1,5 @@
 import React, { Component } from "react";
-import {
-	Flex,
-	Image,
-	Grid,
-	Text,
-	TabList,
-	Tab,
-	Tabs,
-	Link
-} from "@chakra-ui/core";
+import { Flex, Image, Grid, Text, TabList, Tab, Tabs } from "@chakra-ui/core";
 
 class Navbar extends Component {
 	constructor(props) {

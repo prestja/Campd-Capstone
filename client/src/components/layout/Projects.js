@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Box, Stack} from "@chakra-ui/core";
+import { Box, Stack } from "@chakra-ui/core";
 import ProjectList from '../../containers/ProjectList';
 import ProjectSearch from '../../utils/ProjectSearch';
 import { fetchAllProjects } from '../../actions';
@@ -16,8 +16,10 @@ class Projects extends Component {
 		return (
 			<Stack>
 				<Box width = {{base: "99%", lg: "70%"}} alignSelf = "center">
-				<ProjectSearch new = {true} recruiting = {true} active = {true}/>
+					{/* src/utils/ProjectSearch.js - Search bar and switches to filter through projects */}
+					<ProjectSearch new = {true} recruiting = {true} active = {true}/>
 				</Box>
+				{/* src/containers/projectlist.js - the full set of project cards, generated upon accessing the page*/}
 				<ProjectList />
 			</Stack>
 		);
