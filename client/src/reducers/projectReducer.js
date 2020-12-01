@@ -13,6 +13,7 @@ export default function projectReducer(state = [], action) {
 			}
 			const {filters} = action;
 			console.log(filters);
+			if (action.project) {
 			let firstPass = action.project.filter(project => filters[project.status.toLowerCase()] == true);
 			console.log(firstPass.length);
 			return firstPass.filter(
@@ -24,7 +25,7 @@ export default function projectReducer(state = [], action) {
 					project.owner.toLowerCase().includes(action.value) ||
 					(project.tags && project.tags.includes(action.value))
 				)
-			);
+			);}
 		}
 		case FETCH_PROJECT:
 			return action.projects;

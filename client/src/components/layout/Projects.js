@@ -16,12 +16,8 @@ class Projects extends Component {
 		return (
 			<Stack>
 				<Box width = {{base: "99%", lg: "70%"}} alignSelf = "center">
-<<<<<<< HEAD
-				<ProjectSearch new = {true} recruiting = {true} active = {true}/>
-=======
 					{/* src/utils/ProjectSearch.js - Search bar and switches to filter through projects */}
-					<ProjectSearch />
->>>>>>> databasefix
+					<ProjectSearch new = {true} recruiting = {true} active = {true}/>
 				</Box>
 				{/* src/containers/projectlist.js - the full set of project cards, generated upon accessing the page*/}
 				<ProjectList />

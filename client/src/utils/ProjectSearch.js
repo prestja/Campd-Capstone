@@ -29,7 +29,7 @@ class SearchBar extends Component {
 		}
 	};
 
-<<<<<<< HEAD
+	/*When the searchbar is loaded, its initial project filers are set based on the parameters passed in by the parent component. */
 	componentDidMount() {
 		console.log("componentDidMount");
 		this.setState({
@@ -45,9 +45,7 @@ class SearchBar extends Component {
 		});
 	}
 	
-=======
 	/*Updates the state of the page whenever the text in the searchbar changes, and automatically "submits" the entry for dynamic searching. */
->>>>>>> databasefix
 	handleSearchChange = e => {
 		this.setState({
 			...this.state,
@@ -56,14 +54,9 @@ class SearchBar extends Component {
 		this.handleSubmit(e);
 	};
 
-<<<<<<< HEAD
+	/*Whenever called by the above function, a database call is made to search the entire projects list for the entered value. */
 	handleSubmit = (e, f) => {
 		this.props.onSearch(e.toLowerCase(), f);
-=======
-	/*Whenever called by the above function, a database call is made to search the entire projects list for the entered value. */
-	handleSubmit = e => {
-		this.props.onSearch(e.toLowerCase());
->>>>>>> databasefix
 	};
 
 	handleReset = (e) => {
