@@ -101,6 +101,6 @@ const imagePath = (path) => {
 	}
 	//If the image isn't found, instead render the default image from src/images.
 	catch(err){
-		return undraw
+		return "";
 	}
 }
