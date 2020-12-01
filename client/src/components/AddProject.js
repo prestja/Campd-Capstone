@@ -4,6 +4,7 @@ import React from 'react';
 import './layout/Style.css';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { Tags2 } from './Tags2';
 //import ImageUpload from './layout/Image'
 import { Box, Text, FormControl, FormLabel, Input, Select, FormHelperText, Button, Link, Textarea } from '@chakra-ui/core'
 
@@ -16,6 +17,7 @@ class AddProject extends React.Component {
     ownerID: this.props.auth.user.id,
     status: 'proposal',
     description: '',
+    tags: '',
     file: ''
   };
 
@@ -32,6 +34,12 @@ class AddProject extends React.Component {
       status: e.target.value
     });
   };
+
+  handleTagChange = (tag) => {
+    this.setState({
+      tags: tag.map((i) => (i.text))
+    });
+  }
 
   /* When the user clicks submit, any excess whitespace is removed and the
       project is submitted to the database. The page state is then reverted.
@@ -55,6 +63,7 @@ class AddProject extends React.Component {
       ownerID: '',
       status: '',
       description: '',
+      tags: '',
       file: ''
     });
   };
@@ -76,7 +85,7 @@ class AddProject extends React.Component {
               if even that. Project status is already forced to start
               as proposal, but accessing the dropdown allows for it to be
               overridden.
-          
+
           if not admin:
             <Text paddingTop="2rem">Warning: New projects are required to be verified by a website administrator before they become visible!</Text>
 
@@ -103,6 +112,15 @@ class AddProject extends React.Component {
           <FormLabel>Project Description</FormLabel>
           <Textarea type="description" id="description" size="sm" height="10rem" placeholder="Project Description Here" onChange={this.handleSelectChange}/>
 
+          <div className="form-group">
+            <div className="col-7">
+              <label>Tags</label>
+
+              <Tags2 className="form-control" id="tags" name="tags" tags={this.handleTagChange} value={ this.state.tags }/>
+
+            </div>
+          </div>
+
           {/*Image attachment for the project. */}
           <div className="form-group">
             <div className="col-7">
@@ -120,7 +138,7 @@ class AddProject extends React.Component {
                 page at /src/components/layout/projects.js */}
             <Button bg="untgreen"><Link color="#FFFFFF" href={"/projects"}>Cancel</Link></Button>
           </div>
-        </FormControl>   
+        </FormControl>
       </Box>
     );
   }
