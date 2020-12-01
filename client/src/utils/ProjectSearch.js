@@ -91,14 +91,21 @@ class SearchBar extends Component {
 				</Editable>
 				<Divider></Divider>
 				{/*List of switches to toggle which statuses are being displayed. TODO Currently, they don't do anything, but the switches themselves are functional. */}
-				<Stack direction = "row" d= "flex">
-					<FormLabel>Show: New</FormLabel><Switch colorScheme="blue" isChecked={this.state.filters.new} onChange={(e) => this.handleSwitch("new")}/>
-					<FormLabel>Recruiting</FormLabel><Switch colorScheme="teal" isChecked={this.state.filters.recruiting} onChange={(e) => this.handleSwitch("recruiting")}/>
-					<FormLabel>Active</FormLabel><Switch colorScheme="green" isChecked={this.state.filters.active} onChange={(e) => this.handleSwitch("active")}/>
-					<FormLabel>Paused</FormLabel><Switch colorScheme="yellow" isChecked={this.state.filters.paused} onChange={(e) => this.handleSwitch("paused")}/>
-					<FormLabel>Stopped</FormLabel><Switch colorScheme="orange" isChecked={this.state.filters.stopped} onChange={(e) => this.handleSwitch("stopped")}/>
-					<FormLabel>Archived</FormLabel><Switch colorScheme="red" isChecked={this.state.filters.archived} onChange={(e) => this.handleSwitch("archived")}/>
-					<FormLabel>Proposals</FormLabel><Switch colorScheme="gray" isChecked={this.state.filters.proposals} onChange={(e) => this.handleSwitch("proposals")}/>
+				<Stack direction = "row" d= "flex" pl = "4px">
+					<Switch colorScheme="blue" isChecked={this.state.filters.new} onChange={(e) => this.handleSwitch("new")}/>
+					<FormLabel>New</FormLabel>
+					<Switch colorScheme="teal" isChecked={this.state.filters.recruiting} onChange={(e) => this.handleSwitch("recruiting")}/>
+					<FormLabel>Recruiting</FormLabel>
+					<Switch colorScheme="green" isChecked={this.state.filters.active} onChange={(e) => this.handleSwitch("active")}/>
+					<FormLabel>Active</FormLabel>
+					<Switch colorScheme="yellow" isChecked={this.state.filters.paused} onChange={(e) => this.handleSwitch("paused")}/>
+					<FormLabel>Paused</FormLabel>
+					<Switch colorScheme="orange" isChecked={this.state.filters.stopped} onChange={(e) => this.handleSwitch("stopped")}/>
+					<FormLabel>Stopped</FormLabel>
+					<Switch colorScheme="red" isChecked={this.state.filters.archived} onChange={(e) => this.handleSwitch("archived")}/>
+					<FormLabel>Archived</FormLabel>
+					<Switch colorScheme="gray" isChecked={this.state.filters.proposals} onChange={(e) => this.handleSwitch("proposals")}/>
+					<FormLabel>Proposals</FormLabel>
 				</Stack>
 			</Stack>
 		);

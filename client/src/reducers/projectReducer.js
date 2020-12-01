@@ -7,14 +7,9 @@ export default function projectReducer(state = [], action) {
 		case DELETE_PROJECT:
 			return state.filter(project => project._id !== action.payload.id);
 		case SEARCH_PROJECT: {
-			if (action.value === "") {
-				return action.projects;
-			}
-			console.log(action);
 			const {filters} = action;
 			if (action.projects) {
 				let firstPass = action.projects.filter(project => filters[project.status.toLowerCase()] === true);
-				console.log(firstPass.length);
 				return firstPass.filter(
 					project => 
 					(	
