@@ -5,6 +5,12 @@ import { GrAddCircle, GrUserAdd, GrPlay, GrPause, GrStop, GrEject, GrChatOption 
 import { deleteProject } from '../../actions';
 import { connect } from "react-redux";
 
+
+/* TODO: This has not been coded particularly well. Most of it is done in fixed sizes in order to have something available for 
+    proof of concept, but this means that it does not work on anything other than highly specific screen sizes. */
+
+
+
 class ListingCompact extends React.Component {
 	state = {
 		showConf: false,

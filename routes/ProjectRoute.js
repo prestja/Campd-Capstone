@@ -40,7 +40,6 @@ ProjectRoute.route('/add').post(function (req, res) {
 });
 
 ProjectRoute.route('/update').post(function (req, res) {
-	console.log("CALLED");
 	Project.findByIdAndUpdate(
 		{ _id: req.body._id },
 		{

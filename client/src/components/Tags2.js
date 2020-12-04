@@ -7,7 +7,7 @@ const KeyCodes = {
   space: 32,
 };
 
-const delimiters = [KeyCodes.comma, KeyCodes.enter, KeyCodes.space];
+const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
 class Tags2 extends React.Component{
   constructor(props){
