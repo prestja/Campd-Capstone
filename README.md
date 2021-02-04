@@ -6,6 +6,4 @@ Team Campd Capstone Project Repo
 3. cd client
 4. npm install
 5. Return to root directory
-6. npm install --save multer
-7. npm install @chakra-ui/core @emotion/core @emotion/styled emotion-theming
-8. npm run dev
+6. npm run dev
